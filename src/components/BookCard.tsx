@@ -81,34 +81,43 @@ export default function BookCard({ book }: BookCardProps) {
                 title={book.title}
                 audioSummary={book.audioSummary}
             >
-                <div className="space-y-6">
-                    <div className="flex gap-6 items-start">
-                        <div className="relative shrink-0 w-32 aspect-[3/4] rounded-xl overflow-hidden shadow-2xl border border-white/10 hidden sm:block">
+                <div className="space-y-8">
+                    <div className="flex flex-col sm:flex-row gap-8 items-center sm:items-start text-center sm:text-left">
+                        <div className="relative shrink-0 w-48 sm:w-32 aspect-[3/4] rounded-2xl sm:rounded-xl overflow-hidden shadow-2xl border border-emerald-500/10">
                             <Image src={book.coverImage} alt={book.title} fill className="object-cover" />
                         </div>
-                        <div className="flex-1">
-                            <span className="text-xs font-bold uppercase tracking-widest text-emerald-600 mb-2 block">Auteur: {book.author}</span>
-                            <p className="text-lg text-emerald-950/80 dark:text-emerald-50/80 leading-relaxed font-serif italic">
-                                "{book.summary}"
-                            </p>
+                        <div className="flex-1 space-y-4">
+                            <div>
+                                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-emerald-600 mb-2 block">Ouvrage du Dr. Cheikh GUEYE</span>
+                                <p className="text-lg md:text-xl text-emerald-950/90 dark:text-emerald-50/90 leading-relaxed font-serif italic">
+                                    "{book.summary}"
+                                </p>
+                            </div>
                         </div>
                     </div>
 
-                    <div className="glass rounded-2xl p-6 border border-emerald-500/10">
-                        <div className="flex justify-between items-center mb-6">
-                            <span className="text-sm font-semibold text-emerald-900/60 dark:text-emerald-100/60">Prix de l'ouvrage</span>
-                            <span className="text-3xl font-serif font-bold text-emerald-600 dark:text-emerald-400">
-                                {book.price.toLocaleString("fr-FR")} CFA
-                            </span>
+                    <div className="glass rounded-[2.5rem] p-8 border border-emerald-500/10 bg-emerald-50/30 dark:bg-emerald-950/20">
+                        <div className="flex flex-col sm:flex-row justify-between items-center gap-6 mb-8">
+                            <div className="text-center sm:text-left">
+                                <span className="text-xs font-bold uppercase tracking-widest text-emerald-900/40 dark:text-emerald-100/40 block mb-1">Prix de l'unité</span>
+                                <span className="text-4xl font-serif font-black text-emerald-600 dark:text-emerald-400">
+                                    {book.price.toLocaleString("fr-FR")} <span className="text-sm align-top mt-2 inline-block">CFA</span>
+                                </span>
+                            </div>
+                            <div className="w-full sm:w-auto">
+                                <a
+                                    href={whatsappUrl}
+                                    target="_blank"
+                                    className="flex items-center justify-center gap-3 px-8 py-5 rounded-2xl bg-emerald-700 dark:bg-emerald-600 text-white font-black text-lg shadow-xl shadow-emerald-700/30 hover:bg-emerald-800 transition-all active:scale-95 w-full sm:w-auto"
+                                >
+                                    <ShoppingCart size={20} />
+                                    Commander
+                                </a>
+                            </div>
                         </div>
-                        <a
-                            href={whatsappUrl}
-                            target="_blank"
-                            className="flex items-center justify-center gap-3 w-full py-4 rounded-xl bg-emerald-700 dark:bg-emerald-600 text-white font-bold text-lg shadow-xl shadow-emerald-700/30 hover:shadow-emerald-700/50 transition-all active:scale-95"
-                        >
-                            <ShoppingCart size={20} />
-                            Commander via WhatsApp
-                        </a>
+                        <p className="text-[10px] text-center text-emerald-900/40 dark:text-emerald-100/40 uppercase font-bold tracking-[0.1em]">
+                            Expédition disponible dans tout le Sénégal et à l'international
+                        </p>
                     </div>
                 </div>
             </Modal>

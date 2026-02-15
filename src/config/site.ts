@@ -9,6 +9,6 @@ export const siteConfig = {
     address: "Dakar, Sénégal",
     agency: {
         name: "LOLLY SAS",
-        url: "https://lolly.agency", // Placeholder ou réel si connu
+        url: "https://www.lolly.sn",
     }
 };

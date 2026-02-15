@@ -1,3 +1,5 @@
+import { siteConfig } from "@/config/site";
+
 export default function Footer() {
     return (
         <footer className="bg-zinc-50 dark:bg-zinc-900 border-t border-zinc-200 dark:border-zinc-800">
@@ -12,7 +14,14 @@ export default function Footer() {
                         &copy; {new Date().getFullYear()} Dr. Cheikh Gueye. Tous droits réservés.
                     </p>
                     <p className="text-zinc-500 text-[10px] uppercase font-bold tracking-[0.2em]">
-                        Réalisé par <span className="text-emerald-600 dark:text-emerald-500">LOLLY SAS</span>
+                        Réalisé par <a
+                            href={siteConfig.agency.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-emerald-600 dark:text-emerald-500 hover:text-emerald-500 transition-colors"
+                        >
+                            {siteConfig.agency.name}
+                        </a>
                     </p>
                 </div>
             </div>

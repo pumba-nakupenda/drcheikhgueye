@@ -7,4 +7,8 @@ export const siteConfig = {
     },
     email: "contact@drcheikhgueye.com",
     address: "Dakar, Sénégal",
+    agency: {
+        name: "LOLLY SAS",
+        url: "https://lolly.agency", // Placeholder ou réel si connu
+    }
 };

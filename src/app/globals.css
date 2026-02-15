@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: hsl(161 94% 20%);
+  --color-primary-light: hsl(161 94% 30%);
+  --color-accent: hsl(45 93% 47%);
+  --color-background: hsl(210 20% 98%);
+  --color-foreground: hsl(222 47% 11%);
+
+  --color-card: hsl(0 0% 100%);
+  --color-card-foreground: hsl(222 47% 11%);
+
+  --color-border: hsl(214 32% 91%);
+
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-20px);
+    }
+
+    100% {
+      transform: translateY(0px);
+    }
+  }
+}
+
+@layer base {
+
+  *,
+  ::after,
+  ::before {
+    @apply border-[hsl(214_32%_91%)] dark:border-[hsl(217_32%_17%)];
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-emerald-100 selection:text-emerald-900 overflow-x-hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif tracking-tight text-emerald-950 dark:text-emerald-50;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/70 dark:bg-zinc-950/70 backdrop-blur-md border border-white/20 dark:border-white/5;
+  }
+
+  .glass-card {
+    @apply bg-white/40 dark:bg-zinc-900/40 backdrop-blur-md border border-white/40 dark:border-white/10 shadow-xl;
+  }
+
+  .btn-premium {
+    @apply relative overflow-hidden px-8 py-3 rounded-full font-bold transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg hover:shadow-emerald-500/25;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-emerald-800 to-emerald-600 dark:from-emerald-400 dark:to-emerald-200;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+
+    100% {
+      transform: translateX(300%);
+    }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-emerald-200 dark:bg-emerald-900 rounded-full hover:bg-emerald-300 dark:hover:bg-emerald-800;
+}

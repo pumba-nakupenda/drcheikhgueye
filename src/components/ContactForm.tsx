@@ -1,9 +1,12 @@
 "use client";
 
-import { Send, MapPin, Mail, Phone, MessageSquare } from "lucide-react";
+import { Send } from "lucide-react";
 import { useState } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function ContactForm() {
+    const { t, language, dir } = useLanguage();
+    const isRtl = dir === 'rtl';
     const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -19,59 +22,65 @@ export default function ContactForm() {
                 <div className="w-20 h-20 bg-emerald-100 dark:bg-emerald-900/30 rounded-full flex items-center justify-center text-emerald-600 mx-auto">
                     <Send size={32} />
                 </div>
-                <h3 className="text-3xl font-serif font-black text-emerald-950 dark:text-white">Message Envoyé !</h3>
+                <h3 className="text-3xl font-serif font-black text-emerald-950 dark:text-white">{t.contact.form_success_title}</h3>
                 <p className="text-emerald-900/60 dark:text-emerald-100/60 max-w-sm mx-auto">
-                    Merci pour votre message. Le Docteur Cheikh Gueye ou son secrétariat vous répondra dans les plus brefs délais.
+                    {t.contact.form_success_text}
                 </p>
                 <button
                     onClick={() => setStatus("idle")}
                     className="text-emerald-600 font-bold hover:underline"
                 >
-                    Envoyer un autre message
+                    {t.contact.form_another}
                 </button>
             </div>
         );
     }
 
     return (
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-6 rtl:text-right">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                    <label className="text-sm font-bold text-emerald-900/40 dark:text-emerald-100/40 uppercase tracking-widest pl-4">Nom Complet</label>
+                    <label className={`text-sm font-bold text-emerald-900/40 dark:text-emerald-100/40 uppercase tracking-widest ${isRtl ? 'pr-4' : 'pl-4'}`}>{t.contact.form_name}</label>
                     <input
                         required
                         type="text"
-                        placeholder="Jean Dupont"
+                        placeholder={t.contact.form_name_placeholder}
                         className="w-full px-6 py-4 rounded-2xl bg-white dark:bg-emerald-950 border border-emerald-500/10 focus:border-emerald-500 outline-none transition-all placeholder:opacity-30"
                     />
                 </div>
                 <div className="space-y-2">
-                    <label className="text-sm font-bold text-emerald-900/40 dark:text-emerald-100/40 uppercase tracking-widest pl-4">Email</label>
+                    <label className={`text-sm font-bold text-emerald-900/40 dark:text-emerald-100/40 uppercase tracking-widest ${isRtl ? 'pr-4' : 'pl-4'}`}>{t.contact.form_email}</label>
                     <input
                         required
                         type="email"
-                        placeholder="jean@exemple.com"
+                        placeholder={t.contact.form_email_placeholder}
                         className="w-full px-6 py-4 rounded-2xl bg-white dark:bg-emerald-950 border border-emerald-500/10 focus:border-emerald-500 outline-none transition-all placeholder:opacity-30"
                     />
                 </div>
             </div>
 
             <div className="space-y-2">
-                <label className="text-sm font-bold text-emerald-900/40 dark:text-emerald-100/40 uppercase tracking-widest pl-4">Sujet</label>
-                <select className="w-full px-6 py-4 rounded-2xl bg-white dark:bg-emerald-950 border border-emerald-500/10 focus:border-emerald-500 outline-none transition-all appearance-none cursor-pointer">
-                    <option>Commande de livre</option>
-                    <option>Demande de conférence</option>
-                    <option>Question académique</option>
-                    <option>Autre</option>
-                </select>
+                <label className={`text-sm font-bold text-emerald-900/40 dark:text-emerald-100/40 uppercase tracking-widest ${isRtl ? 'pr-4' : 'pl-4'}`}>{t.contact.form_subject}</label>
+                <div className="relative">
+                    <select className="w-full px-6 py-4 rounded-2xl bg-white dark:bg-emerald-950 border border-emerald-500/10 focus:border-emerald-500 outline-none transition-all appearance-none cursor-pointer rtl:pr-6 rtl:pl-10">
+                        {t.contact.subjects.map((sub: string, i: number) => (
+                            <option key={i}>{sub}</option>
+                        ))}
+                    </select>
+                    <div className={`absolute inset-y-0 ${isRtl ? 'left-4' : 'right-4'} flex items-center pointer-events-none`}>
+                        <svg className="w-4 h-4 text-emerald-600/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </div>
+                </div>
             </div>
 
             <div className="space-y-2">
-                <label className="text-sm font-bold text-emerald-900/40 dark:text-emerald-100/40 uppercase tracking-widest pl-4">Votre Message</label>
+                <label className={`text-sm font-bold text-emerald-900/40 dark:text-emerald-100/40 uppercase tracking-widest ${isRtl ? 'pr-4' : 'pl-4'}`}>{t.contact.form_message}</label>
                 <textarea
                     required
                     rows={6}
-                    placeholder="Comment pouvons-nous vous aider ?"
+                    placeholder={t.contact.form_message_placeholder}
                     className="w-full px-6 py-4 rounded-2xl bg-white dark:bg-emerald-950 border border-emerald-500/10 focus:border-emerald-500 outline-none transition-all placeholder:opacity-30 resize-none"
                 ></textarea>
             </div>
@@ -79,10 +88,10 @@ export default function ContactForm() {
             <button
                 type="submit"
                 disabled={status === "loading"}
-                className="w-full py-5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-2xl font-black text-lg shadow-xl shadow-emerald-600/20 transition-all flex items-center justify-center gap-3 disabled:opacity-50"
+                className={`w-full py-5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-2xl font-black text-lg shadow-xl shadow-emerald-600/20 transition-all flex items-center justify-center gap-3 disabled:opacity-50 ${isRtl ? 'flex-row-reverse' : ''}`}
             >
-                {status === "loading" ? "Envoi en cours..." : "Envoyer le Message"}
-                <Send size={20} />
+                {status === "loading" ? t.contact.form_sending : t.contact.form_submit}
+                <Send size={20} className={isRtl ? 'rotate-180' : ''} />
             </button>
         </form>
     );

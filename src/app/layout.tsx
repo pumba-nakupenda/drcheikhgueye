@@ -24,6 +24,8 @@ export const metadata: Metadata = {
     },
 };
 
+import { LanguageProvider } from "@/context/LanguageContext";
+
 export default function RootLayout({
     children,
 }: Readonly<{
@@ -32,12 +34,14 @@ export default function RootLayout({
     return (
         <html lang="fr" className="h-full">
             <body className={`${inter.className} flex flex-col h-full bg-zinc-50 dark:bg-zinc-950`}>
-                <ReadingProgress />
-                <Navbar />
-                <main className="flex-grow">{children}</main>
-                <Footer />
-                <BackToTop />
-                <MobileNavBar />
+                <LanguageProvider>
+                    <ReadingProgress />
+                    <Navbar />
+                    <main className="flex-grow">{children}</main>
+                    <Footer />
+                    <BackToTop />
+                    <MobileNavBar />
+                </LanguageProvider>
             </body>
         </html>
     );

@@ -1,19 +1,25 @@
+"use client";
+
 import ContactForm from "@/components/ContactForm";
 import { siteConfig } from "@/config/site";
 import { Mail, Phone, MapPin, MessageSquare, Globe, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function ContactPage() {
+    const { t, language, dir } = useLanguage();
+    const isRtl = dir === 'rtl';
+
     return (
         <div className="min-h-screen pt-32 pb-20 bg-zinc-50 dark:bg-zinc-950 px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
                 {/* Header Section */}
                 <div className="text-center mb-20 space-y-4">
                     <h1 className="text-5xl md:text-7xl font-serif font-black text-emerald-950 dark:text-emerald-50">
-                        Entrer en <br /> <span className="text-emerald-600 italic">Contact.</span>
+                        {t.contact.title} <br /> <span className="text-emerald-600 italic">{t.contact.title_highlight}</span>
                     </h1>
                     <p className="text-emerald-900/60 dark:text-emerald-100/60 text-lg max-w-2xl mx-auto">
-                        Pour toute commande d'ouvrage, demande de conférence ou collaboration académique.
+                        {t.contact.tagline}
                     </p>
                 </div>
 
@@ -21,45 +27,45 @@ export default function ContactPage() {
                     {/* Contact Information */}
                     <div className="space-y-12">
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                            <div className="glass-card p-8 rounded-3xl space-y-4">
-                                <div className="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-900/40 flex items-center justify-center text-emerald-600">
+                            <div className="glass-card p-8 rounded-3xl space-y-4 rtl:text-right">
+                                <div className={`w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-900/40 flex items-center justify-center text-emerald-600 ${isRtl ? 'mr-0 ml-auto' : ''}`}>
                                     <Phone size={24} />
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-emerald-950 dark:text-emerald-50">Téléphone</h3>
+                                    <h3 className="font-bold text-emerald-950 dark:text-emerald-50">{t.contact.phone}</h3>
                                     <p className="text-emerald-900/60 dark:text-emerald-100/60 font-bold tracking-wider">+221 77 653 12 56</p>
                                 </div>
                             </div>
 
-                            <div className="glass-card p-8 rounded-3xl space-y-4">
+                            <div className="glass-card p-8 rounded-3xl space-y-4 rtl:text-right">
                                 <a
                                     href={siteConfig.whatsappLinks.general}
                                     target="_blank"
                                     className="block group"
                                 >
-                                    <div className="w-12 h-12 rounded-2xl bg-emerald-600 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
+                                    <div className={`w-12 h-12 rounded-2xl bg-emerald-600 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform ${isRtl ? 'mr-0 ml-auto' : ''}`}>
                                         <MessageSquare size={24} />
                                     </div>
                                     <div className="mt-4">
-                                        <h3 className="font-bold text-emerald-950 dark:text-emerald-50">WhatsApp</h3>
-                                        <p className="text-emerald-600 font-bold">Réponse sous 24h</p>
+                                        <h3 className="font-bold text-emerald-950 dark:text-emerald-50">{t.contact.whatsapp}</h3>
+                                        <p className="text-emerald-600 font-bold">{t.contact.whatsapp_status}</p>
                                     </div>
                                 </a>
                             </div>
                         </div>
 
-                        <div className="space-y-8 pt-10 border-t border-emerald-500/10">
-                            <h2 className="text-2xl font-serif font-bold text-emerald-950 dark:text-emerald-50">Autres Informations</h2>
+                        <div className="space-y-8 pt-10 border-t border-emerald-500/10 rtl:text-right">
+                            <h2 className="text-2xl font-serif font-bold text-emerald-950 dark:text-emerald-50">{t.contact.others}</h2>
                             <div className="space-y-6">
-                                <div className="flex items-center gap-4 text-emerald-900/60 dark:text-emerald-100/60">
+                                <div className={`flex items-center gap-4 text-emerald-900/60 dark:text-emerald-100/60 ${isRtl ? 'flex-row-reverse' : ''}`}>
                                     <Mail className="text-emerald-600" size={20} />
                                     <span>{siteConfig.email}</span>
                                 </div>
-                                <div className="flex items-center gap-4 text-emerald-900/60 dark:text-emerald-100/60">
+                                <div className={`flex items-center gap-4 text-emerald-900/60 dark:text-emerald-100/60 ${isRtl ? 'flex-row-reverse' : ''}`}>
                                     <MapPin className="text-emerald-600" size={20} />
                                     <span>{siteConfig.address}</span>
                                 </div>
-                                <div className="flex items-center gap-4 text-emerald-900/60 dark:text-emerald-100/60">
+                                <div className={`flex items-center gap-4 text-emerald-900/60 dark:text-emerald-100/60 ${isRtl ? 'flex-row-reverse' : ''}`}>
                                     <Globe className="text-emerald-600" size={20} />
                                     <span>www.drcheikhgueye.com</span>
                                 </div>

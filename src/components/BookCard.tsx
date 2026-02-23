@@ -4,7 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { Book } from "@/data/books";
 import { siteConfig } from "@/config/site";
-import { ShoppingCart, BookOpen, ChevronRight, Headphones } from "lucide-react";
+import { ShoppingCart, BookOpen, ChevronRight, Headphones, Share2, FileText } from "lucide-react";
+import CustomAudioPlayer from "./CustomAudioPlayer";
+import { useState } from "react";
+import Toast from "./Toast";
 
 interface BookCardProps {
     book: Book;
@@ -14,6 +17,7 @@ import { useLanguage } from "@/context/LanguageContext";
 
 export default function BookCard({ book }: BookCardProps) {
     const { language, t, dir } = useLanguage();
+    const [showToast, setShowToast] = useState(false);
     const isRtl = dir === 'rtl';
     const phoneNumber = siteConfig.whatsappNumber;
 
@@ -27,8 +31,30 @@ export default function BookCard({ book }: BookCardProps) {
         : `Bonjour, je souhaite commander le livre : ${displayTitle}`;
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
+    const handleShare = (e: React.MouseEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const shareData = {
+            title: displayTitle,
+            text: displaySummary,
+            url: `${window.location.origin}/books/${book.id}`,
+        };
+
+        if (navigator.share) {
+            navigator.share(shareData).catch(console.error);
+        } else {
+            navigator.clipboard.writeText(shareData.url);
+            setShowToast(true);
+        }
+    };
+
     return (
         <div className="group relative glass-card p-4 rounded-3xl transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-emerald-500/10 flex flex-col rtl:text-right">
+            <Toast 
+                message={language === 'ar' ? "تم نسخ الرابط!" : "Lien copié !"} 
+                isVisible={showToast} 
+                onClose={() => setShowToast(false)} 
+            />
             <Link href={`/books/${book.id}`} className="relative aspect-[3/4] rounded-2xl overflow-hidden mb-6 shadow-md block">
                 <Image
                     src={book.coverImage}
@@ -37,12 +63,34 @@ export default function BookCard({ book }: BookCardProps) {
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                {/* Action Buttons on Cover */}
+                <div className={`absolute bottom-4 ${isRtl ? 'left-4' : 'right-4'} z-10 flex flex-col gap-2 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500`}>
+                    <button 
+                        onClick={handleShare}
+                        className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white flex items-center justify-center hover:bg-white hover:text-emerald-950 transition-all"
+                    >
+                        <Share2 size={18} />
+                    </button>
+                </div>
+
                 {(book.audioSummary || book.audioSummary_ar) && (
                     <div className={`absolute top-4 ${isRtl ? 'left-4' : 'right-4'} z-10 animate-pulse`}>
                         <div className="glass px-3 py-1.5 rounded-full flex items-center gap-2 border border-emerald-400/30">
                             <Headphones size={14} className="text-emerald-400" />
                             <span className="text-[10px] font-black uppercase tracking-widest text-white">
                                 {language === 'ar' ? "صوتي" : "Audio"}
+                            </span>
+                        </div>
+                    </div>
+                )}
+
+                {book.pdfPreview && (
+                    <div className={`absolute top-14 ${isRtl ? 'left-4' : 'right-4'} z-10`}>
+                        <div className="bg-white/90 dark:bg-zinc-900/90 backdrop-blur-md px-3 py-1.5 rounded-full flex items-center gap-2 border border-emerald-500/30 shadow-lg">
+                            <FileText size={14} className="text-emerald-600" />
+                            <span className="text-[10px] font-black uppercase tracking-widest text-emerald-600">
+                                PDF
                             </span>
                         </div>
                     </div>
@@ -64,6 +112,18 @@ export default function BookCard({ book }: BookCardProps) {
                 <p className="text-sm text-emerald-900/60 dark:text-emerald-100/60 line-clamp-2 leading-relaxed">
                     {displaySummary}
                 </p>
+
+                {book.introAudio && (
+                    <div className="pt-2">
+                        <div className="flex items-center gap-2 mb-2">
+                            <Headphones size={12} className="text-emerald-600" />
+                            <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-600">
+                                {language === 'ar' ? "عرض صوتي" : "Présentation audio"}
+                            </span>
+                        </div>
+                        <CustomAudioPlayer src={book.introAudio} variant="compact" />
+                    </div>
+                )}
 
                 <div className="pt-4 flex flex-col gap-3 mt-auto">
                     <Link

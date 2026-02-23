@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Timeline from "@/components/Timeline";
 import { useLanguage } from "@/context/LanguageContext";
+import CustomAudioPlayer from "@/components/CustomAudioPlayer";
 
 export default function AboutPage() {
     const { t, language, dir } = useLanguage();
@@ -57,12 +58,7 @@ export default function AboutPage() {
 
                             {/* Audio Player for Biography */}
                             <div className="pt-4 max-w-md">
-                                <div className="p-4 rounded-2xl bg-emerald-50/50 dark:bg-emerald-900/5 border border-emerald-500/10 backdrop-blur-sm">
-                                    <audio controls className="w-full h-10 accent-emerald-600 opacity-80 hover:opacity-100 transition-opacity">
-                                        <source src="/audio/Biographie.mp3" type="audio/mpeg" />
-                                        {language === 'ar' ? "متصفحك لا يدعم الاستماع إلى الملفات الصوتية." : "Votre navigateur ne supporte pas l'écoute de fichiers audio."}
-                                    </audio>
-                                </div>
+                                <CustomAudioPlayer src="/audio/Biographie.mp3" />
                             </div>
                         </div>
 

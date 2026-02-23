@@ -2,6 +2,7 @@
 
 import { X } from "lucide-react";
 import { useEffect } from "react";
+import CustomAudioPlayer from "./CustomAudioPlayer";
 
 interface ModalProps {
     isOpen: boolean;
@@ -60,10 +61,7 @@ export default function Modal({ isOpen, onClose, children, title, audioSummary }
                                 </span>
                                 Présentation Audio
                             </p>
-                            <audio controls className="w-full h-10 accent-emerald-600 focus:outline-none">
-                                <source src={audioSummary} type="audio/mpeg" />
-                                Votre navigateur ne supporte pas l'élément audio.
-                            </audio>
+                            <CustomAudioPlayer src={audioSummary} />
                         </div>
                     )}
                     <div className="relative z-0">

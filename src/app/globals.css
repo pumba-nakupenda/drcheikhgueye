@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@config "../../tailwind.config.ts";
+
+@variant dark (&:where(.dark, .dark *));
 
 @theme {
   --color-primary: hsl(161 94% 20%);
@@ -73,6 +76,10 @@
 
   .active-scale {
     @apply transition-transform active:scale-95 touch-manipulation;
+  }
+
+  .mobile-text-balance {
+    text-wrap: balance;
   }
 }
 

@@ -194,7 +194,11 @@ export const translations = {
             situations_title: "Exemples de situations problèmes",
             situation_label: "SITUATION",
             solution_label: "SOLUTION",
-            click_to_see: "Cliquez pour voir la solution"
+            clicks_to_see: "Cliquez pour voir la solution",
+            preview_button: "Feuilleter le livre",
+            preview_subtitle: "Aperçu de quelques pages",
+            pdf_button: "Lire l'extrait (PDF)",
+            pdf_close: "Fermer le lecteur"
         },
         footer: {
             rights: "Tous droits réservés.",
@@ -395,7 +399,11 @@ export const translations = {
             situations_title: "أمثلة على وضعيات مشكلة",
             situation_label: "الوضعية",
             solution_label: "الحل",
-            click_to_see: "انقر لرؤية الحل"
+            clicks_to_see: "انقر لرؤية الحل",
+            preview_button: "تصفح الكتاب",
+            preview_subtitle: "معاينة بعض الصفحات",
+            pdf_button: "قراءة مقتطف (PDF)",
+            pdf_close: "إغلاق القارئ"
         },
         footer: {
             rights: "جميع الحقوق محفوظة.",

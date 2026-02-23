@@ -32,8 +32,8 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="fr" className="h-full">
-            <body className={`${inter.className} flex flex-col h-full bg-zinc-50 dark:bg-zinc-950`}>
+        <html lang="fr" className="h-full" suppressHydrationWarning>
+            <body className={`${inter.className} flex flex-col h-full bg-zinc-50 dark:bg-zinc-950 transition-colors duration-500`}>
                 <LanguageProvider>
                     <ReadingProgress />
                     <Navbar />

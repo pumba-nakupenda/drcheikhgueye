@@ -15,6 +15,9 @@ export interface Book {
     coverImage: string;
     audioSummary?: string;
     audioSummary_ar?: string;
+    introAudio?: string;
+    previewImages?: string[];
+    pdfPreview?: string;
     situations?: Situation[];
     situations_ar?: Situation[];
 }
@@ -32,6 +35,16 @@ export const books: Book[] = [
         summary_ar: "هذا الكتاب هو منهج للتدريب العملي على اللغة العربية وقراءة القرآن الكريم. يقدم مقاربة بيداغوجية مبتكرة لتسهيل تعلم أسس اللغة المقدسة.",
         coverImage: "/images/books/approche-pratique-arabe-2.jpg",
         audioSummary: "/audio/apprendre-arabe.mp3",
+        introAudio: "/audio/presentation apprendre arabe.mp3",
+        previewImages: [
+            "/images/books/approche-pratique-arabe-2.jpg",
+            "/images/books/approche-pratique-arabe-1.jpg",
+            "/images/books/approche-pratique-arabe-3.jpg",
+            "/images/portrait-cheikh-gueye.jpg",
+            "/images/books/approche-pratique-arabe-2.jpg",
+            "/images/books/approche-pratique-arabe-1.jpg"
+        ],
+        pdfPreview: "/test.pdf"
     },
     {
         id: "dissertations",
@@ -42,9 +55,15 @@ export const books: Book[] = [
         price: 10000,
         summary:
             "Cet ouvrage s'adresse aux candidats préparant des examens ou concours impliquant la rédaction de dissertations philosophiques ou pédagogiques. Face à la rareté des ressources en langue arabe sur cette méthodologie, le Dr. Cheikh Gueye propose un guide complet alliant théorie, applications pratiques détaillées et exercices d'entraînement pour maîtriser cet exercice complexe.",
-        summary_ar: "يوجه هذا الكتاب للمترشحين للامتحانات أو المسابقات التي تتطلب كتابة أطروحات فلسفية أو تربوية. نظراً لندرة الموارد باللغة العربية حول هذه المنهجية، يقدم الدكتور شيخ غي دليلاً شاملاً يجمع بين النظرية والتطبيقات العملية المفصلة والتمارين التدريبية لإتقان هذا التمرين المعقد.",
+        summary_ar: "يوجه هذا الكتاب للمترشحين للامتحانات أو المسابقات التي تتطلب كتابة أطروحات فلسفية أو تربوية. نظراً لندرة الموارد باللغة العربية حول cette منهجية، يقدم الدكتور شيخ غي دليلاً شاملاً يجمع بين النظرية والتطبيقات العملية المفصلة والتمارين التدريبية لإتقان هذا التمرين المعقد.",
         coverImage: "/images/books/dissertations.jpg",
         audioSummary: "/audio/Dissertation.mpeg",
+        previewImages: [
+            "/images/books/dissertations.jpg",
+            "/images/portrait-cheikh-gueye.jpg",
+            "/images/books/dissertations.jpg",
+            "/images/books/approche-pratique-arabe-2.jpg"
+        ]
     },
     {
         id: "mukhtasar-al-akhdari",
@@ -59,6 +78,13 @@ export const books: Book[] = [
         coverImage: "/images/books/mukhtasar.jpg",
         audioSummary: "/audio/Mukhtaser FR.mp3",
         audioSummary_ar: "/audio/Mukhtaser AR.mp3",
+        introAudio: "/audio/Présentation alkhdari.mp3",
+        previewImages: [
+            "/images/books/mukhtasar.jpg",
+            "/images/portrait-cheikh-gueye.jpg",
+            "/images/books/mukhtasar.jpg",
+            "/images/books/dissertations.jpg"
+        ],
         situations: [
             {
                 question: "Vous arrivez en retard à la mosquée et accomplissez moins d’une rak’aa derrière l’imam qu’ensuite vous suivez lorsqu’il se prosterne après le salut. Votre prière est-elle valide ?",
@@ -76,10 +102,10 @@ export const books: Book[] = [
         situations_ar: [
             {
                 question: "تصل متأخراً إلى المسجد وتؤدي أقل من ركعة خلف الإمام، ثم تتبعه عندما يسجد بعد السلام. هل صلاتك صحيحة؟",
-                answer: "لإدراك الجماعة، يجب على المأموم إدراك ركعة كاملة خلف الإمام. وإلا فلا يتبعه في أي سجود، سواء كان قبل السلام أو بعده."
+                answer: "لإدراك الجماعة، يجب على المأموم إدراك ركعة كاملة خلف الإمام. وإلا فلا يتبعه in أي سجود، سواء كان قبل السلام أو بعده."
             },
             {
-                question: "في صلاة رباعية كالعشاء، سلمت بعد ركعتين فقط. هل صلاتك صحيحة؟ وإن لم تكن كذلك، فكيف تجبرها؟",
+                question: "في صلاة رباعية كالعشاء، سلمت après ركعتين فقط. هل صلاتك صحيحة؟ وإن لم تكن كذلك، fكيف تجبرها؟",
                 answer: "في هذه الحالة، يجب عليك القيام فوراً والرجوع إلى الصلاة مع تكبيرة الإحرام لإكمال ما فاتك. كما يجب عليك السجود بعد السلام بسبب الخلل في ترتيب الصلاة."
             },
             {

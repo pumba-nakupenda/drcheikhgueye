@@ -103,6 +103,12 @@ export default function Navbar() {
                                 FR
                             </button>
                             <button
+                                onClick={() => setLanguage('en')}
+                                className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${language === 'en' ? "bg-emerald-600 text-white shadow-lg" : "text-emerald-900/40 hover:text-emerald-600"}`}
+                            >
+                                EN
+                            </button>
+                            <button
                                 onClick={() => setLanguage('ar')}
                                 className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${language === 'ar' ? "bg-emerald-600 text-white shadow-lg" : "text-emerald-900/40 hover:text-emerald-600"}`}
                             >
@@ -137,10 +143,10 @@ export default function Navbar() {
                             {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
                         </button>
                         <button
-                            onClick={() => setLanguage(language === 'fr' ? 'ar' : 'fr')}
+                            onClick={() => setLanguage(language === 'fr' ? 'en' : language === 'en' ? 'ar' : 'fr')}
                             className="w-12 h-10 flex items-center justify-center rounded-xl bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 font-black text-xs active-scale"
                         >
-                            {language === 'fr' ? "AR" : "FR"}
+                            {language === 'fr' ? "EN" : language === 'en' ? "AR" : "FR"}
                         </button>
                         <button
                             onClick={toggleMenu}
@@ -168,6 +174,12 @@ export default function Navbar() {
                                     className={`px-4 py-2 rounded-lg text-xs font-black transition-all ${language === 'fr' ? 'bg-emerald-600 text-white shadow-md' : 'text-emerald-900/40'}`}
                                 >
                                     FR
+                                </button>
+                                <button
+                                    onClick={() => setLanguage('en')}
+                                    className={`px-4 py-2 rounded-lg text-xs font-black transition-all ${language === 'en' ? 'bg-emerald-600 text-white shadow-md' : 'text-emerald-900/40'}`}
+                                >
+                                    EN
                                 </button>
                                 <button
                                     onClick={() => setLanguage('ar')}
@@ -200,7 +212,7 @@ export default function Navbar() {
 
                         <div className="mt-auto pt-10 border-t border-emerald-500/10 space-y-4">
                             <p className={`text-[10px] font-black uppercase tracking-widest text-emerald-900/30 dark:text-emerald-100/20 ${isRtl ? 'text-right' : 'text-left'}`}>
-                                {language === 'ar' ? "تواصل معنا" : "Contactez Dr. Cheikh Gueye"}
+                                {language === 'ar' ? "تواصل معنا" : language === 'en' ? "Contact Dr. Cheikh Gueye" : "Contactez Dr. Cheikh Gueye"}
                             </p>
                             <Link
                                 href={siteConfig.whatsappLinks.general}

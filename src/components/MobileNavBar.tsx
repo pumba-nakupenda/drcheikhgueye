@@ -4,14 +4,16 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Home, Book, MessageSquare, User } from "lucide-react";
 import { siteConfig } from "@/config/site";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function MobileNavBar() {
     const pathname = usePathname();
+    const { t } = useLanguage();
 
     const links = [
-        { href: "/", label: "Accueil", icon: Home },
-        { href: "/books", label: "Livres", icon: Book },
-        { href: "/about", label: "Profil", icon: User },
+        { href: "/", label: t.nav.home, icon: Home },
+        { href: "/books", label: t.nav.books, icon: Book },
+        { href: "/about", label: t.nav.about, icon: User },
     ];
 
     return (

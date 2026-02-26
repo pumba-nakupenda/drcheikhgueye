@@ -179,25 +179,20 @@ export default function Navbar() {
                     <div className="flex flex-col h-full p-5 pt-20 space-y-4">
                         <div className={`flex items-center justify-between mb-8 ${isRtl ? 'flex-row-reverse' : ''}`}>
                             <div className="text-xs font-black uppercase tracking-[0.3em] text-emerald-600">{language === 'ar' ? "التنقل" : "Navigation"}</div>
-                            <div className="flex gap-2 bg-emerald-50 dark:bg-emerald-900/20 p-1 rounded-xl">
-                                <button
-                                    onClick={() => setLanguage('fr')}
-                                    className={`px-4 py-2 rounded-lg text-xs font-black transition-all ${language === 'fr' ? 'bg-emerald-600 text-white shadow-md' : 'text-emerald-900/40'}`}
-                                >
-                                    FR
-                                </button>
-                                <button
-                                    onClick={() => setLanguage('en')}
-                                    className={`px-4 py-2 rounded-lg text-xs font-black transition-all ${language === 'en' ? 'bg-emerald-600 text-white shadow-md' : 'text-emerald-900/40'}`}
-                                >
-                                    EN
-                                </button>
-                                <button
-                                    onClick={() => setLanguage('ar')}
-                                    className={`px-4 py-2 rounded-lg text-xs font-black transition-all ${language === 'ar' ? 'bg-emerald-600 text-white shadow-md' : 'text-emerald-900/40'}`}
-                                >
-                                    AR
-                                </button>
+                            <div className="flex gap-1 border border-emerald-500/20 rounded-xl p-0.5">
+                                {(['fr', 'en', 'ar'] as const).map((lang) => (
+                                    <button
+                                        key={lang}
+                                        onClick={() => setLanguage(lang)}
+                                        className={`px-3 py-1.5 rounded-lg text-[11px] font-black uppercase transition-all active:scale-95 ${
+                                            language === lang
+                                                ? 'bg-emerald-600/90 text-white shadow-sm'
+                                                : 'text-emerald-900/30 dark:text-white/30'
+                                        }`}
+                                    >
+                                        {lang.toUpperCase()}
+                                    </button>
+                                ))}
                             </div>
                         </div>
 

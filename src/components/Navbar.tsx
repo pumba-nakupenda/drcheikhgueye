@@ -7,6 +7,8 @@ import { Menu, X, ChevronRight, MessageSquare, Sun, Moon } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { useLanguage } from "@/context/LanguageContext";
 
+const LANGUAGES = LANGUAGES;
+
 export default function Navbar() {
     const { language, setLanguage, t, dir } = useLanguage();
     const isRtl = dir === 'rtl';
@@ -145,7 +147,7 @@ export default function Navbar() {
                         {/* Compact cycling language button */}
                         <button
                             onClick={() => {
-                                const langs = ['fr', 'en', 'ar'] as const;
+                                const langs = LANGUAGES;
                                 const idx = langs.indexOf(language);
                                 setLanguage(langs[(idx + 1) % langs.length]);
                             }}
@@ -154,7 +156,7 @@ export default function Navbar() {
                         >
                             <span className="text-xs font-black text-emerald-900 dark:text-white">{language.toUpperCase()}</span>
                             <div className="flex flex-col gap-[3px]">
-                                {(['fr', 'en', 'ar'] as const).map(l => (
+                                {(LANGUAGES).map(l => (
                                     <div key={l} className={`w-1 h-1 rounded-full transition-all ${l === language ? 'bg-emerald-600' : 'bg-emerald-900/20 dark:bg-white/25'}`} />
                                 ))}
                             </div>
@@ -180,7 +182,7 @@ export default function Navbar() {
                         <div className={`flex items-center justify-between mb-8 ${isRtl ? 'flex-row-reverse' : ''}`}>
                             <div className="text-xs font-black uppercase tracking-[0.3em] text-emerald-600">{language === 'ar' ? "التنقل" : "Navigation"}</div>
                             <div className="flex gap-1 border border-emerald-500/20 rounded-xl p-0.5">
-                                {(['fr', 'en', 'ar'] as const).map((lang) => (
+                                {(LANGUAGES).map((lang) => (
                                     <button
                                         key={lang}
                                         onClick={() => setLanguage(lang)}

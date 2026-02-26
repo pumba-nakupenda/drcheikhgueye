@@ -29,15 +29,16 @@ export default function CustomAudioPlayer({ src, variant = "full" }: CustomAudio
         };
 
         const setAudioTime = () => setCurrentTime(audio.currentTime);
+        const handleEnded = () => setIsPlaying(false);
 
-        // Events
         audio.addEventListener("loadeddata", setAudioData);
         audio.addEventListener("timeupdate", setAudioTime);
-        audio.addEventListener("ended", () => setIsPlaying(false));
+        audio.addEventListener("ended", handleEnded);
 
         return () => {
             audio.removeEventListener("loadeddata", setAudioData);
             audio.removeEventListener("timeupdate", setAudioTime);
+            audio.removeEventListener("ended", handleEnded);
         };
     }, []);
 

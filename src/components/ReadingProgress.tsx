@@ -23,6 +23,10 @@ export default function ReadingProgress() {
     return (
         <div className="fixed top-0 left-0 w-full h-1 z-[100] pointer-events-none">
             <div
+                role="progressbar"
+                aria-valuenow={Math.round(completion)}
+                aria-valuemin={0}
+                aria-valuemax={100}
                 className="h-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)] transition-all duration-150 ease-out"
                 style={{ width: `${completion}%` }}
             />

@@ -174,7 +174,7 @@ export default function Navbar() {
 
                 <div className={`absolute top-0 ${isRtl ? 'left-0' : 'right-0'} w-[85%] h-full bg-white dark:bg-zinc-950 shadow-2xl transition-transform duration-500 ease-out border-emerald-500/10 ${isOpen ? "translate-x-0" : isRtl ? "-translate-x-full" : "translate-x-full"
                     } ${isRtl ? 'border-r' : 'border-l'}`}>
-                    <div className="flex flex-col h-full p-8 pt-24 space-y-6">
+                    <div className="flex flex-col h-full p-5 pt-20 space-y-4">
                         <div className={`flex items-center justify-between mb-8 ${isRtl ? 'flex-row-reverse' : ''}`}>
                             <div className="text-xs font-black uppercase tracking-[0.3em] text-emerald-600">{language === 'ar' ? "التنقل" : "Navigation"}</div>
                             <div className="flex gap-2 bg-emerald-50 dark:bg-emerald-900/20 p-1 rounded-xl">
@@ -226,7 +226,7 @@ export default function Navbar() {
                             <Link
                                 href={siteConfig.whatsappLinks.general}
                                 target="_blank"
-                                className={`flex items-center justify-between bg-emerald-700 dark:bg-emerald-600 text-white p-6 rounded-[2rem] font-black shadow-xl active-scale ${isRtl ? 'flex-row-reverse' : ''}`}
+                                className={`flex items-center justify-between bg-emerald-700 dark:bg-emerald-600 text-white p-5 rounded-[2rem] font-black shadow-xl active-scale ${isRtl ? 'flex-row-reverse' : ''}`}
                             >
                                 WhatsApp
                                 <MessageSquare size={24} className={isRtl ? 'rotate-0' : ''} />

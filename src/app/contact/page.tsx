@@ -11,11 +11,11 @@ export default function ContactPage() {
     const isRtl = dir === 'rtl';
 
     return (
-        <div className="min-h-screen pt-32 pb-20 bg-zinc-50 dark:bg-zinc-950 px-4 sm:px-6 lg:px-8">
+        <div className="min-h-screen pt-20 md:pt-32 pb-16 md:pb-20 bg-zinc-50 dark:bg-zinc-950 px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
                 {/* Header Section */}
-                <div className="text-center mb-20 space-y-4">
-                    <h1 className="text-5xl md:text-7xl font-serif font-black text-emerald-950 dark:text-emerald-50">
+                <div className="text-center mb-10 md:mb-20 space-y-4">
+                    <h1 className="text-3xl md:text-7xl font-serif font-black text-emerald-950 dark:text-emerald-50">
                         {t.contact.title} <br /> <span className="text-emerald-600 italic">{t.contact.title_highlight}</span>
                     </h1>
                     <p className="text-emerald-900/60 dark:text-emerald-100/60 text-lg max-w-2xl mx-auto">
@@ -23,11 +23,11 @@ export default function ContactPage() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-start">
                     {/* Contact Information */}
-                    <div className="space-y-12">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                            <div className="glass-card p-8 rounded-3xl space-y-4 rtl:text-right">
+                    <div className="space-y-8 md:space-y-12">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8">
+                            <div className="glass-card p-5 sm:p-8 rounded-2xl sm:rounded-3xl space-y-3 rtl:text-right">
                                 <div className={`w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-900/40 flex items-center justify-center text-emerald-600 ${isRtl ? 'mr-0 ml-auto' : ''}`}>
                                     <Phone size={24} />
                                 </div>
@@ -37,7 +37,7 @@ export default function ContactPage() {
                                 </div>
                             </div>
 
-                            <div className="glass-card p-8 rounded-3xl space-y-4 rtl:text-right">
+                            <div className="glass-card p-5 sm:p-8 rounded-2xl sm:rounded-3xl space-y-3 rtl:text-right">
                                 <a
                                     href={siteConfig.whatsappLinks.general}
                                     target="_blank"
@@ -74,7 +74,7 @@ export default function ContactPage() {
                     </div>
 
                     {/* Form Side */}
-                    <div className="glass-card p-10 md:p-16 rounded-[4rem] border border-emerald-500/10 shadow-2xl bg-white/50 dark:bg-zinc-900/50 backdrop-blur-xl">
+                    <div className="glass-card p-5 sm:p-10 md:p-16 rounded-3xl md:rounded-[4rem] border border-emerald-500/10 shadow-2xl bg-white/50 dark:bg-zinc-900/50 backdrop-blur-xl">
                         <ContactForm />
                     </div>
                 </div>

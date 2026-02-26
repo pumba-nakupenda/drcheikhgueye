@@ -84,7 +84,7 @@ export default function Home() {
                             </div>
                         </div>
 
-                        <div className="relative aspect-[4/5] md:aspect-square lg:aspect-[4/5] w-full max-w-[28rem] mx-auto group">
+                        <div className="relative aspect-square sm:aspect-[4/5] md:aspect-square lg:aspect-[4/5] w-full max-w-[260px] sm:max-w-[28rem] mx-auto group">
                             <div className={`absolute inset-0 bg-emerald-600 rounded-[3rem] ${language === 'ar' ? '-rotate-6 group-hover:-rotate-3' : 'rotate-6 group-hover:rotate-3'} transition-transform duration-700 shadow-2xl`} />
                             <div className="relative h-full rounded-[3rem] overflow-hidden border-8 border-white/10 shadow-2xl">
                                 <Image

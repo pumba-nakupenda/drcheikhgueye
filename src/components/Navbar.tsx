@@ -172,9 +172,8 @@ export default function Navbar() {
             </div>
 
             {/* Mobile menu overlay */}
-            <div className={`sm:hidden fixed inset-0 z-40 transition-all duration-500 ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-                }`}>
-                <div className="absolute inset-0 bg-emerald-950/60 backdrop-blur-xl" onClick={toggleMenu} />
+            <div className={`sm:hidden fixed inset-0 z-40 ${isOpen ? "visible pointer-events-auto" : "invisible pointer-events-none"}`}>
+                <div className={`absolute inset-0 bg-emerald-950/60 backdrop-blur-xl transition-opacity duration-500 ${isOpen ? "opacity-100" : "opacity-0"}`} onClick={toggleMenu} />
 
                 <div className={`absolute top-0 ${isRtl ? 'left-0' : 'right-0'} w-[85%] h-full bg-white dark:bg-zinc-950 shadow-2xl transition-transform duration-500 ease-out border-emerald-500/10 ${isOpen ? "translate-x-0" : isRtl ? "-translate-x-full" : "translate-x-full"
                     } ${isRtl ? 'border-r' : 'border-l'}`}>

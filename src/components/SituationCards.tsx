@@ -61,7 +61,7 @@ function FlipCard({ situation }: { situation: Situation }) {
                     </div>
                     <div className="mt-6 pt-6 flex justify-center border-t border-emerald-500/5">
                         <span className="text-[10px] font-black uppercase tracking-[0.3em] text-emerald-600/40 animate-pulse group-hover:text-emerald-600 transition-colors">
-                            {dir === 'rtl' ? "انقر لرؤية الحل" : "Cliquez pour voir la solution"}
+                            {t.book_detail.clicks_to_see}
                         </span>
                     </div>
                 </div>

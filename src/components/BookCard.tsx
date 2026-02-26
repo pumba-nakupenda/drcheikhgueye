@@ -22,12 +22,14 @@ export default function BookCard({ book }: BookCardProps) {
     const phoneNumber = siteConfig.whatsappNumber;
 
     // Choose bilingual fields
-    const displayTitle = (language === 'ar' && book.title_ar) ? book.title_ar : book.title;
-    const displayAuthor = (language === 'ar' && book.author_ar) ? book.author_ar : book.author;
-    const displaySummary = (language === 'ar' && book.summary_ar) ? book.summary_ar : book.summary;
+    const displayTitle = language === 'ar' && book.title_ar ? book.title_ar : language === 'en' && book.title_en ? book.title_en : book.title;
+    const displayAuthor = language === 'ar' && book.author_ar ? book.author_ar : language === 'en' && book.author_en ? book.author_en : book.author;
+    const displaySummary = language === 'ar' && book.summary_ar ? book.summary_ar : language === 'en' && book.summary_en ? book.summary_en : book.summary;
 
     const message = language === 'ar'
         ? `مرحباً، أود طلب كتاب: ${displayTitle}`
+        : language === 'en'
+        ? `Hello, I would like to order the book: ${displayTitle}`
         : `Bonjour, je souhaite commander le livre : ${displayTitle}`;
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
@@ -51,7 +53,7 @@ export default function BookCard({ book }: BookCardProps) {
     return (
         <div className="group relative glass-card p-4 rounded-3xl transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-emerald-500/10 flex flex-col rtl:text-right">
             <Toast 
-                message={language === 'ar' ? "تم نسخ الرابط!" : "Lien copié !"} 
+                message={language === 'ar' ? "تم نسخ الرابط!" : language === 'en' ? "Link copied!" : "Lien copié !"}
                 isVisible={showToast} 
                 onClose={() => setShowToast(false)} 
             />
@@ -105,7 +107,7 @@ export default function BookCard({ book }: BookCardProps) {
                         </h3>
                     </Link>
                     <span className="shrink-0 font-bold text-emerald-600 dark:text-emerald-400">
-                        {book.price.toLocaleString(language === 'ar' ? "ar-SA" : "fr-FR")} CFA
+                        {book.price.toLocaleString(language === 'ar' ? "ar-SA" : language === 'en' ? "en-US" : "fr-FR")} CFA
                     </span>
                 </div>
 
@@ -118,7 +120,7 @@ export default function BookCard({ book }: BookCardProps) {
                         <div className="flex items-center gap-2 mb-2">
                             <Headphones size={12} className="text-emerald-600" />
                             <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-600">
-                                {language === 'ar' ? "عرض صوتي" : "Présentation audio"}
+                                {language === 'ar' ? "عرض صوتي" : language === 'en' ? "Audio Presentation" : "Présentation audio"}
                             </span>
                         </div>
                         <CustomAudioPlayer src={book.introAudio} variant="compact" />
@@ -131,7 +133,7 @@ export default function BookCard({ book }: BookCardProps) {
                         className="flex items-center justify-center gap-2 w-full py-4 rounded-2xl border border-emerald-500/20 text-emerald-700 dark:text-emerald-400 font-bold text-sm hover:bg-emerald-500/5 active:bg-emerald-500/10 active:scale-[0.98] transition-all"
                     >
                         <BookOpen size={18} />
-                        {language === 'ar' ? "ملخص الكتاب" : "Résumé du livre"}
+                        {language === 'ar' ? "ملخص الكتاب" : language === 'en' ? "Book Summary" : "Résumé du livre"}
                     </Link>
                     <a
                         href={whatsappUrl}
@@ -140,7 +142,7 @@ export default function BookCard({ book }: BookCardProps) {
                         className="flex items-center justify-center gap-2 w-full py-4 rounded-2xl bg-emerald-700 dark:bg-emerald-600 text-white font-black text-sm shadow-lg shadow-emerald-700/20 hover:bg-emerald-800 active:scale-[0.98] transition-all"
                     >
                         <ShoppingCart size={18} />
-                        {language === 'ar' ? "اطلب الكتاب" : "Commander l'ouvrage"}
+                        {language === 'ar' ? "اطلب الكتاب" : language === 'en' ? "Order Book" : "Commander l'ouvrage"}
                         <ChevronRight size={16} className={`transition-transform ${isRtl ? 'rotate-180 group-hover:-translate-x-1' : 'group-hover:translate-x-1'}`} />
                     </a>
                 </div>

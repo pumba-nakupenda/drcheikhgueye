@@ -37,7 +37,7 @@ export default function RootLayout({
                 <LanguageProvider>
                     <ReadingProgress />
                     <Navbar />
-                    <main className="flex-grow">{children}</main>
+                    <main className="flex-grow pb-28 sm:pb-0">{children}</main>
                     <Footer />
                     <BackToTop />
                     <MobileNavBar />

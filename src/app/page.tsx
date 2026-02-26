@@ -27,7 +27,7 @@ export default function Home() {
                 </div>
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 relative z-10 flex flex-col justify-center min-h-[90vh]">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center">
 
                         <div className="text-center lg:text-left space-y-8 md:space-y-10">
                             <div className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-emerald-400/10 border border-emerald-400/20 text-emerald-400 text-sm font-bold uppercase tracking-[0.2em] animate-bounce">
@@ -62,7 +62,7 @@ export default function Home() {
                             </div>
 
                             {/* Stats/Badges */}
-                            <div className="flex flex-wrap justify-center lg:justify-start gap-12 pt-16 border-t border-white/10">
+                            <div className="flex flex-wrap justify-center lg:justify-start gap-8 pt-8 md:pt-16 border-t border-white/10">
                                 <div className="flex items-center gap-4">
                                     <div className="w-14 h-14 rounded-2xl bg-emerald-800/30 flex items-center justify-center text-emerald-400 border border-emerald-400/10 shadow-inner">
                                         <ScrollText size={28} />
@@ -115,9 +115,9 @@ export default function Home() {
             </section>
 
             {/* Featured Books Section - WOW Grid */}
-            <section className="py-32 relative bg-zinc-50 dark:bg-zinc-950 overflow-hidden reveal">
+            <section className="py-16 md:py-32 relative bg-zinc-50 dark:bg-zinc-950 overflow-hidden reveal">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8 text-left rtl:text-right">
+                    <div className="flex flex-col md:flex-row justify-between items-end mb-10 md:mb-20 gap-6 text-left rtl:text-right">
                         <div className="space-y-4 max-w-2xl">
                             <h2 className="text-4xl md:text-6xl font-serif font-black text-emerald-950 dark:text-emerald-50 leading-tight">
                                 {t.featured_books.title} <br /> <span className="text-emerald-600 dark:text-emerald-400 underline decoration-emerald-200/50 underline-offset-8 italic font-medium">{t.featured_books.subtitle}</span>
@@ -149,8 +149,8 @@ export default function Home() {
             <Testimonials />
 
             {/* CTA Section - Commandes */}
-            <section className="py-24 px-4 bg-emerald-900 overflow-hidden relative reveal">
-                <div className="max-w-5xl mx-auto glass-card p-12 md:p-20 rounded-[4rem] text-center relative z-10 overflow-hidden">
+            <section className="py-14 md:py-24 px-4 bg-emerald-900 overflow-hidden relative reveal">
+                <div className="max-w-5xl mx-auto glass-card p-7 md:p-20 rounded-3xl md:rounded-[4rem] text-center relative z-10 overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-emerald-600/10 to-transparent" />
                     <h2 className="text-4xl md:text-6xl font-serif font-black text-white mb-8 relative">
                         {t.cta_section.title}

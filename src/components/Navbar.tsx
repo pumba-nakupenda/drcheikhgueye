@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronRight, MessageSquare, Sun, Moon } from "lucide-react";
 import { siteConfig } from "@/config/site";
@@ -17,6 +18,9 @@ export default function Navbar() {
     const [isVisible, setIsVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
     const [theme, setTheme] = useState<'light' | 'dark'>('light');
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => { setMounted(true); }, []);
 
     useEffect(() => {
         const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
@@ -171,8 +175,9 @@ export default function Navbar() {
                 </div>
             </div>
 
-            {/* Mobile menu overlay */}
-            <div className={`sm:hidden fixed inset-0 z-40 ${isOpen ? "visible pointer-events-auto" : "invisible pointer-events-none"}`}>
+            {/* Mobile menu overlay — rendered via portal to avoid backdrop-filter containing-block issues */}
+            {mounted && createPortal(
+            <div className={`sm:hidden fixed inset-0 z-[9999] ${isOpen ? "visible pointer-events-auto" : "invisible pointer-events-none"}`}>
                 <div className={`absolute inset-0 bg-emerald-950/60 backdrop-blur-xl transition-opacity duration-500 ${isOpen ? "opacity-100" : "opacity-0"}`} onClick={toggleMenu} />
 
                 <div className={`absolute top-0 ${isRtl ? 'left-0' : 'right-0'} w-[85%] h-full bg-white dark:bg-zinc-950 shadow-2xl transition-transform duration-500 ease-out border-emerald-500/10 ${isOpen ? "translate-x-0" : isRtl ? "-translate-x-full" : "translate-x-full"
@@ -233,6 +238,7 @@ export default function Navbar() {
                     </div>
                 </div>
             </div>
+            , document.body)}
         </nav>
     );
 }

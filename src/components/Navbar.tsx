@@ -7,7 +7,7 @@ import { Menu, X, ChevronRight, MessageSquare, Sun, Moon } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { useLanguage } from "@/context/LanguageContext";
 
-const LANGUAGES = LANGUAGES;
+const LANGUAGES = ['fr', 'en', 'ar'] as const;
 
 export default function Navbar() {
     const { language, setLanguage, t, dir } = useLanguage();

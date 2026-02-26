@@ -161,7 +161,7 @@ export default function Navbar() {
                         </button>
                         <button
                             onClick={toggleMenu}
-                            className={`p-2 rounded-xl transition-all active-scale ${isOpen ? 'text-emerald-900 dark:text-white' : 'text-emerald-900 dark:text-emerald-100 hover:bg-emerald-100/50 dark:hover:bg-emerald-900/30'}`}
+                            className="p-2 rounded-xl bg-emerald-100 dark:bg-emerald-900/40 text-emerald-900 dark:text-emerald-100 transition-all active-scale"
                         >
                             {isOpen ? <X size={24} /> : <Menu size={24} />}
                         </button>

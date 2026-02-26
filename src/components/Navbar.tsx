@@ -142,12 +142,16 @@ export default function Navbar() {
                         >
                             {theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}
                         </button>
-                        <div className="flex items-center bg-emerald-100 dark:bg-emerald-900/30 rounded-xl p-0.5 gap-0.5">
+                        <div className="flex items-center bg-emerald-950/10 dark:bg-white/10 rounded-xl p-1 gap-1">
                             {(['fr', 'en', 'ar'] as const).map((lang) => (
                                 <button
                                     key={lang}
                                     onClick={() => setLanguage(lang)}
-                                    className={`px-2 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-wide transition-all ${language === lang ? 'bg-emerald-600 text-white shadow' : 'text-emerald-700 dark:text-emerald-400'}`}
+                                    className={`px-3 py-2 rounded-lg text-xs font-black uppercase tracking-wide transition-all duration-200 min-w-[36px] active:scale-95 ${
+                                        language === lang
+                                            ? 'bg-emerald-600 text-white shadow-md ring-2 ring-emerald-400/40 scale-105'
+                                            : 'text-emerald-900/40 dark:text-white/40'
+                                    }`}
                                 >
                                     {lang.toUpperCase()}
                                 </button>

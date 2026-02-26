@@ -134,20 +134,25 @@ export default function Navbar() {
                         </Link>
                     </div>
 
-                    <div className="sm:hidden flex items-center gap-3">
+                    <div className="sm:hidden flex items-center gap-2">
                         <button
                             onClick={toggleTheme}
-                            className="w-10 h-10 flex items-center justify-center rounded-xl bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 active-scale"
+                            className="w-9 h-9 flex items-center justify-center rounded-xl bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 active-scale"
                             aria-label="Toggle theme"
                         >
-                            {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
+                            {theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}
                         </button>
-                        <button
-                            onClick={() => setLanguage(language === 'fr' ? 'en' : language === 'en' ? 'ar' : 'fr')}
-                            className="w-12 h-10 flex items-center justify-center rounded-xl bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 font-black text-xs active-scale"
-                        >
-                            {language === 'fr' ? "EN" : language === 'en' ? "AR" : "FR"}
-                        </button>
+                        <div className="flex items-center bg-emerald-100 dark:bg-emerald-900/30 rounded-xl p-0.5 gap-0.5">
+                            {(['fr', 'en', 'ar'] as const).map((lang) => (
+                                <button
+                                    key={lang}
+                                    onClick={() => setLanguage(lang)}
+                                    className={`px-2 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-wide transition-all ${language === lang ? 'bg-emerald-600 text-white shadow' : 'text-emerald-700 dark:text-emerald-400'}`}
+                                >
+                                    {lang.toUpperCase()}
+                                </button>
+                            ))}
+                        </div>
                         <button
                             onClick={toggleMenu}
                             className="p-2 rounded-xl text-emerald-900 dark:text-emerald-100 hover:bg-emerald-100/50 dark:hover:bg-emerald-900/30 transition-all active-scale"

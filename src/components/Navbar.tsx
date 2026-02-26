@@ -134,7 +134,7 @@ export default function Navbar() {
                         </Link>
                     </div>
 
-                    <div className="sm:hidden flex items-center gap-2">
+                    <div className="sm:hidden flex items-center gap-1.5">
                         <button
                             onClick={toggleTheme}
                             className="w-9 h-9 flex items-center justify-center rounded-xl bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 active-scale"
@@ -142,24 +142,26 @@ export default function Navbar() {
                         >
                             {theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}
                         </button>
-                        <div className="flex items-center bg-emerald-950/10 dark:bg-white/10 rounded-xl p-1 gap-1">
-                            {(['fr', 'en', 'ar'] as const).map((lang) => (
-                                <button
-                                    key={lang}
-                                    onClick={() => setLanguage(lang)}
-                                    className={`px-3 py-2 rounded-lg text-xs font-black uppercase tracking-wide transition-all duration-200 min-w-[36px] active:scale-95 ${
-                                        language === lang
-                                            ? 'bg-emerald-600 text-white shadow-md ring-2 ring-emerald-400/40 scale-105'
-                                            : 'text-emerald-900/40 dark:text-white/40'
-                                    }`}
-                                >
-                                    {lang.toUpperCase()}
-                                </button>
-                            ))}
-                        </div>
+                        {/* Compact cycling language button */}
+                        <button
+                            onClick={() => {
+                                const langs = ['fr', 'en', 'ar'] as const;
+                                const idx = langs.indexOf(language);
+                                setLanguage(langs[(idx + 1) % langs.length]);
+                            }}
+                            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-emerald-950/10 dark:bg-white/10 active:scale-95 transition-all duration-200"
+                            aria-label="Changer la langue"
+                        >
+                            <span className="text-xs font-black text-emerald-900 dark:text-white">{language.toUpperCase()}</span>
+                            <div className="flex flex-col gap-[3px]">
+                                {(['fr', 'en', 'ar'] as const).map(l => (
+                                    <div key={l} className={`w-1 h-1 rounded-full transition-all ${l === language ? 'bg-emerald-600' : 'bg-emerald-900/20 dark:bg-white/25'}`} />
+                                ))}
+                            </div>
+                        </button>
                         <button
                             onClick={toggleMenu}
-                            className="p-2 rounded-xl text-emerald-900 dark:text-emerald-100 hover:bg-emerald-100/50 dark:hover:bg-emerald-900/30 transition-all active-scale"
+                            className={`p-2 rounded-xl transition-all active-scale ${isOpen ? 'text-emerald-900 dark:text-white' : 'text-emerald-900 dark:text-emerald-100 hover:bg-emerald-100/50 dark:hover:bg-emerald-900/30'}`}
                         >
                             {isOpen ? <X size={24} /> : <Menu size={24} />}
                         </button>

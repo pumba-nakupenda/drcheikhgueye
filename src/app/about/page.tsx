@@ -10,7 +10,7 @@ export default function AboutPage() {
     const isRtl = dir === 'rtl';
 
     return (
-        <div className="bg-white dark:bg-zinc-950 py-16 md:py-32 overflow-hidden relative">
+        <div className="bg-white dark:bg-zinc-950 pt-24 pb-16 md:py-32 overflow-hidden relative">
             {/* Background Decorative Elements */}
             <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-emerald-500/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2" />
             <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-emerald-500/5 blur-[100px] rounded-full translate-y-1/2 -translate-x-1/2" />

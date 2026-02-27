@@ -10,7 +10,7 @@ export default function BooksPage() {
     const isRtl = dir === 'rtl';
 
     return (
-        <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 py-16 md:py-32 relative overflow-hidden">
+        <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 pt-24 pb-16 md:py-32 relative overflow-hidden">
             <div className={`absolute top-0 ${isRtl ? 'right-0' : 'left-0'} w-1/3 h-1/3 bg-emerald-500/5 blur-[120px] rounded-full`} />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

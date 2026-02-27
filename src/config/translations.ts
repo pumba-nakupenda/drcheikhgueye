@@ -1,4 +1,4 @@
-export type Language = 'fr' | 'ar';
+export type Language = 'fr' | 'ar' | 'en';
 
 export const translations = {
     fr: {
@@ -204,6 +204,211 @@ export const translations = {
             rights: "Tous droits réservés.",
             designed_by: "Design & Développement par",
             location: "Basé à Dakar, Sénégal"
+        }
+    },
+    en: {
+        nav: {
+            home: "Home",
+            about: "About",
+            books: "Books",
+            contact: "Contact",
+            whatsapp: "WhatsApp Contact",
+        },
+        hero: {
+            transmission: "The Art of Transmission",
+            explore: "Explore",
+            infinity: "the Infinite",
+            words: "of Words.",
+            tagline: "Dr. Cheikh Gueye: Internationally renowned Researcher, Educator and Translator. An intellectual bridge between classical Arabic and modernity.",
+            cta_ouvrage: "Browse Works",
+            cta_auteur: "Discover the Author",
+            stats_publications: "Publications",
+            stats_polyglotte: "Polyglot",
+            quote: "Excellence is a path toward the light.",
+            scroll: "Scroll",
+        },
+        featured_books: {
+            title: "Latest",
+            subtitle: "Releases.",
+            tagline: "Explore works that blend spirituality, linguistics and societal reflection.",
+            cta_all: "View the full collection",
+        },
+        testimonials: {
+            title: "What the",
+            subtitle: "Readers say",
+            badge: "Testimonials",
+            items: [
+                {
+                    quote: "Thanks to Dr. Cheikh Gueye's approach, I was finally able to understand the nuances of classical Arabic that I previously found so difficult.",
+                    author: "Abdoulaye Wade",
+                    role: "Student in Humanities"
+                },
+                {
+                    quote: "A remarkable translation work. You can feel the mastery of the subject and the deep respect for the original texts.",
+                    author: "Mame Diarra",
+                    role: "Literature Researcher"
+                },
+                {
+                    quote: "His book on the Quran is a pedagogical goldmine. Simple, clear and of exemplary academic rigor.",
+                    author: "Imam Ibrahima",
+                    role: "Teacher"
+                },
+                {
+                    quote: "The method is revolutionary for French speakers. The diacritical marks and scripts are explained with rare clarity.",
+                    author: "Ousmane Sy",
+                    role: "Self-taught Learner"
+                },
+                {
+                    quote: "A major contribution to the dissemination of knowledge. This manual has become the reference in our language institute.",
+                    author: "Dr. Amy Collé",
+                    role: "Institute Director"
+                },
+                {
+                    quote: "The spiritual dimension combined with linguistic rigor makes this work an indispensable companion for every Muslim.",
+                    author: "Cheikh Tidiane",
+                    role: "Speaker"
+                }
+            ]
+        },
+        cta_section: {
+            title: "Support Knowledge.",
+            text: "Every book ordered is a direct support to research and cultural transmission in Senegal.",
+            button: "Browse Books",
+        },
+        about: {
+            badge: "Official Biography",
+            audio_badge: "Audio Version Available",
+            title_prefix: "Doctor",
+            quote: "Language is a bridge between cultures, an instrument of mutual understanding and a tool for intellectual elevation.",
+            content: [
+                "Dr. Cheikh Gueye is originally from Louga. A renowned researcher and educator, he has dedicated decades to improving education in Africa in general, and in Senegal in particular, where he headed the Arabic education division at the Ministry of National Education.",
+                "He has taught at all levels of the Senegalese educational system, from primary to higher education, notably at FASTEF where he trained most of the Arabic elementary education inspectors from 1986 to 2015.",
+                "His trilingual profile specializes him, on one hand, in teaching and research, and on the other, in translation to and from French, English and Arabic."
+            ],
+            blockquote: "He gained international renown with his translation of 'The Sealed Nectar: Ar Raheeq Al Makhtoum', for which he won the first world prize in Mecca in 1997.",
+            content_p2: "This biography of the Prophet (peace and blessings be upon him), written by Sheikh Safi al-Rahman al-Mubarakpuri, was awarded at the competition organized by the Muslim World League. Furthermore, he has translated for many countries including Saudi Arabia, Turkey and Libya, with about thirty translated works.",
+            content_p3: "Recognized for his expertise, he also appears on the list of translators accredited by the Translation and Interpretation Bureau of the Senegalese Ministry of Foreign Affairs.",
+            expertise: "Areas of Expertise",
+            expertise_items: [
+                "Language Sciences & Linguistics",
+                "Classical & Modern Literature",
+                "Comparative Pedagogy"
+            ],
+            mission_title: "Mission",
+            mission_text: "Making the learning of Arabic accessible, structured and fruitful for all audiences."
+        },
+        timeline: {
+            badge: "Academic Journey",
+            title: "A Life Dedicated to",
+            title_highlight: "Knowledge",
+            items: [
+                {
+                    year: "Origins & Leadership",
+                    title: "Ministry of Education",
+                    description: "Originally from Louga, he led the Arabic education division at the Senegalese Ministry of National Education."
+                },
+                {
+                    year: "1986 — 2015",
+                    title: "Training at FASTEF",
+                    description: "Training most of the country's Arabic elementary education inspectors over nearly three decades."
+                },
+                {
+                    year: "1418 H. (1997)",
+                    title: "First World Prize",
+                    description: "Winner of the first world prize in Mecca for his translation of 'The Sealed Nectar', the reference biography of the Prophet (pbuh)."
+                },
+                {
+                    year: "Expertise",
+                    title: "Accredited Translator",
+                    description: "Trilingual translator accredited by the Ministry of Foreign Affairs with about thirty internationally translated works."
+                }
+            ]
+        },
+        contact: {
+            badge: "Direct Contact",
+            title: "Get in",
+            title_highlight: "Touch.",
+            tagline: "For any book order, conference request or academic collaboration.",
+            phone: "Phone",
+            whatsapp: "WhatsApp",
+            whatsapp_status: "Response within 24h",
+            others: "Other Information",
+            info_title: "Contact Details",
+            info_subtitle: "Find us on our various official channels.",
+            form_name: "Full Name",
+            form_name_placeholder: "John Doe",
+            form_email: "Email",
+            form_email_placeholder: "john@example.com",
+            form_subject: "Subject",
+            form_message: "Your Message",
+            form_message_placeholder: "How can we help you?",
+            form_submit: "Send Message",
+            form_sending: "Sending...",
+            form_success_title: "Message Sent!",
+            form_success_text: "Thank you for your message. Dr. Cheikh Gueye or his secretariat will reply to you as soon as possible.",
+            form_another: "Send another message",
+            subjects: ["Book order", "Conference request", "Academic question", "Other"],
+        },
+        faq: {
+            badge: "Help & Info",
+            title: "Frequently Asked",
+            title_highlight: "Questions",
+            items: [
+                {
+                    question: "How can I order Dr. Cheikh Gueye's books?",
+                    answer: "Ordering is done simply via WhatsApp. Click the 'Order on WhatsApp' button on each book page. A pre-filled message will be generated to facilitate your exchange with our team."
+                },
+                {
+                    question: "What are the delivery times?",
+                    answer: "For orders in Dakar, delivery is generally within 24 to 48 hours. For international shipments, times vary by destination and will be communicated to you when you place your order on WhatsApp."
+                },
+                {
+                    question: "Are the books suitable for beginners?",
+                    answer: "Yes, the book 'Practical Approach to Arabic Initiation' is specifically designed for French-speaking beginners. The Doctor has developed a progressive method that starts from the fundamental basics."
+                },
+                {
+                    question: "Are there digital versions (PDF/Ebook)?",
+                    answer: "Currently, we favor the paper format to ensure a better learning experience. However, you can listen to audio summaries directly on this site."
+                },
+                {
+                    question: "How to organize a conference with the Doctor?",
+                    answer: "You can contact us via the formal contact form on the 'Contact' page or send an email directly to contact@drcheikhgueye.com."
+                }
+            ]
+        },
+        books_page: {
+            badge: "Our Works",
+            title: "The",
+            title_highlight: "Library.",
+            tagline: "Browse the complete collection of Dr. Cheikh Gueye's works. Innovative pedagogical methods for learning the Arabic language."
+        },
+        book_detail: {
+            back: "Back to Works",
+            audio_title: "Audio Presentation",
+            audio_subtitle: "Listen to the summary",
+            audio_error: "Your browser does not support the audio element.",
+            badge: "Academic Work",
+            availability_label: "Availability",
+            availability_value: "In Stock (Dakar)",
+            quality_label: "Quality",
+            quality_value: "Premium Edition",
+            price_label: "Unit Price",
+            order_button: "Order",
+            whatsapp_status: "Quick WhatsApp Response",
+            currency: "CFA",
+            situations_title: "Problem situation examples",
+            situation_label: "SITUATION",
+            solution_label: "SOLUTION",
+            clicks_to_see: "Click to see the solution",
+            preview_button: "Browse the book",
+            preview_subtitle: "Preview of some pages",
+            pdf_button: "Read excerpt (PDF)",
+            pdf_close: "Close reader"
+        },
+        footer: {
+            rights: "All rights reserved.",
+            designed_by: "Design & Development by",
+            location: "Based in Dakar, Senegal"
         }
     },
     ar: {

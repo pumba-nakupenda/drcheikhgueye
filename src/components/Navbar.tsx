@@ -2,10 +2,13 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronRight, MessageSquare, Sun, Moon } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { useLanguage } from "@/context/LanguageContext";
+
+const LANGUAGES = ['fr', 'en', 'ar'] as const;
 
 export default function Navbar() {
     const { language, setLanguage, t, dir } = useLanguage();
@@ -15,6 +18,9 @@ export default function Navbar() {
     const [isVisible, setIsVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
     const [theme, setTheme] = useState<'light' | 'dark'>('light');
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => { setMounted(true); }, []);
 
     useEffect(() => {
         const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
@@ -69,8 +75,8 @@ export default function Navbar() {
                             <div className="w-10 h-10 rounded-xl bg-emerald-600 flex items-center justify-center text-white font-serif font-black text-xl shadow-lg group-hover:rotate-12 transition-transform">
                                 {language === 'ar' ? "غ" : "G"}
                             </div>
-                            <span className="text-2xl font-serif font-black tracking-tighter text-emerald-900 dark:text-emerald-100 group-hover:text-emerald-600 transition-colors">
-                                {t.about.title_prefix}. <span className="text-emerald-700 dark:text-emerald-400 underline decoration-emerald-500/30 underline-offset-4">{language === 'ar' ? "شيخ" : "Cheikh"}</span> {language === 'ar' ? "غي" : "Gueye"}
+                            <span className="text-base sm:text-2xl font-serif font-black tracking-tighter text-emerald-900 dark:text-emerald-100 group-hover:text-emerald-600 transition-colors">
+                                {t.about.title_prefix}. <span className="text-emerald-700 dark:text-emerald-400 underline decoration-emerald-500/30 underline-offset-4">{language === 'ar' ? "شيخ" : "Cheikh"}</span> <span className="hidden min-[420px]:inline">{language === 'ar' ? "غي" : "Gueye"}</span>
                             </span>
                         </Link>
                     </div>
@@ -103,6 +109,12 @@ export default function Navbar() {
                                 FR
                             </button>
                             <button
+                                onClick={() => setLanguage('en')}
+                                className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${language === 'en' ? "bg-emerald-600 text-white shadow-lg" : "text-emerald-900/40 hover:text-emerald-600"}`}
+                            >
+                                EN
+                            </button>
+                            <button
                                 onClick={() => setLanguage('ar')}
                                 className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${language === 'ar' ? "bg-emerald-600 text-white shadow-lg" : "text-emerald-900/40 hover:text-emerald-600"}`}
                             >
@@ -128,23 +140,34 @@ export default function Navbar() {
                         </Link>
                     </div>
 
-                    <div className="sm:hidden flex items-center gap-3">
+                    <div className="sm:hidden flex items-center gap-1.5">
                         <button
                             onClick={toggleTheme}
-                            className="w-10 h-10 flex items-center justify-center rounded-xl bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 active-scale"
+                            className="w-9 h-9 flex items-center justify-center rounded-xl bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 active-scale"
                             aria-label="Toggle theme"
                         >
-                            {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
+                            {theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}
                         </button>
+                        {/* Compact cycling language button */}
                         <button
-                            onClick={() => setLanguage(language === 'fr' ? 'ar' : 'fr')}
-                            className="w-12 h-10 flex items-center justify-center rounded-xl bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 font-black text-xs active-scale"
+                            onClick={() => {
+                                const langs = LANGUAGES;
+                                const idx = langs.indexOf(language);
+                                setLanguage(langs[(idx + 1) % langs.length]);
+                            }}
+                            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-emerald-950/10 dark:bg-white/10 active:scale-95 transition-all duration-200"
+                            aria-label="Changer la langue"
                         >
-                            {language === 'fr' ? "AR" : "FR"}
+                            <span className="text-xs font-black text-emerald-900 dark:text-white">{language.toUpperCase()}</span>
+                            <div className="flex flex-col gap-[3px]">
+                                {(LANGUAGES).map(l => (
+                                    <div key={l} className={`w-1 h-1 rounded-full transition-all ${l === language ? 'bg-emerald-600' : 'bg-emerald-900/20 dark:bg-white/25'}`} />
+                                ))}
+                            </div>
                         </button>
                         <button
                             onClick={toggleMenu}
-                            className="p-2 rounded-xl text-emerald-900 dark:text-emerald-100 hover:bg-emerald-100/50 dark:hover:bg-emerald-900/30 transition-all active-scale"
+                            className="p-2 rounded-xl bg-emerald-100 dark:bg-emerald-900/40 text-emerald-900 dark:text-emerald-100 transition-all active-scale"
                         >
                             {isOpen ? <X size={24} /> : <Menu size={24} />}
                         </button>
@@ -152,29 +175,30 @@ export default function Navbar() {
                 </div>
             </div>
 
-            {/* Mobile menu overlay */}
-            <div className={`sm:hidden fixed inset-0 z-40 transition-all duration-500 ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-                }`}>
-                <div className="absolute inset-0 bg-emerald-950/60 backdrop-blur-xl" onClick={toggleMenu} />
+            {/* Mobile menu overlay — rendered via portal to avoid backdrop-filter containing-block issues */}
+            {mounted && createPortal(
+            <div className={`sm:hidden fixed inset-0 z-[9999] ${isOpen ? "visible pointer-events-auto" : "invisible pointer-events-none"}`}>
+                <div className={`absolute inset-0 bg-emerald-950/60 backdrop-blur-xl transition-opacity duration-500 ${isOpen ? "opacity-100" : "opacity-0"}`} onClick={toggleMenu} />
 
                 <div className={`absolute top-0 ${isRtl ? 'left-0' : 'right-0'} w-[85%] h-full bg-white dark:bg-zinc-950 shadow-2xl transition-transform duration-500 ease-out border-emerald-500/10 ${isOpen ? "translate-x-0" : isRtl ? "-translate-x-full" : "translate-x-full"
                     } ${isRtl ? 'border-r' : 'border-l'}`}>
-                    <div className="flex flex-col h-full p-8 pt-24 space-y-6">
+                    <div className="flex flex-col h-full p-5 pt-20 space-y-4">
                         <div className={`flex items-center justify-between mb-8 ${isRtl ? 'flex-row-reverse' : ''}`}>
                             <div className="text-xs font-black uppercase tracking-[0.3em] text-emerald-600">{language === 'ar' ? "التنقل" : "Navigation"}</div>
-                            <div className="flex gap-2 bg-emerald-50 dark:bg-emerald-900/20 p-1 rounded-xl">
-                                <button
-                                    onClick={() => setLanguage('fr')}
-                                    className={`px-4 py-2 rounded-lg text-xs font-black transition-all ${language === 'fr' ? 'bg-emerald-600 text-white shadow-md' : 'text-emerald-900/40'}`}
-                                >
-                                    FR
-                                </button>
-                                <button
-                                    onClick={() => setLanguage('ar')}
-                                    className={`px-4 py-2 rounded-lg text-xs font-black transition-all ${language === 'ar' ? 'bg-emerald-600 text-white shadow-md' : 'text-emerald-900/40'}`}
-                                >
-                                    AR
-                                </button>
+                            <div className="flex gap-1 border border-emerald-500/20 rounded-xl p-0.5">
+                                {(LANGUAGES).map((lang) => (
+                                    <button
+                                        key={lang}
+                                        onClick={() => setLanguage(lang)}
+                                        className={`px-3 py-1.5 rounded-lg text-[11px] font-black uppercase transition-all active:scale-95 ${
+                                            language === lang
+                                                ? 'bg-emerald-600/90 text-white shadow-sm'
+                                                : 'text-emerald-900/30 dark:text-white/30'
+                                        }`}
+                                    >
+                                        {lang.toUpperCase()}
+                                    </button>
+                                ))}
                             </div>
                         </div>
 
@@ -200,12 +224,12 @@ export default function Navbar() {
 
                         <div className="mt-auto pt-10 border-t border-emerald-500/10 space-y-4">
                             <p className={`text-[10px] font-black uppercase tracking-widest text-emerald-900/30 dark:text-emerald-100/20 ${isRtl ? 'text-right' : 'text-left'}`}>
-                                {language === 'ar' ? "تواصل معنا" : "Contactez Dr. Cheikh Gueye"}
+                                {language === 'ar' ? "تواصل معنا" : language === 'en' ? "Contact Dr. Cheikh Gueye" : "Contactez Dr. Cheikh Gueye"}
                             </p>
                             <Link
                                 href={siteConfig.whatsappLinks.general}
                                 target="_blank"
-                                className={`flex items-center justify-between bg-emerald-700 dark:bg-emerald-600 text-white p-6 rounded-[2rem] font-black shadow-xl active-scale ${isRtl ? 'flex-row-reverse' : ''}`}
+                                className={`flex items-center justify-between bg-emerald-700 dark:bg-emerald-600 text-white p-5 rounded-[2rem] font-black shadow-xl active-scale ${isRtl ? 'flex-row-reverse' : ''}`}
                             >
                                 WhatsApp
                                 <MessageSquare size={24} className={isRtl ? 'rotate-0' : ''} />
@@ -214,6 +238,7 @@ export default function Navbar() {
                     </div>
                 </div>
             </div>
+            , document.body)}
         </nav>
     );
 }

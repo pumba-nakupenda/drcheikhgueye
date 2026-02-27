@@ -41,17 +41,19 @@ export default function BookDetailClient({ book }: BookDetailClientProps) {
         return () => window.removeEventListener("scroll", handleScroll);
     }, [lastScrollY]);
 
-    const displayTitle = (language === 'ar' && book.title_ar) ? book.title_ar : book.title;
-    const displayAuthor = (language === 'ar' && book.author_ar) ? book.author_ar : book.author;
-    const displaySummary = (language === 'ar' && book.summary_ar) ? book.summary_ar : book.summary;
-    const displaySituations = (language === 'ar' && book.situations_ar) ? book.situations_ar : book.situations;
+    const displayTitle = language === 'ar' && book.title_ar ? book.title_ar : language === 'en' && book.title_en ? book.title_en : book.title;
+    const displayAuthor = language === 'ar' && book.author_ar ? book.author_ar : language === 'en' && book.author_en ? book.author_en : book.author;
+    const displaySummary = language === 'ar' && book.summary_ar ? book.summary_ar : language === 'en' && book.summary_en ? book.summary_en : book.summary;
+    const displaySituations = language === 'ar' && book.situations_ar ? book.situations_ar : language === 'en' && book.situations_en ? book.situations_en : book.situations;
 
     const message = language === 'ar'
         ? `مرحباً، أود طلب كتاب: ${displayTitle}`
+        : language === 'en'
+        ? `Hello, I would like to order the book: ${displayTitle}`
         : `Bonjour, je souhaite commander le livre : ${displayTitle}`;
     const whatsappUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(message)}`;
 
-    const displayAudio = (language === 'ar' && book.audioSummary_ar) ? book.audioSummary_ar : book.audioSummary;
+    const displayAudio = language === 'ar' && book.audioSummary_ar ? book.audioSummary_ar : language === 'en' && book.audioSummary_en ? book.audioSummary_en : book.audioSummary;
 
     const handleShare = () => {
         const shareData = {
@@ -70,7 +72,7 @@ export default function BookDetailClient({ book }: BookDetailClientProps) {
     return (
         <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 pt-32 pb-32 lg:pb-20 overflow-hidden">
             <Toast 
-                message={language === 'ar' ? "تم نسخ الرابط!" : "Lien copié !"} 
+                message={language === 'ar' ? "تم نسخ الرابط!" : language === 'en' ? "Link copied!" : "Lien copié !"}
                 isVisible={showToast} 
                 onClose={() => setShowToast(false)} 
             />
@@ -177,7 +179,7 @@ export default function BookDetailClient({ book }: BookDetailClientProps) {
                                 <div className={`text-center ${isRtl ? 'sm:text-right' : 'sm:text-left'}`}>
                                     <span className="text-sm font-bold uppercase tracking-widest text-emerald-900/40 dark:text-emerald-100/40 block mb-2">{t.book_detail.price_label}</span>
                                     <span className={`text-5xl font-serif font-black text-emerald-600 dark:text-emerald-400 ${isRtl ? 'flex flex-row-reverse items-center justify-end gap-2' : ''}`}>
-                                        {book.price.toLocaleString(language === 'ar' ? 'ar-EG' : 'fr-FR')}
+                                        {book.price.toLocaleString(language === 'ar' ? 'ar-EG' : language === 'en' ? 'en-US' : 'fr-FR')}
                                         <span className="text-lg align-top mt-1 inline-block">{t.book_detail.currency}</span>
                                     </span>
                                 </div>
@@ -217,7 +219,7 @@ export default function BookDetailClient({ book }: BookDetailClientProps) {
                             {t.book_detail.price_label}
                         </span>
                         <span className="text-xl font-serif font-black text-emerald-600">
-                            {book.price.toLocaleString(language === 'ar' ? 'ar-EG' : 'fr-FR')} {t.book_detail.currency}
+                            {book.price.toLocaleString(language === 'ar' ? 'ar-EG' : language === 'en' ? 'en-US' : 'fr-FR')} {t.book_detail.currency}
                         </span>
                     </div>
                     <a

@@ -10,17 +10,17 @@ export default function AboutPage() {
     const isRtl = dir === 'rtl';
 
     return (
-        <div className="bg-white dark:bg-zinc-950 py-20 md:py-32 overflow-hidden relative">
+        <div className="bg-white dark:bg-zinc-950 py-16 md:py-32 overflow-hidden relative">
             {/* Background Decorative Elements */}
             <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-emerald-500/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2" />
             <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-emerald-500/5 blur-[100px] rounded-full translate-y-1/2 -translate-x-1/2" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start focus:outline-none">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-24 items-start focus:outline-none">
 
                     {/* Image Side */}
                     <div className="lg:col-span-5 space-y-8">
-                        <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl border-8 border-white/5 group animate-float">
+                        <div className="relative aspect-square sm:aspect-[4/5] max-w-xs sm:max-w-none mx-auto rounded-[2rem] overflow-hidden shadow-2xl border-8 border-white/5 group animate-float">
                             <Image
                                 src="/images/portrait-cheikh-gueye.jpg"
                                 alt="Dr. Cheikh Gueye"
@@ -52,7 +52,7 @@ export default function AboutPage() {
                                     <span className="text-[10px] uppercase font-bold tracking-widest">{t.about.audio_badge}</span>
                                 </div>
                             </div>
-                            <h1 className="text-5xl md:text-6xl font-serif font-black text-emerald-950 dark:text-white leading-tight">
+                            <h1 className="text-3xl md:text-6xl font-serif font-black text-emerald-950 dark:text-white leading-tight">
                                 {t.about.title_prefix} <span className="text-emerald-600">{language === 'ar' ? 'شيخ غي' : 'Cheikh Gueye'}</span>
                             </h1>
 
@@ -80,7 +80,7 @@ export default function AboutPage() {
                         </div>
 
                         {/* Badges/Expertise Highlights */}
-                        <div className="mt-16 pt-12 border-t border-emerald-500/10 grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div className="mt-10 md:mt-16 pt-8 md:pt-12 border-t border-emerald-500/10 grid grid-cols-1 md:grid-cols-2 gap-8">
                             <div className="rtl:text-right">
                                 <h4 className="text-emerald-600 font-black uppercase tracking-widest text-xs mb-4">{t.about.expertise}</h4>
                                 <ul className="space-y-2 text-sm text-emerald-900/60 dark:text-emerald-100/60 list-none p-0">

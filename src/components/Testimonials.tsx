@@ -4,12 +4,15 @@ import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 
+interface Testimonial { quote: string; author: string; role: string; }
+
 export default function Testimonials() {
     const { t, language, dir } = useLanguage();
-    const testimonials = t.testimonials.items;
+    const testimonials = t.testimonials.items as Testimonial[];
     const scrollRef = useRef<HTMLDivElement>(null);
     const [isAutoPlaying, setIsAutoPlaying] = useState(true);
     const [activeIndex, setActiveIndex] = useState(0);
+    const touchStartX = useRef(0);
 
     const isRtl = dir === 'rtl';
 
@@ -101,9 +104,14 @@ export default function Testimonials() {
                 <div
                     ref={scrollRef}
                     onScroll={handleScroll}
+                    onTouchStart={(e) => { touchStartX.current = e.touches[0].clientX; setIsAutoPlaying(false); }}
+                    onTouchEnd={(e) => {
+                        const diff = touchStartX.current - e.changedTouches[0].clientX;
+                        if (Math.abs(diff) > 50) scroll(diff > 0 ? 'right' : 'left');
+                    }}
                     className="flex gap-6 overflow-x-auto pb-12 snap-x snap-mandatory scrollbar-hide px-4 md:px-0 transition-all touch-pan-x rtl:flex-row-reverse"
                 >
-                    {testimonials.map((testi: any, i: number) => (
+                    {testimonials.map((testi: Testimonial, i: number) => (
                         <div
                             key={i}
                             className="glass-card w-[85vw] sm:w-[450px] md:w-[480px] flex-shrink-0 p-8 md:p-12 rounded-[2.5rem] md:rounded-[3.5rem] border border-emerald-500/10 flex flex-col justify-between hover:scale-[1.01] transition-all duration-500 group snap-center"
@@ -132,7 +140,7 @@ export default function Testimonials() {
                 <div className="flex flex-col md:flex-row items-center gap-8 mt-4">
                     {/* Pagination Dots */}
                     <div className="flex gap-3">
-                        {testimonials.map((_: any, i: number) => (
+                        {testimonials.map((_: Testimonial, i: number) => (
                             <button
                                 key={i}
                                 onClick={() => scrollToIndex(i)}

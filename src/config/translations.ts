@@ -76,13 +76,13 @@ export const translations = {
             title_prefix: "Docteur",
             quote: "La langue est un pont entre les cultures, un instrument de compréhension mutuelle et un outil d’élévation intellectuelle.",
             content: [
-                "Le Dr Cheikh Gueye est originaire de Louga. Chercheur et pédagogue de renom, il se consacre depuis des décennies à l'amélioration de l'éducation en Afrique, en général, et au Sénégal en particulier où il a été le chef de l’actuelle division de l’enseignement arabe au Ministère de l’Education Nationale.",
-                "Il a enseigné à tous les niveaux du système éducatif sénégalais, de l’élémentaire au supérieur, notamment à la FASTEF où il a eu à former, de 1986 à 2015, la plupart des élèves inspecteurs de l’enseignement élémentaire arabe.",
-                "Son profil de trilingue le spécialise d’une part, dans l’enseignement et la recherche, de l’autre dans la traduction en et vers le français, l’anglais et l’arabe."
+                "Le Dr Cheikh Gueye est originaire de Louga. Chercheur et pédagogue de renom, il se consacre depuis des décennies à l’amélioration de l’éducation en Afrique, en général, et au Sénégal en particulier où il a été le chef de l’actuelle division de l’enseignement arabe au Ministère de l’Education Nationale, l’initiateur du tout premier programme d’enseignement de l’arabe au cycle élémentaire et le coordonnateur national de l’élaboration des manuels d’arabe actuellement mis en œuvre au niveau dudit cycle.",
+                "Il a enseigné à tous les niveaux du système éducatif sénégalais, de l’élémentaire au supérieur, notamment à la FASTEF où il a eu à former plusieurs générations d’élèves inspecteurs de l’enseignement arabe, de 1986 à 2015.",
+                "Inspecteur de langue française, professeur d’anglais et docteur en arabe, son profil de trilingue le spécialise dans l’enseignement, la recherche et la traduction."
             ],
-            blockquote: "Il a acquis une renommée internationale avec sa traduction du « Nectar cacheté : Ar Raheeq Al Makhtoum », pour laquelle il a remporté le premier prix mondial à la Mecque en 1997.",
-            content_p2: "Cette biographie du Prophète (paix et salut sur lui), écrite par Cheikh Safi al-Rahman al-Moubarak Fawri, a été primée lors du concours organisé par la Ligue Mondiale Islamique. Par ailleurs, il a traduit pour de nombreux pays dont l’Arabie Saoudite, la Turquie et la Libye, avec un nombre d’ouvrages traduits avoisinant la trentaine.",
-            content_p3: "Reconnu pour son expertise, il figure également sur la liste des traducteurs agréés par le Bureau de Traduction et d’Interprétariat du Ministère Sénégalais des Affaires Etrangères.",
+            blockquote: "Dans ce dernier cas, il a acquis une renommée internationale, notamment avec sa traduction réussie, en langue française, de l’ouvrage le « Nectar cacheté : Ar Raheeq Al Makhtoum », une biographie du Prophète (paix et salut sur lui) écrite par Cheikh Safi al-Rahman al-Moubarak Fawri, traduction pour laquelle il a remporté le premier prix mondial, au concours organisé en 1399 de l’Hégire - 1997 de l’ère chrétienne, à la Mecque, par la Ligue Mondiale Islamique, sur la biographie du Prophète (paix et salut sur lui).",
+            content_p2: "Par ailleurs, il a traduit pour plusieurs pays dont l’Arabie Saoudite, la Turquie, la Libye, la Mauritanie et le Liban. Le nombre des ouvrages qu’il a traduits avoisine la trentaine.",
+            content_p3: "A noter aussi qu’il figure sur la liste des traducteurs agréés par le Bureau de Traduction et d’Interprétariat du Ministère Sénégalais des Affaires Etrangères.",
             expertise: "Domaines d'Expertise",
             expertise_items: [
                 "Sciences du Langage & Linguistique",
@@ -281,13 +281,13 @@ export const translations = {
             title_prefix: "Doctor",
             quote: "Language is a bridge between cultures, an instrument of mutual understanding and a tool for intellectual elevation.",
             content: [
-                "Dr. Cheikh Gueye is originally from Louga. A renowned researcher and educator, he has dedicated decades to improving education in Africa in general, and in Senegal in particular, where he headed the Arabic education division at the Ministry of National Education.",
-                "He has taught at all levels of the Senegalese educational system, from primary to higher education, notably at FASTEF where he trained most of the Arabic elementary education inspectors from 1986 to 2015.",
-                "His trilingual profile specializes him, on one hand, in teaching and research, and on the other, in translation to and from French, English and Arabic."
+                "Dr. Cheikh Gueye is from Louga. As a renowned researcher and educator, he has dedicated decades to improving education in Africa in general, and in Senegal in particular, where he was the head of the current Arabic education division at the Ministry of National Education, the initiator of the very first Arabic teaching program at the elementary level, and the national coordinator for the development of the Arabic textbooks currently in use at that level.",
+                "He taught at all levels of the Senegalese education system, from primary school to higher education, mainly at the Faculty of Technological and Scientific Education and Training (Former Higher Teacher Training School) where he trained several generations of student inspectors of Arabic education from 1986 to 2015.",
+                "As a French language inspector, a teacher of English, and a Doctor in Arabic, his trilingual profile allows him to specialize in teaching, research and translation."
             ],
-            blockquote: "He gained international renown with his translation of 'The Sealed Nectar: Ar Raheeq Al Makhtoum', for which he won the first world prize in Mecca in 1997.",
-            content_p2: "This biography of the Prophet (peace and blessings be upon him), written by Sheikh Safi al-Rahman al-Mubarakpuri, was awarded at the competition organized by the Muslim World League. Furthermore, he has translated for many countries including Saudi Arabia, Turkey and Libya, with about thirty translated works.",
-            content_p3: "Recognized for his expertise, he also appears on the list of translators accredited by the Translation and Interpretation Bureau of the Senegalese Ministry of Foreign Affairs.",
+            blockquote: "In the latter case, he gained international renown, notably with his successful translation in French of \"The Sealed Nectar: Ar Raheeq Al Makhtoum,\" a biography of the Prophet (peace and blessings be upon him) written by Sheikh Safi al-Rahman al-Mubarak Fawri. For this translation, he won first prize in the world at the competition organized in Mecca in 1399 AH (1997 CE) by the Muslim World League, focusing on the biography of the Prophet (peace and blessings be upon him).",
+            content_p2: "Furthermore, he has translated for numerous countries, including Saudi Arabia, Turkey, Libya, Mauritania, and Lebanon. He has translated approximately thirty books.",
+            content_p3: "It should also be noted that he is on the list of translators accredited by the Translation and Interpreting Office of the Senegalese Ministry of Foreign Affairs.",
             expertise: "Areas of Expertise",
             expertise_items: [
                 "Language Sciences & Linguistics",
@@ -486,13 +486,13 @@ export const translations = {
             title_prefix: "الدكتور",
             quote: "اللغة جسر بين الثقافات، وأداة للتفاهم المتبادل ووسيلة للارتقاء الفكري.",
             content: [
-                "الدكتور شيخ غي ينحدر من مدينة لوغا. باحث وتربوي مرموق، كرس عقوداً من حياته لتحسين التعليم في أفريقيا بشكل عام، وفي السنغال بشكل خاص، حيث كان رئيساً لقسم التعليم العربي الحالي بوزارة التربية الوطنية.",
-                "قام بالتدريس في جميع مستويات النظام التعليمي السنغالي، من الابتدائي إلى العالي، لا سيما في كلية العلوم والتقنيات للتربية والتعليم (FASTEF) حيث قام بتكوين معظم المفتشين في التعليم الابتدائي العربي في البلاد من عام 1986 إلى 2015.",
-                "تخصصه كمتعدد لغات (ثلاث لغات) يجعله متخصصاً من ناحية في التدريس والبحث، ومن ناحية أخرى في الترجمة من وإلى الفرنسية والإنجليزية والعربية."
+                "الدكتور شيخ غي من لوغا. كباحث ومدرس مرموق، يكرّس منذ عقود حياته لتحسين التربية في أفريقيا عموماً، وفي السنغال خصوصاً، حيث كان رئيس قسم تعليم اللغة العربية بوزارة التربية الوطنية، وواضع أول برنامج لتعليم اللغة العربية بالمرحلة الابتدائية، والمنسق الوطني لتأليف الكتب المدرسية المستخدمة حالياً في الفصول العربية.",
+                "ومارس التدريس في جميع مستويات النظام التربوي السنغالي، من المرحلة الابتدائية إلى المستوى الجامعي، لا سيما في كلية علوم وتكنولوجيا التربية والتكوين (المدرسة العليا للأساتذة سابقًا) حيث كوّن عدة دفعات من الطلاب المفتشين باللغة العربية، من 1986 إلى 2015.",
+                "فضلاً عن ذلك فإنه متخصص في البحث والتعليم، بل والترجمة من كل من الفرنسية والإنجليزية والعربية، بوصفه مفتشاً للتعليم الفرنسي، وأستاذاً للإنجليزية، ودكتوراً في اللغة العربية."
             ],
-            blockquote: "اكتسب شهرة عالمية من خلال ترجمته لكتاب «الرحيق المختوم»، والتي فاز عنها بالجائزة العالمية الأولى في مكة المكرمة عام 1997.",
-            content_p2: "هذه السيرة النبوية (صلى الله عليه وسلم)، التي كتبها الشيخ صفي الرحمن المباركفوري، توجت في المسابقة التي نظمتها رابطة العالم الإسلامي. وفضلاً عن ذلك، قام بالترجمة للعديد من الدول منها المملكة العربية السعودية وتركيا وليبيا، حيث بلغ عدد الكتب المترجمة قرابة الثلاثين كتاباً.",
-            content_p3: "تقديراً لخبرته، يظهر اسمه أيضاً في قائمة المترجمين المعتمدين لدى مكتب الترجمة والترجمة الفورية بوزارة الشؤون الخارجية السنغالية.",
+            blockquote: "وفي هذه الحالة الأخيرة، فقد اكتسب شهرة عالمية، لا سيما من خلال ترجمته الموفقة «للرحيق المختوم» إلى اللغة الفرنسية، وهو كتاب ألفه الشيخ صفي الرحمن المبارك فوري، فاز بهذه الترجمة بالجائزة العالمية الأولى، في المسابقة التي نظمتها رابطة العالم الإسلامي في مكة المكرمة عام 1399هـ الموافق لـ 1997م، حول سيرة النبي (صلى الله عليه وسلم).",
+            content_p2: "وعلاوة على ذلك، فإنه ترجم للعديد من الدول، بما فيها السعودية وتركيا وليبيا وموريتانيا ولبنان، وترجم ما يقارب ثلاثين كتاباً.",
+            content_p3: "ومن الجدير بالذكر أيضاً أنه مدرج ضمن قائمة المترجمين المعتمدين لدى مكتب الترجمة المكتوبة والفورية التابع لوزارة الخارجية السنغالية.",
             expertise: "مجالات الخبرة",
             expertise_items: [
                 "علوم اللغة واللسانيات",

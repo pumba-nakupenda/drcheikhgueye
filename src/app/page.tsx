@@ -77,7 +77,7 @@ export default function Home() {
                                         <Languages size={28} />
                                     </div>
                                     <div className="text-left">
-                                        <div className="text-white font-black text-2xl">{language === 'ar' ? "عربية | فرنسية | إنجليزية" : language === 'en' ? "Arabic | FR | EN" : "Arabe | FR | EN"}</div>
+                                        <div className="text-white font-black text-2xl">{language === 'ar' ? "عربية | فرنسية | إنجليزية" : language === 'en' ? "Arabic | FR | AN" : "Arabe | FR | AN"}</div>
                                         <div className="text-emerald-400/40 text-[10px] uppercase font-bold tracking-[0.2em]">{t.hero.stats_polyglotte}</div>
                                     </div>
                                 </div>

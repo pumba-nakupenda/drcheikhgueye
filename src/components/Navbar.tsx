@@ -112,7 +112,7 @@ export default function Navbar() {
                                 onClick={() => setLanguage('en')}
                                 className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${language === 'en' ? "bg-emerald-600 text-white shadow-lg" : "text-emerald-900/40 hover:text-emerald-600"}`}
                             >
-                                EN
+                                AN
                             </button>
                             <button
                                 onClick={() => setLanguage('ar')}

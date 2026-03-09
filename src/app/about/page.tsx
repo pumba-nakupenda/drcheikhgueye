@@ -30,12 +30,6 @@ export default function AboutPage() {
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/40 via-transparent to-transparent" />
                         </div>
-
-                        <div className="p-8 glass rounded-[2rem] border border-emerald-500/10 shadow-xl">
-                            <p className="text-emerald-900/80 dark:text-emerald-100/80 italic font-serif text-lg leading-relaxed text-center">
-                                "{t.about.quote}"
-                            </p>
-                        </div>
                     </div>
 
                     {/* Content Side */}
@@ -68,12 +62,6 @@ export default function AboutPage() {
                                     {p}
                                 </p>
                             ))}
-
-                            <div className={`bg-emerald-50 dark:bg-emerald-900/10 p-8 rounded-[2rem] ${isRtl ? 'border-r-4' : 'border-l-4'} border-emerald-500 my-10`}>
-                                <p className="m-0 italic text-emerald-950 dark:text-emerald-50">
-                                    {t.about.blockquote}
-                                </p>
-                            </div>
 
                             <p>{t.about.content_p2}</p>
                             <p>{t.about.content_p3}</p>

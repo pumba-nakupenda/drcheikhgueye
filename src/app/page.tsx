@@ -88,7 +88,7 @@ export default function Home() {
                             <div className={`absolute inset-0 bg-emerald-600 rounded-[3rem] ${language === 'ar' ? '-rotate-6 group-hover:-rotate-3' : 'rotate-6 group-hover:rotate-3'} transition-transform duration-700 shadow-2xl`} />
                             <div className="relative h-full rounded-[3rem] overflow-hidden border-8 border-white/10 shadow-2xl">
                                 <Image
-                                    src="/images/portrait-cheikh-gueye.jpg"
+                                    src="/images/portrait-cheikh-gueye.webp"
                                     alt="Dr. Cheikh Gueye"
                                     fill
                                     className="object-cover transition-transform duration-1000 group-hover:scale-110"

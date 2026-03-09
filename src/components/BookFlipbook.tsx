@@ -35,10 +35,6 @@ export default function BookFlipbook({ images, title }: BookFlipbookProps) {
     return (
         <div className="mt-24 mb-32 reveal">
             <div className={`flex flex-col items-center text-center gap-6 mb-16`}>
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-900/30 border border-emerald-500/20 text-emerald-700 dark:text-emerald-400 text-xs font-black uppercase tracking-widest">
-                    <BookIcon size={14} />
-                    {language === 'ar' ? "تجربة تفاعلية" : "Expérience Interactive"}
-                </div>
                 <h2 className="text-4xl md:text-6xl font-serif font-black text-emerald-950 dark:text-emerald-50 leading-tight">
                     {t.book_detail.preview_button}
                 </h2>

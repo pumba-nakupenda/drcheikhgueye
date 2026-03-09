@@ -22,7 +22,7 @@ export default function AboutPage() {
                     <div className="lg:col-span-5 space-y-8">
                         <div className="relative aspect-square sm:aspect-[4/5] max-w-xs sm:max-w-none mx-auto rounded-[2rem] overflow-hidden shadow-2xl border-8 border-white/5 group animate-float">
                             <Image
-                                src="/images/portrait-cheikh-gueye.jpg"
+                                src="/images/portrait-cheikh-gueye.webp"
                                 alt="Dr. Cheikh Gueye"
                                 fill
                                 className="object-cover transition-transform duration-1000 group-hover:scale-110"
@@ -58,7 +58,7 @@ export default function AboutPage() {
 
                             {/* Audio Player for Biography */}
                             <div className="pt-4 max-w-md">
-                                <CustomAudioPlayer src="/audio/Biographie.mp3" />
+                                <CustomAudioPlayer src={language === 'ar' ? "/audio/Biographie AR.mp3" : language === 'en' ? "/audio/Biographie AN.mp3" : "/audio/Biographie FR.mp3"} />
                             </div>
                         </div>
 

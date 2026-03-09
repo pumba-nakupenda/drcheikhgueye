@@ -48,7 +48,7 @@ export const books: Book[] = [
             "/images/books/approche-pratique-arabe-2.jpg",
             "/images/books/approche-pratique-arabe-1.jpg",
             "/images/books/approche-pratique-arabe-3.jpg",
-            "/images/portrait-cheikh-gueye.jpg",
+            "/images/portrait-cheikh-gueye.webp",
             "/images/books/approche-pratique-arabe-2.jpg",
             "/images/books/approche-pratique-arabe-1.jpg"
         ],
@@ -69,9 +69,10 @@ export const books: Book[] = [
         summary_en: "This work is aimed at candidates preparing for exams or competitions involving the writing of philosophical or pedagogical dissertations. Given the scarcity of Arabic-language resources on this methodology, Dr. Cheikh Gueye offers a comprehensive guide combining theory, detailed practical applications and training exercises to master this complex exercise.",
         coverImage: "/images/books/dissertations.jpg",
         audioSummary: "/audio/Dissertation.mpeg",
+        introAudio: "/audio/Presentation Dissertation arabe.mp3",
         previewImages: [
             "/images/books/dissertations.jpg",
-            "/images/portrait-cheikh-gueye.jpg",
+            "/images/portrait-cheikh-gueye.webp",
             "/images/books/dissertations.jpg",
             "/images/books/approche-pratique-arabe-2.jpg"
         ]
@@ -95,7 +96,7 @@ export const books: Book[] = [
         introAudio: "/audio/Présentation alkhdari.mp3",
         previewImages: [
             "/images/books/mukhtasar.jpg",
-            "/images/portrait-cheikh-gueye.jpg",
+            "/images/portrait-cheikh-gueye.webp",
             "/images/books/mukhtasar.jpg",
             "/images/books/dissertations.jpg"
         ],

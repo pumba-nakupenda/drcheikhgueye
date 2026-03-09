@@ -87,7 +87,7 @@ export default function CustomAudioPlayer({ src, variant = "full" }: CustomAudio
 
     if (variant === "compact") {
         return (
-            <div className="flex items-center gap-3 bg-emerald-500/5 dark:bg-emerald-400/5 p-2.5 pr-4 rounded-2xl border border-emerald-500/10 w-full group hover:border-emerald-500/30 transition-all duration-300">
+            <div className="flex items-center gap-3 bg-emerald-500/5 dark:bg-emerald-400/5 p-2.5 pr-4 rounded-2xl border border-emerald-500/10 w-full group hover:border-emerald-500/30 transition-all duration-300 ltr-force">
                 <audio ref={audioRef} src={src} preload="metadata" />
                 
                 <button 
@@ -97,12 +97,11 @@ export default function CustomAudioPlayer({ src, variant = "full" }: CustomAudio
                     {isPlaying ? <Pause size={14} fill="currentColor" /> : <Play size={14} fill="currentColor" className="ml-0.5" />}
                 </button>
 
-                <div className="flex-1 flex flex-col gap-1 min-w-0">
+                <div className="flex-1 flex flex-col gap-1 min-w-0 ltr-force">
                     <div className="relative w-full flex items-center h-2">
                         <input
                             type="range"
                             ref={progressBarRef}
-                            defaultValue="0"
                             value={currentTime}
                             max={duration || 0}
                             onChange={changeRange}
@@ -126,18 +125,17 @@ export default function CustomAudioPlayer({ src, variant = "full" }: CustomAudio
     }
 
     return (
-        <div className="bg-white dark:bg-zinc-900 rounded-[2.5rem] p-6 sm:p-8 border border-emerald-500/10 shadow-xl w-full relative overflow-hidden group">
+        <div className="bg-white dark:bg-zinc-900 rounded-[2.5rem] p-6 sm:p-8 border border-emerald-500/10 shadow-xl w-full relative overflow-hidden group ltr-force">
             <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 blur-3xl rounded-full -translate-y-1/2 translate-x-1/2" />
             <audio ref={audioRef} src={src} preload="metadata" />
             
             <div className="flex flex-col gap-6 sm:gap-8 relative z-10">
                 {/* Progress Bar */}
-                <div className="space-y-3">
+                <div className="space-y-3 ltr-force">
                     <div className="relative h-2 w-full flex items-center">
                         <input
                             type="range"
                             ref={progressBarRef}
-                            defaultValue="0"
                             value={currentTime}
                             max={duration || 0}
                             onChange={changeRange}
@@ -150,7 +148,7 @@ export default function CustomAudioPlayer({ src, variant = "full" }: CustomAudio
                     </div>
                 </div>
 
-                <div className="flex items-center justify-between gap-4">
+                <div className="flex items-center justify-between gap-4 ltr-force">
                     <div className="flex items-center gap-2">
                         <button 
                             onClick={() => { if (audioRef.current) audioRef.current.currentTime = 0; }}
@@ -182,6 +180,11 @@ export default function CustomAudioPlayer({ src, variant = "full" }: CustomAudio
                     </button>
                 </div>
             </div>
+            <style jsx>{`
+                .ltr-force {
+                    direction: ltr !important;
+                }
+            `}</style>
         </div>
     );
 }

@@ -75,11 +75,6 @@ export default function Home() {
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/60 via-transparent to-transparent" />
 
-                                <div className="absolute bottom-10 left-10 right-10 p-8 glass rounded-3xl border border-white/20 backdrop-blur-md translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
-                                    <p className="text-white italic text-lg font-serif">
-                                        "{t.hero.quote}"
-                                    </p>
-                                </div>
                             </div>
                         </div>
                     </div>

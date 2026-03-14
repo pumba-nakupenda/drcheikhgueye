@@ -29,12 +29,7 @@ export default function Home() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center">
 
                         <div className="text-center lg:text-left space-y-8 md:space-y-10">
-                            <div className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-emerald-400/10 border border-emerald-400/20 text-emerald-400 text-sm font-bold uppercase tracking-[0.2em] animate-bounce">
-                                <Sparkles size={16} />
-                                {t.hero.transmission}
-                            </div>
-
-                            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif font-black text-white leading-snug tracking-tight mobile-text-balance">
+<h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif font-black text-white leading-snug tracking-tight mobile-text-balance">
                                 {t.hero.tagline}
                             </h1>
 

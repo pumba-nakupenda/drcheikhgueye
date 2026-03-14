@@ -108,23 +108,12 @@ export default function Home() {
                 <div className="absolute top-1/2 left-0 w-96 h-96 bg-emerald-200/10 blur-[150px] -translate-x-1/2 rounded-full" />
             </section>
 
-            {/* CTA Section - Commandes */}
+            {/* Quote Section */}
             <section className="py-14 md:py-24 px-4 bg-emerald-900 overflow-hidden relative reveal">
-                <div className="max-w-5xl mx-auto glass-card p-7 md:p-20 rounded-3xl md:rounded-[4rem] text-center relative z-10 overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-emerald-600/10 to-transparent" />
-                    <h2 className="text-4xl md:text-6xl font-serif font-black text-white mb-8 relative">
-                        {t.cta_section.title}
-                    </h2>
-                    <p className="text-emerald-100/70 text-lg md:text-xl mb-12 max-w-2xl mx-auto relative">
-                        {t.cta_section.text}
+                <div className="max-w-3xl mx-auto text-center relative z-10">
+                    <p className="text-2xl md:text-4xl font-serif italic text-white leading-relaxed">
+                        « {t.hero.quote} »
                     </p>
-                    <Link
-                        href="/books"
-                        className="inline-flex items-center gap-3 px-10 py-5 bg-white text-emerald-950 rounded-full font-black hover:scale-105 transition-transform shadow-2xl relative group"
-                    >
-                        {t.cta_section.button}
-                        <ArrowRight className={`group-hover:translate-x-1 transition-transform ${language === 'ar' ? 'rotate-180 group-hover:-translate-x-1' : ''}`} />
-                    </Link>
                 </div>
             </section>
         </div>

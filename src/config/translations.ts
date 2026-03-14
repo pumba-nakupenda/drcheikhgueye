@@ -121,8 +121,8 @@ export const translations = {
         },
         contact: {
             badge: "Contact Direct",
-            title: "Entrer en",
-            title_highlight: "Contact.",
+            title: "Entre en contact",
+            title_highlight: "avec l'auteur",
             tagline: "Pour toute commande d'ouvrage, demande de conférence ou collaboration académique.",
             phone: "Téléphone",
             whatsapp: "WhatsApp",
@@ -326,8 +326,8 @@ export const translations = {
         },
         contact: {
             badge: "Direct Contact",
-            title: "Get in",
-            title_highlight: "Touch.",
+            title: "Contact",
+            title_highlight: "the Author",
             tagline: "For any book order, conference request or academic collaboration.",
             phone: "Phone",
             whatsapp: "WhatsApp",
@@ -531,8 +531,8 @@ export const translations = {
         },
         contact: {
             badge: "اتصال مباشر",
-            title: "ابق على",
-            title_highlight: "تواصل.",
+            title: "تواصل مع",
+            title_highlight: "المؤلف",
             tagline: "لأي طلب كتاب، طلب محاضرة أو تعاون أكاديمي.",
             phone: "الهاتف",
             whatsapp: "واتساب",

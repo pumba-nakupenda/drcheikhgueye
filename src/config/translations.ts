@@ -15,7 +15,7 @@ export const translations = {
             infinity: "de renommée",
             words: "Internationale.",
             tagline: "Dr. Cheikh Gueye : Chercheur, Pédagogue et Traducteur de renommée internationale.",
-            cta_ouvrage: "Consulter l'Ouvrage",
+            cta_ouvrage: "Consulter les ouvrages",
             cta_auteur: "A la découverte de l'auteur",
             stats_publications: "Publications",
             stats_polyglotte: "Polyglotte",

@@ -77,7 +77,7 @@ export default function Navbar() {
                                 {language === 'ar' ? "غ" : "G"}
                             </div>
                             <span className="text-base sm:text-2xl font-serif font-black tracking-tighter text-emerald-900 dark:text-emerald-100 group-hover:text-emerald-600 transition-colors">
-                                {t.about.title_prefix}. <span className="text-emerald-700 dark:text-emerald-400 underline decoration-emerald-500/30 underline-offset-4">{language === 'ar' ? "شيخ" : "Cheikh"}</span> <span className="hidden min-[420px]:inline">{language === 'ar' ? "غي" : "Gueye"}</span>
+                                {t.about.title_prefix}. <span className="text-emerald-700 dark:text-emerald-400 underline decoration-emerald-500/30 underline-offset-4">{language === 'ar' ? "شيخ" : "Cheikh"}</span> <span className="hidden min-[420px]:inline">{language === 'ar' ? "غي" : "GUEYE"}</span>
                             </span>
                         </Link>
                     </div>

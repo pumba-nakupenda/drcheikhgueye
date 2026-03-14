@@ -10,15 +10,15 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    title: "Dr. Cheikh Gueye | Traducteur, Auteur & Phénoménologue",
-    description: "Site officiel du Dr. Cheikh Gueye, traducteur et auteur spécialisé dans l'initiation à l'arabe et la lecture du Saint Coran. Découvrez ses ouvrages et son engagement pour la transmission du savoir.",
-    keywords: ["Dr. Cheikh Gueye", "Traducteur Arabe", "Coran", "Linguistique Arabe", "Sénégal", "Phénoménologie du sacré", "Apprendre l'arabe"],
-    authors: [{ name: "Dr. Cheikh Gueye" }],
+    title: "Dr. Cheikh GUEYE | Traducteur, Auteur & Phénoménologue",
+    description: "Site officiel du Dr. Cheikh GUEYE, traducteur et auteur spécialisé dans l'initiation à l'arabe et la lecture du Saint Coran. Découvrez ses ouvrages et son engagement pour la transmission du savoir.",
+    keywords: ["Dr. Cheikh GUEYE", "Traducteur Arabe", "Coran", "Linguistique Arabe", "Sénégal", "Phénoménologie du sacré", "Apprendre l'arabe"],
+    authors: [{ name: "Dr. Cheikh GUEYE" }],
     openGraph: {
-        title: "Dr. Cheikh Gueye | L'Art de la Transmission",
-        description: "Explorez l'univers intellectuel et spirituel du Dr. Cheikh Gueye.",
+        title: "Dr. Cheikh GUEYE | L'Art de la Transmission",
+        description: "Explorez l'univers intellectuel et spirituel du Dr. Cheikh GUEYE.",
         url: "https://drcheikhgueye.com",
-        siteName: "Dr. Cheikh Gueye",
+        siteName: "Dr. Cheikh GUEYE",
         locale: "fr_FR",
         type: "website",
     },

@@ -64,9 +64,9 @@ export const books: Book[] = [
         author_en: "Dr. Cheikh GUEYE",
         price: 10000,
         summary:
-            "Cet ouvrage s'adresse aux candidats préparant des examens ou concours impliquant la rédaction de dissertations philosophiques ou pédagogiques. Face à la rareté des ressources en langue arabe sur cette méthodologie, le Dr. Cheikh Gueye propose un guide complet alliant théorie, applications pratiques détaillées et exercices d'entraînement pour maîtriser cet exercice complexe.",
+            "Cet ouvrage s'adresse aux candidats préparant des examens ou concours impliquant la rédaction de dissertations philosophiques ou pédagogiques. Face à la rareté des ressources en langue arabe sur cette méthodologie, le Dr. Cheikh GUEYE propose un guide complet alliant théorie, applications pratiques détaillées et exercices d'entraînement pour maîtriser cet exercice complexe.",
         summary_ar: "يوجه هذا الكتاب للمترشحين للامتحانات أو المسابقات التي تتطلب كتابة أطروحات فلسفية أو تربوية. نظراً لندرة الموارد باللغة العربية حول cette منهجية، يقدم الدكتور شيخ غي دليلاً شاملاً يجمع بين النظرية والتطبيقات العملية المفصلة والتمارين التدريبية لإتقان هذا التمرين المعقد.",
-        summary_en: "This work is aimed at candidates preparing for exams or competitions involving the writing of philosophical or pedagogical dissertations. Given the scarcity of Arabic-language resources on this methodology, Dr. Cheikh Gueye offers a comprehensive guide combining theory, detailed practical applications and training exercises to master this complex exercise.",
+        summary_en: "This work is aimed at candidates preparing for exams or competitions involving the writing of philosophical or pedagogical dissertations. Given the scarcity of Arabic-language resources on this methodology, Dr. Cheikh GUEYE offers a comprehensive guide combining theory, detailed practical applications and training exercises to master this complex exercise.",
         coverImage: "/images/books/dissertations.jpg",
         audioSummary: "/audio/Dissertation.mpeg",
         introAudio: "/audio/Presentation Dissertation arabe.mp3",

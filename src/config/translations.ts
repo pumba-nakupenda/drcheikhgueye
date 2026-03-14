@@ -11,10 +11,10 @@ export const translations = {
         },
         hero: {
             transmission: "L'Art de la Transmission",
-            explore: "Dr. Cheikh Gueye",
+            explore: "Dr. Cheikh GUEYE",
             infinity: "de renommée",
             words: "Internationale.",
-            tagline: "Dr. Cheikh Gueye : Chercheur, Pédagogue et Traducteur de renommée internationale.",
+            tagline: "Dr. Cheikh GUEYE : Chercheur, Pédagogue et Traducteur de renommée internationale.",
             cta_ouvrage: "Consulter les ouvrages",
             cta_auteur: "A la découverte de l'auteur",
             stats_publications: "Publications",
@@ -34,7 +34,7 @@ export const translations = {
             badge: "Témoignages",
             items: [
                 {
-                    quote: "Grâce à l'approche du Dr. Cheikh Gueye, j'ai enfin pu comprendre les nuances de l'arabe classique que je trouvais si difficiles auparavant.",
+                    quote: "Grâce à l'approche du Dr. Cheikh GUEYE, j'ai enfin pu comprendre les nuances de l'arabe classique que je trouvais si difficiles auparavant.",
                     author: "Abdoulaye Wade",
                     role: "Étudiant en Sciences Humaines"
                 },
@@ -76,7 +76,7 @@ export const translations = {
             title_prefix: "Docteur",
             quote: "La langue est un pont entre les cultures, un instrument de compréhension mutuelle et un outil d’élévation intellectuelle.",
             content: [
-                "Le Dr Cheikh Gueye est originaire de Louga. Chercheur et pédagogue de renom, il se consacre depuis des décennies à l’amélioration de l’éducation en Afrique, en général, et au Sénégal en particulier où il a été le chef de l’actuelle division de l’enseignement arabe au Ministère de l’Education Nationale, l’initiateur du tout premier programme d’enseignement de l’arabe au cycle élémentaire et le coordonnateur national de l’élaboration des manuels d’arabe actuellement mis en œuvre au niveau dudit cycle.",
+                "Le Dr Cheikh GUEYE est originaire de Louga. Chercheur et pédagogue de renom, il se consacre depuis des décennies à l’amélioration de l’éducation en Afrique, en général, et au Sénégal en particulier où il a été le chef de l’actuelle division de l’enseignement arabe au Ministère de l’Education Nationale, l’initiateur du tout premier programme d’enseignement de l’arabe au cycle élémentaire et le coordonnateur national de l’élaboration des manuels d’arabe actuellement mis en œuvre au niveau dudit cycle.",
                 "Il a enseigné à tous les niveaux du système éducatif sénégalais, de l’élémentaire au supérieur, notamment à la FASTEF où il a eu à former plusieurs générations d’élèves inspecteurs de l’enseignement arabe, de 1986 à 2015.",
                 "Inspecteur de langue française, professeur d’anglais et docteur en arabe, son profil de trilingue le spécialise dans l’enseignement, la recherche et la traduction."
             ],
@@ -140,7 +140,7 @@ export const translations = {
             form_submit: "Envoyer le Message",
             form_sending: "Envoi en cours...",
             form_success_title: "Message Envoyé !",
-            form_success_text: "Merci pour votre message. Le Docteur Cheikh Gueye ou son secrétariat vous répondra dans les plus brefs délais.",
+            form_success_text: "Merci pour votre message. Le Docteur Cheikh GUEYE ou son secrétariat vous répondra dans les plus brefs délais.",
             form_another: "Envoyer un autre message",
             subjects: ["Commande de livre", "Demande de conférence", "Question académique", "Autre"],
         },
@@ -175,7 +175,7 @@ export const translations = {
             badge: "Nos Ouvrages",
             title: "La",
             title_highlight: "Bibliothèque.",
-            tagline: "Parcourez la collection complète des œuvres du Dr. Cheikh Gueye. Des méthodes pédagogiques innovantes pour l'apprentissage de la langue arabe."
+            tagline: "Parcourez la collection complète des œuvres du Dr. Cheikh GUEYE. Des méthodes pédagogiques innovantes pour l'apprentissage de la langue arabe."
         },
         book_detail: {
             back: "Retour aux Ouvrages",
@@ -216,10 +216,10 @@ export const translations = {
         },
         hero: {
             transmission: "The Art of Transmission",
-            explore: "Dr. Cheikh Gueye",
+            explore: "Dr. Cheikh GUEYE",
             infinity: "of International",
             words: "Renown.",
-            tagline: "Dr. Cheikh Gueye: Internationally renowned Researcher, Educator and Translator.",
+            tagline: "Dr. Cheikh GUEYE: Internationally renowned Researcher, Educator and Translator.",
             cta_ouvrage: "Browse Works",
             cta_auteur: "Knowing about the author",
             stats_publications: "Publications",
@@ -239,7 +239,7 @@ export const translations = {
             badge: "Testimonials",
             items: [
                 {
-                    quote: "Thanks to Dr. Cheikh Gueye's approach, I was finally able to understand the nuances of classical Arabic that I previously found so difficult.",
+                    quote: "Thanks to Dr. Cheikh GUEYE's approach, I was finally able to understand the nuances of classical Arabic that I previously found so difficult.",
                     author: "Abdoulaye Wade",
                     role: "Student in Humanities"
                 },
@@ -281,7 +281,7 @@ export const translations = {
             title_prefix: "Doctor",
             quote: "Language is a bridge between cultures, an instrument of mutual understanding and a tool for intellectual elevation.",
             content: [
-                "Dr. Cheikh Gueye is from Louga. As a renowned researcher and educator, he has dedicated decades to improving education in Africa in general, and in Senegal in particular, where he was the head of the current Arabic education division at the Ministry of National Education, the initiator of the very first Arabic teaching program at the elementary level, and the national coordinator for the development of the Arabic textbooks currently in use at that level.",
+                "Dr. Cheikh GUEYE is from Louga. As a renowned researcher and educator, he has dedicated decades to improving education in Africa in general, and in Senegal in particular, where he was the head of the current Arabic education division at the Ministry of National Education, the initiator of the very first Arabic teaching program at the elementary level, and the national coordinator for the development of the Arabic textbooks currently in use at that level.",
                 "He taught at all levels of the Senegalese education system, from primary school to higher education, mainly at the Faculty of Technological and Scientific Education and Training (Former Higher Teacher Training School) where he trained several generations of student inspectors of Arabic education from 1986 to 2015.",
                 "As a French language inspector, a teacher of English, and a Doctor in Arabic, his trilingual profile allows him to specialize in teaching, research and translation."
             ],
@@ -345,7 +345,7 @@ export const translations = {
             form_submit: "Send Message",
             form_sending: "Sending...",
             form_success_title: "Message Sent!",
-            form_success_text: "Thank you for your message. Dr. Cheikh Gueye or his secretariat will reply to you as soon as possible.",
+            form_success_text: "Thank you for your message. Dr. Cheikh GUEYE or his secretariat will reply to you as soon as possible.",
             form_another: "Send another message",
             subjects: ["Book order", "Conference request", "Academic question", "Other"],
         },
@@ -355,7 +355,7 @@ export const translations = {
             title_highlight: "Questions",
             items: [
                 {
-                    question: "How can I order Dr. Cheikh Gueye's books?",
+                    question: "How can I order Dr. Cheikh GUEYE's books?",
                     answer: "Ordering is done simply via WhatsApp. Click the 'Order on WhatsApp' button on each book page. A pre-filled message will be generated to facilitate your exchange with our team."
                 },
                 {
@@ -380,7 +380,7 @@ export const translations = {
             badge: "Our Works",
             title: "The",
             title_highlight: "Library.",
-            tagline: "Browse the complete collection of Dr. Cheikh Gueye's works. Innovative pedagogical methods for learning the Arabic language."
+            tagline: "Browse the complete collection of Dr. Cheikh GUEYE's works. Innovative pedagogical methods for learning the Arabic language."
         },
         book_detail: {
             back: "Back to Works",

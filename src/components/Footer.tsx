@@ -17,7 +17,7 @@ export default function Footer() {
                 </div>
                 <div className={`mt-8 md:mt-0 md:order-1 flex flex-col items-center gap-2 ${isRtl ? 'md:items-end' : 'md:items-start'}`}>
                     <p className="text-zinc-400 text-sm">
-                        &copy; {new Date().getFullYear()} Dr. Cheikh Gueye. {t.footer.rights}
+                        &copy; {new Date().getFullYear()} Dr. Cheikh GUEYE. {t.footer.rights}
                     </p>
                     <p className="text-zinc-500 text-[10px] uppercase font-bold tracking-[0.2em]">
                         {t.footer.designed_by} <a

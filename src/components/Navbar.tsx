@@ -230,7 +230,7 @@ export default function Navbar() {
 
                         <div className="mt-auto pt-10 border-t border-emerald-500/10 space-y-4">
                             <p className={`text-[10px] font-black uppercase tracking-widest text-emerald-900/30 dark:text-emerald-100/20 ${isRtl ? 'text-right' : 'text-left'}`}>
-                                {language === 'ar' ? "تواصل معنا" : language === 'en' ? "Contact Dr. Cheikh Gueye" : "Contactez Dr. Cheikh Gueye"}
+                                {language === 'ar' ? "تواصل معنا" : language === 'en' ? "Contact Dr. Cheikh GUEYE" : "Contactez Dr. Cheikh GUEYE"}
                             </p>
                             <Link
                                 href={siteConfig.whatsappLinks.general}

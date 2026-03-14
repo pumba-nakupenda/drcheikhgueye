@@ -56,7 +56,7 @@ export default function Home() {
                             <div className="relative h-full rounded-[3rem] overflow-hidden border-8 border-white/10 shadow-2xl">
                                 <Image
                                     src="/images/portrait-cheikh-gueye.webp"
-                                    alt="Dr. Cheikh Gueye"
+                                    alt="Dr. Cheikh GUEYE"
                                     fill
                                     className="object-cover transition-transform duration-1000 group-hover:scale-110"
                                     priority

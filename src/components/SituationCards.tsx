@@ -83,7 +83,7 @@ function FlipCard({ situation }: { situation: Situation }) {
                     </div>
                     <div className="mt-6 pt-6 flex justify-center border-t border-white/10">
                         <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40">
-                            Dr. Cheikh Gueye
+                            Dr. Cheikh GUEYE
                         </span>
                     </div>
                 </div>

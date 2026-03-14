@@ -35,15 +35,9 @@ export default function Home() {
                                 {t.hero.transmission}
                             </div>
 
-                            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-serif font-black text-white leading-[1.1] md:leading-[1] tracking-tighter mobile-text-balance">
-                                {t.hero.explore} <br />
-                                <span className="text-emerald-400 italic font-medium">{t.hero.infinity}</span> <br />
-                                {t.hero.words}
-                            </h1>
-
-                            <p className="text-base md:text-2xl text-emerald-100/70 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light px-4 md:px-0">
+                            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-black text-white leading-snug tracking-tight mobile-text-balance">
                                 {t.hero.tagline}
-                            </p>
+                            </h1>
 
                             <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start pt-6">
                                 <Link

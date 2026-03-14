@@ -109,7 +109,7 @@ export default function Home() {
             </section>
 
             {/* Quote Section */}
-            <section className="py-14 md:py-24 px-4 bg-emerald-900 overflow-hidden relative reveal">
+            <section className="py-8 md:py-12 px-4 bg-emerald-900 overflow-hidden relative reveal">
                 <div className="max-w-3xl mx-auto text-center relative z-10">
                     <p className="text-2xl md:text-4xl font-serif italic text-white leading-relaxed">
                         « {t.hero.quote} »

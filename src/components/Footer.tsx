@@ -9,7 +9,7 @@ export default function Footer() {
 
     return (
         <footer className="bg-zinc-50 dark:bg-zinc-900 border-t border-zinc-200 dark:border-zinc-800">
-            <div className={`max-w-7xl mx-auto py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8 ${isRtl ? 'md:flex-row-reverse' : ''}`}>
+            <div className={`max-w-7xl mx-auto py-6 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8 ${isRtl ? 'md:flex-row-reverse' : ''}`}>
                 <div className={`flex justify-center md:order-2 ${isRtl ? 'md:justify-start' : 'md:justify-end'}`}>
                     <span className="text-zinc-400 text-sm">
                         {t.footer.location}

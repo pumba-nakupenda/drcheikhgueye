@@ -34,7 +34,7 @@ export default function Home() {
                                 {t.hero.transmission}
                             </div>
 
-                            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-black text-white leading-snug tracking-tight mobile-text-balance">
+                            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif font-black text-white leading-snug tracking-tight mobile-text-balance">
                                 {t.hero.tagline}
                             </h1>
 

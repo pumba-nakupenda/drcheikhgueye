@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { books } from "@/data/books";
 import BookCard from "@/components/BookCard";
-import Testimonials from "@/components/Testimonials";
 import { ArrowRight, Sparkles, Languages, PenLine, ScrollText, Headphones } from "lucide-react";
 import useScrollReveal from "@/hooks/useScrollReveal";
 
@@ -113,8 +112,6 @@ export default function Home() {
                 {/* Background decorative elements */}
                 <div className="absolute top-1/2 left-0 w-96 h-96 bg-emerald-200/10 blur-[150px] -translate-x-1/2 rounded-full" />
             </section>
-
-            <Testimonials />
 
             {/* CTA Section - Commandes */}
             <section className="py-14 md:py-24 px-4 bg-emerald-900 overflow-hidden relative reveal">

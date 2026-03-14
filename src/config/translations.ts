@@ -24,7 +24,7 @@ export const translations = {
         },
         featured_books: {
             title: "Dernières",
-            subtitle: "Parutions.",
+            subtitle: "Publications.",
             tagline: "Explorez des œuvres qui marient spiritualité, linguistique et réflexion sociétale.",
             cta_all: "Voir toute la collection",
         },

@@ -228,8 +228,8 @@ export const translations = {
             scroll: "Scroll",
         },
         featured_books: {
-            title: "Latest",
-            subtitle: "Releases.",
+            title: "Recent",
+            subtitle: "Publications.",
             tagline: "Explore works that blend spirituality, linguistics and societal reflection.",
             cta_all: "View the full collection",
         },

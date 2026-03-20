@@ -20,6 +20,8 @@ export default function BookCard({ book }: BookCardProps) {
     const [showToast, setShowToast] = useState(false);
     const isRtl = dir === 'rtl';
     const phoneNumber = siteConfig.whatsappNumber;
+    const FLAGS: Record<string, string> = { fr: '🇫🇷', en: '🇬🇧', ar: '🇸🇦' };
+    const availableLabel = language === 'ar' ? 'متوفر بـ' : language === 'en' ? 'Available in' : 'Disponible en';
 
     // Choose bilingual fields
     const displayTitle = language === 'ar' && book.title_ar ? book.title_ar : language === 'en' && book.title_en ? book.title_en : book.title;
@@ -110,6 +112,21 @@ export default function BookCard({ book }: BookCardProps) {
                         {book.price.toLocaleString(language === 'ar' ? "ar-SA" : language === 'en' ? "en-US" : "fr-FR")} CFA
                     </span>
                 </div>
+
+                {book.languages && book.languages.length > 0 && (
+                    <div className="flex items-center gap-2 flex-wrap">
+                        <span className="text-[11px] font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wide">
+                            {availableLabel}
+                        </span>
+                        <div className="flex items-center gap-1.5">
+                            {book.languages.map((lang) => (
+                                <span key={lang} className="text-base" title={lang.toUpperCase()}>
+                                    {FLAGS[lang]}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                )}
 
                 <p className="text-sm text-emerald-900/60 dark:text-emerald-100/60 line-clamp-2 leading-relaxed">
                     {displaySummary}

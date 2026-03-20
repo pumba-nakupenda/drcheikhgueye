@@ -25,6 +25,7 @@ export interface Book {
     situations?: Situation[];
     situations_ar?: Situation[];
     situations_en?: Situation[];
+    languages: ('fr' | 'en' | 'ar')[];
 }
 
 export const books: Book[] = [
@@ -52,7 +53,8 @@ export const books: Book[] = [
             "/images/books/approche-pratique-arabe-2.jpg",
             "/images/books/approche-pratique-arabe-1.jpg"
         ],
-        pdfPreview: "/test.pdf"
+        pdfPreview: "/test.pdf",
+        languages: ['fr'],
     },
     {
         id: "dissertations",
@@ -75,7 +77,8 @@ export const books: Book[] = [
             "/images/portrait-cheikh-gueye.webp",
             "/images/books/dissertations.jpg",
             "/images/books/approche-pratique-arabe-2.jpg"
-        ]
+        ],
+        languages: ['ar'],
     },
     {
         id: "mukhtasar-al-akhdari",
@@ -128,6 +131,7 @@ export const books: Book[] = [
                 answer: "يجب عليك ترك هذه الآية والانتقال إلى ما بعدها. فإذا لم تستطع القراءة، فعليك الركوع. وفي هذه الحالة، لا يجب عليك سجود السهو."
             }
         ],
+        languages: ['fr', 'ar'],
         situations_en: [
             {
                 question: "You arrive late at the mosque and perform less than one rak'aa behind the imam, then follow him when he prostrates after the salutation. Is your prayer valid?",

@@ -77,10 +77,10 @@ export default function LanguagePopup() {
         return () => window.removeEventListener("resize", handleResize);
     }, [step, positionBubble]);
 
-    // Auto-dismiss bubble after 5 seconds
+    // Auto-dismiss bubble after 45 seconds
     useEffect(() => {
         if (step !== "bubble") return;
-        const timer = setTimeout(closeBubble, 5000);
+        const timer = setTimeout(closeBubble, 45000);
         return () => clearTimeout(timer);
     }, [step]);
 

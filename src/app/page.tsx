@@ -42,7 +42,7 @@ export default function Home() {
 
                             <p className="text-base md:text-2xl text-emerald-100/70 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light px-4 md:px-0">
                                 {t.hero.tagline}
-                            </h1>
+                            </p>
 
                             <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start pt-6">
                                 <Link

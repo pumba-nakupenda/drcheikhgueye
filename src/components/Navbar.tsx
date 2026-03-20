@@ -69,19 +69,20 @@ export default function Navbar() {
         <nav className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? "py-4 glass shadow-2xl" : "py-6 bg-transparent"
             } ${isVisible ? "translate-y-0" : "-translate-y-full sm:translate-y-0"}`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center h-full">
+                {/* Desktop Navbar - Forced LTR */}
+                <div className="flex justify-between items-center h-full" style={{ direction: 'ltr' }}>
                     <div className="flex-shrink-0 flex items-center">
                         <Link href="/" className="group flex items-center gap-3">
                             <div className="w-10 h-10 rounded-xl bg-emerald-600 flex items-center justify-center text-white font-serif font-black text-xl shadow-lg group-hover:rotate-12 transition-transform">
                                 {language === 'ar' ? "غ" : "G"}
                             </div>
                             <span className="text-base sm:text-2xl font-serif font-black tracking-tighter text-emerald-900 dark:text-emerald-100 group-hover:text-emerald-600 transition-colors">
-                                {t.about.title_prefix}. <span className="text-emerald-700 dark:text-emerald-400 underline decoration-emerald-500/30 underline-offset-4">{language === 'ar' ? "شيخ" : "Cheikh"}</span> <span className="hidden min-[420px]:inline">{language === 'ar' ? "غي" : "Gueye"}</span>
+                                {t.about.title_prefix}. <span className="text-emerald-700 dark:text-emerald-400 underline decoration-emerald-500/30 underline-offset-4">{language === 'ar' ? "شيخ" : "Cheikh"}</span> <span className="hidden min-[420px]:inline">{language === 'ar' ? "غي" : "GUEYE"}</span>
                             </span>
                         </Link>
                     </div>
 
-                    <div className="hidden sm:flex items-center space-x-8">
+                    <div className="hidden sm:flex items-center space-x-8" style={{ direction: 'ltr' }}>
                         {navLinks.map((link) => {
                             const isActive = pathname === link.href;
                             return (
@@ -100,23 +101,23 @@ export default function Navbar() {
                             );
                         })}
 
-                        {/* Language Toggle */}
-                        <div className="flex items-center gap-2 bg-emerald-100 dark:bg-emerald-900/30 p-1 rounded-full border border-emerald-500/10">
+                        {/* Language Toggle - Forced LTR and Fixed Order */}
+                        <div className="flex items-center gap-1 bg-emerald-100 dark:bg-emerald-900/30 p-1 rounded-full border border-emerald-500/10" style={{ direction: 'ltr' }}>
                             <button
                                 onClick={() => setLanguage('fr')}
-                                className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${language === 'fr' ? "bg-emerald-600 text-white shadow-lg" : "text-emerald-900/40 hover:text-emerald-600"}`}
+                                className={`px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${language === 'fr' ? "bg-emerald-600 text-white shadow-lg" : "text-emerald-900/40 hover:text-emerald-600"}`}
                             >
                                 FR
                             </button>
                             <button
                                 onClick={() => setLanguage('en')}
-                                className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${language === 'en' ? "bg-emerald-600 text-white shadow-lg" : "text-emerald-900/40 hover:text-emerald-600"}`}
+                                className={`px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${language === 'en' ? "bg-emerald-600 text-white shadow-lg" : "text-emerald-900/40 hover:text-emerald-600"}`}
                             >
                                 AN
                             </button>
                             <button
                                 onClick={() => setLanguage('ar')}
-                                className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${language === 'ar' ? "bg-emerald-600 text-white shadow-lg" : "text-emerald-900/40 hover:text-emerald-600"}`}
+                                className={`px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${language === 'ar' ? "bg-emerald-600 text-white shadow-lg" : "text-emerald-900/40 hover:text-emerald-600"}`}
                             >
                                 AR
                             </button>
@@ -140,7 +141,7 @@ export default function Navbar() {
                         </Link>
                     </div>
 
-                    <div className="sm:hidden flex items-center gap-1.5">
+                    <div className="sm:hidden flex items-center gap-1.5" style={{ direction: 'ltr' }}>
                         <button
                             onClick={toggleTheme}
                             className="w-9 h-9 flex items-center justify-center rounded-xl bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 active-scale"
@@ -175,7 +176,7 @@ export default function Navbar() {
                 </div>
             </div>
 
-            {/* Mobile menu overlay — rendered via portal to avoid backdrop-filter containing-block issues */}
+            {/* Mobile menu overlay */}
             {mounted && createPortal(
             <div className={`sm:hidden fixed inset-0 z-[9999] ${isOpen ? "visible pointer-events-auto" : "invisible pointer-events-none"}`}>
                 <div className={`absolute inset-0 bg-emerald-950/60 backdrop-blur-xl transition-opacity duration-500 ${isOpen ? "opacity-100" : "opacity-0"}`} onClick={toggleMenu} />
@@ -183,22 +184,27 @@ export default function Navbar() {
                 <div className={`absolute top-0 ${isRtl ? 'left-0' : 'right-0'} w-[85%] h-full bg-white dark:bg-zinc-950 shadow-2xl transition-transform duration-500 ease-out border-emerald-500/10 ${isOpen ? "translate-x-0" : isRtl ? "-translate-x-full" : "translate-x-full"
                     } ${isRtl ? 'border-r' : 'border-l'}`}>
                     <div className="flex flex-col h-full p-5 pt-20 space-y-4">
-                        <div className={`flex items-center justify-between mb-8 ${isRtl ? 'flex-row-reverse' : ''}`}>
+                        <div className="flex items-center justify-between mb-8" style={{ direction: 'ltr' }}>
                             <div className="text-xs font-black uppercase tracking-[0.3em] text-emerald-600">{language === 'ar' ? "التنقل" : "Navigation"}</div>
                             <div className="flex gap-1 border border-emerald-500/20 rounded-xl p-0.5">
-                                {(LANGUAGES).map((lang) => (
-                                    <button
-                                        key={lang}
-                                        onClick={() => setLanguage(lang)}
-                                        className={`px-3 py-1.5 rounded-lg text-[11px] font-black uppercase transition-all active:scale-95 ${
-                                            language === lang
-                                                ? 'bg-emerald-600/90 text-white shadow-sm'
-                                                : 'text-emerald-900/30 dark:text-white/30'
-                                        }`}
-                                    >
-                                        {lang.toUpperCase()}
-                                    </button>
-                                ))}
+                                <button
+                                    onClick={() => setLanguage('fr')}
+                                    className={`px-3 py-1.5 rounded-lg text-[11px] font-black uppercase transition-all active:scale-95 ${language === 'fr' ? 'bg-emerald-600 text-white shadow-sm' : 'text-emerald-900/30 dark:text-white/30'}`}
+                                >
+                                    FR
+                                </button>
+                                <button
+                                    onClick={() => setLanguage('en')}
+                                    className={`px-3 py-1.5 rounded-lg text-[11px] font-black uppercase transition-all active:scale-95 ${language === 'en' ? 'bg-emerald-600 text-white shadow-sm' : 'text-emerald-900/30 dark:text-white/30'}`}
+                                >
+                                    EN
+                                </button>
+                                <button
+                                    onClick={() => setLanguage('ar')}
+                                    className={`px-3 py-1.5 rounded-lg text-[11px] font-black uppercase transition-all active:scale-95 ${language === 'ar' ? 'bg-emerald-600 text-white shadow-sm' : 'text-emerald-900/30 dark:text-white/30'}`}
+                                >
+                                    AR
+                                </button>
                             </div>
                         </div>
 
@@ -224,7 +230,7 @@ export default function Navbar() {
 
                         <div className="mt-auto pt-10 border-t border-emerald-500/10 space-y-4">
                             <p className={`text-[10px] font-black uppercase tracking-widest text-emerald-900/30 dark:text-emerald-100/20 ${isRtl ? 'text-right' : 'text-left'}`}>
-                                {language === 'ar' ? "تواصل معنا" : language === 'en' ? "Contact Dr. Cheikh Gueye" : "Contactez Dr. Cheikh Gueye"}
+                                {language === 'ar' ? "تواصل معنا" : language === 'en' ? "Contact Dr. Cheikh GUEYE" : "Contactez Dr. Cheikh GUEYE"}
                             </p>
                             <Link
                                 href={siteConfig.whatsappLinks.general}
@@ -232,7 +238,7 @@ export default function Navbar() {
                                 className={`flex items-center justify-between bg-emerald-700 dark:bg-emerald-600 text-white p-5 rounded-[2rem] font-black shadow-xl active-scale ${isRtl ? 'flex-row-reverse' : ''}`}
                             >
                                 WhatsApp
-                                <MessageSquare size={24} className={isRtl ? 'rotate-0' : ''} />
+                                <MessageSquare size={24} />
                             </Link>
                         </div>
                     </div>

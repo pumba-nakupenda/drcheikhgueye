@@ -33,7 +33,7 @@ export default function BooksPage() {
                 </div>
             </div>
 
-            <div className="mt-14 md:mt-32 pt-10 md:pt-20 border-t border-emerald-500/10">
+            <div className="mt-8 md:mt-16 pt-6 md:pt-10 border-t border-emerald-500/10">
                 <FAQ />
             </div>
         </div>

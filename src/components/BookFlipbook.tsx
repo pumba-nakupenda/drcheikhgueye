@@ -35,10 +35,6 @@ export default function BookFlipbook({ images, title }: BookFlipbookProps) {
     return (
         <div className="mt-24 mb-32 reveal">
             <div className={`flex flex-col items-center text-center gap-6 mb-16`}>
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-900/30 border border-emerald-500/20 text-emerald-700 dark:text-emerald-400 text-xs font-black uppercase tracking-widest">
-                    <BookIcon size={14} />
-                    {language === 'ar' ? "تجربة تفاعلية" : "Expérience Interactive"}
-                </div>
                 <h2 className="text-4xl md:text-6xl font-serif font-black text-emerald-950 dark:text-emerald-50 leading-tight">
                     {t.book_detail.preview_button}
                 </h2>
@@ -66,7 +62,7 @@ export default function BookFlipbook({ images, title }: BookFlipbookProps) {
                                 <div className="absolute inset-0 flex flex-col items-center justify-center p-6 md:p-8 text-center">
                                     <div className="w-8 md:w-12 h-0.5 md:h-1 bg-white/30 mb-4 md:mb-6" />
                                     <h3 className="text-white font-serif font-black text-lg md:text-2xl mb-2 md:mb-4 line-clamp-3">{title}</h3>
-                                    <p className="text-emerald-200 text-[10px] md:text-xs font-bold uppercase tracking-widest">Dr. Cheikh Gueye</p>
+                                    <p className="text-emerald-200 text-[10px] md:text-xs font-bold uppercase tracking-widest">Dr. Cheikh GUEYE</p>
                                 </div>
                             </div>
                             {/* Inner Cover */}

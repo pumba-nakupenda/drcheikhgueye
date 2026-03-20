@@ -22,19 +22,13 @@ export default function AboutPage() {
                     <div className="lg:col-span-5 space-y-8">
                         <div className="relative aspect-square sm:aspect-[4/5] max-w-xs sm:max-w-none mx-auto rounded-[2rem] overflow-hidden shadow-2xl border-8 border-white/5 group animate-float">
                             <Image
-                                src="/images/portrait-cheikh-gueye.jpg"
-                                alt="Dr. Cheikh Gueye"
+                                src="/images/portrait-cheikh-gueye.webp"
+                                alt="Dr. Cheikh GUEYE"
                                 fill
                                 className="object-cover transition-transform duration-1000 group-hover:scale-110"
                                 priority
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/40 via-transparent to-transparent" />
-                        </div>
-
-                        <div className="p-8 glass rounded-[2rem] border border-emerald-500/10 shadow-xl">
-                            <p className="text-emerald-900/80 dark:text-emerald-100/80 italic font-serif text-lg leading-relaxed text-center">
-                                "{t.about.quote}"
-                            </p>
                         </div>
                     </div>
 
@@ -53,12 +47,12 @@ export default function AboutPage() {
                                 </div>
                             </div>
                             <h1 className="text-3xl md:text-6xl font-serif font-black text-emerald-950 dark:text-white leading-tight">
-                                {t.about.title_prefix} <span className="text-emerald-600">{language === 'ar' ? 'شيخ غي' : 'Cheikh Gueye'}</span>
+                                {t.about.title_prefix} <span className="text-emerald-600">{language === 'ar' ? 'شيخ غي' : 'Cheikh GUEYE'}</span>
                             </h1>
 
                             {/* Audio Player for Biography */}
                             <div className="pt-4 max-w-md">
-                                <CustomAudioPlayer src="/audio/Biographie.mp3" />
+                                <CustomAudioPlayer src={language === 'ar' ? "/audio/Biographie AR.mp3" : language === 'en' ? "/audio/Biographie AN.mp3" : "/audio/Biographie FR.mp3"} />
                             </div>
                         </div>
 
@@ -68,12 +62,6 @@ export default function AboutPage() {
                                     {p}
                                 </p>
                             ))}
-
-                            <div className={`bg-emerald-50 dark:bg-emerald-900/10 p-8 rounded-[2rem] ${isRtl ? 'border-r-4' : 'border-l-4'} border-emerald-500 my-10`}>
-                                <p className="m-0 italic text-emerald-950 dark:text-emerald-50">
-                                    {t.about.blockquote}
-                                </p>
-                            </div>
 
                             <p>{t.about.content_p2}</p>
                             <p>{t.about.content_p3}</p>

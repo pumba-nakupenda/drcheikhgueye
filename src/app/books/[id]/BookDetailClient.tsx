@@ -8,7 +8,6 @@ import { useLanguage } from "@/context/LanguageContext";
 import SituationCards from "@/components/SituationCards";
 import CustomAudioPlayer from "@/components/CustomAudioPlayer";
 import BookPreview from "@/components/BookPreview";
-import BookFlipbook from "@/components/BookFlipbook";
 import { useState, useEffect } from "react";
 import { Book } from "@/data/books";
 import Toast from "@/components/Toast";
@@ -201,10 +200,6 @@ export default function BookDetailClient({ book }: BookDetailClientProps) {
                         </div>
                     </div>
                 </div>
-
-                {book.previewImages && book.previewImages.length > 0 ? (
-                    <BookFlipbook images={book.previewImages} title={displayTitle} />
-                ) : null}
 
                 {displaySituations && displaySituations.length > 0 && (
                     <SituationCards situations={displaySituations} />

@@ -102,22 +102,22 @@ export default function Navbar() {
                         })}
 
                         {/* Language Toggle - Forced LTR and Fixed Order */}
-                        <div id="lang-switcher-desktop" className="flex items-center gap-1 bg-emerald-100 dark:bg-emerald-900/30 p-1 rounded-full border border-emerald-500/10" style={{ direction: 'ltr' }}>
+                        <div id="lang-switcher-desktop" className="flex items-center gap-1 bg-emerald-100 dark:bg-emerald-800/50 p-1 rounded-full border border-emerald-500/20" style={{ direction: 'ltr' }}>
                             <button
                                 onClick={() => setLanguage('fr')}
-                                className={`px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${language === 'fr' ? "bg-emerald-600 text-white shadow-lg" : "text-emerald-900/40 hover:text-emerald-600"}`}
+                                className={`px-3 py-1.5 rounded-full text-[11px] font-black uppercase tracking-widest transition-all ${language === 'fr' ? "bg-emerald-600 text-white shadow-lg" : "text-emerald-800 dark:text-emerald-200 hover:bg-emerald-200 dark:hover:bg-emerald-700/50"}`}
                             >
                                 FR
                             </button>
                             <button
                                 onClick={() => setLanguage('en')}
-                                className={`px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${language === 'en' ? "bg-emerald-600 text-white shadow-lg" : "text-emerald-900/40 hover:text-emerald-600"}`}
+                                className={`px-3 py-1.5 rounded-full text-[11px] font-black uppercase tracking-widest transition-all ${language === 'en' ? "bg-emerald-600 text-white shadow-lg" : "text-emerald-800 dark:text-emerald-200 hover:bg-emerald-200 dark:hover:bg-emerald-700/50"}`}
                             >
-                                AN
+                                EN
                             </button>
                             <button
                                 onClick={() => setLanguage('ar')}
-                                className={`px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${language === 'ar' ? "bg-emerald-600 text-white shadow-lg" : "text-emerald-900/40 hover:text-emerald-600"}`}
+                                className={`px-3 py-1.5 rounded-full text-[11px] font-black uppercase tracking-widest transition-all ${language === 'ar' ? "bg-emerald-600 text-white shadow-lg" : "text-emerald-800 dark:text-emerald-200 hover:bg-emerald-200 dark:hover:bg-emerald-700/50"}`}
                             >
                                 AR
                             </button>
@@ -157,13 +157,13 @@ export default function Navbar() {
                                 const idx = langs.indexOf(language);
                                 setLanguage(langs[(idx + 1) % langs.length]);
                             }}
-                            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-emerald-950/10 dark:bg-white/10 active:scale-95 transition-all duration-200"
+                            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-emerald-600 text-white active:scale-95 transition-all duration-200 shadow-md"
                             aria-label="Changer la langue"
                         >
-                            <span className="text-xs font-black text-emerald-900 dark:text-white">{language.toUpperCase()}</span>
+                            <span className="text-xs font-black">{language.toUpperCase()}</span>
                             <div className="flex flex-col gap-[3px]">
                                 {(LANGUAGES).map(l => (
-                                    <div key={l} className={`w-1 h-1 rounded-full transition-all ${l === language ? 'bg-emerald-600' : 'bg-emerald-900/20 dark:bg-white/25'}`} />
+                                    <div key={l} className={`w-1.5 h-1.5 rounded-full transition-all ${l === language ? 'bg-white' : 'bg-white/40'}`} />
                                 ))}
                             </div>
                         </button>

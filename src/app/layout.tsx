@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import ReadingProgress from "@/components/ReadingProgress";
 import MobileNavBar from "@/components/MobileNavBar";
+import LanguagePopup from "@/components/LanguagePopup";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -41,6 +42,7 @@ export default function RootLayout({
                     <Footer />
                     <BackToTop />
                     <MobileNavBar />
+                    <LanguagePopup />
                 </LanguageProvider>
             </body>
         </html>

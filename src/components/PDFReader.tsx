@@ -52,7 +52,7 @@ export default function PDFReader({ pdfUrl, title }: PDFReaderProps) {
                     {/* Header */}
                     <div className="bg-white dark:bg-zinc-900 border-b border-emerald-500/10 p-4 flex items-center justify-between shadow-lg">
                         <div className={`flex items-center gap-4 ${isRtl ? 'flex-row-reverse' : ''}`}>
-                            <button 
+                            <button
                                 onClick={closeReader}
                                 className="p-2 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors text-zinc-500"
                             >

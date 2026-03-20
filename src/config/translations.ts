@@ -228,8 +228,8 @@ export const translations = {
             scroll: "Scroll",
         },
         featured_books: {
-            title: "Latest",
-            subtitle: "Releases.",
+            title: "Recent",
+            subtitle: "Publications.",
             tagline: "Explore works that blend spirituality, linguistics and societal reflection.",
             cta_all: "View the full collection",
         },
@@ -434,7 +434,7 @@ export const translations = {
         },
         featured_books: {
             title: "أحدث",
-            subtitle: "الإصدارات.",
+            subtitle: "المؤلفات.",
             tagline: "استكشف الأعمال التي تزاوج بين الروحانيات، اللسانيات والتفكير المجتمعي.",
             cta_all: "عرض المجموعة كاملة",
         },

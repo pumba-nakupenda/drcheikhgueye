@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import { Play, Pause, Volume2, VolumeX, RotateCcw } from "lucide-react";
 
 interface CustomAudioPlayerProps {
@@ -15,42 +15,67 @@ export default function CustomAudioPlayer({ src, variant = "full" }: CustomAudio
     const [isMuted, setIsMuted] = useState(false);
     const [volume, setVolume] = useState(1);
     const [playbackRate, setPlaybackRate] = useState(1);
-    
+
     const audioRef = useRef<HTMLAudioElement>(null);
     const progressBarRef = useRef<HTMLInputElement>(null);
 
+    // Reset state when src changes
     useEffect(() => {
         const audio = audioRef.current;
         if (!audio) return;
 
+        // Reset state for new source
+        setIsPlaying(false);
+        setCurrentTime(0);
+        setDuration(0);
+
+        audio.pause();
+        audio.currentTime = 0;
+        audio.playbackRate = playbackRate;
+
         const setAudioData = () => {
-            setDuration(audio.duration);
+            if (isFinite(audio.duration)) {
+                setDuration(audio.duration);
+            }
             setCurrentTime(audio.currentTime);
         };
 
         const setAudioTime = () => setCurrentTime(audio.currentTime);
         const handleEnded = () => setIsPlaying(false);
 
+        audio.addEventListener("loadedmetadata", setAudioData);
         audio.addEventListener("loadeddata", setAudioData);
         audio.addEventListener("timeupdate", setAudioTime);
         audio.addEventListener("ended", handleEnded);
 
+        // If metadata is already loaded (cached), read it now
+        if (audio.readyState >= 1 && isFinite(audio.duration)) {
+            setDuration(audio.duration);
+        }
+
         return () => {
+            audio.removeEventListener("loadedmetadata", setAudioData);
             audio.removeEventListener("loadeddata", setAudioData);
             audio.removeEventListener("timeupdate", setAudioTime);
             audio.removeEventListener("ended", handleEnded);
         };
-    }, []);
+    }, [src]);
 
-    const togglePlayPause = () => {
-        const prevValue = isPlaying;
-        setIsPlaying(!prevValue);
-        if (!prevValue) {
-            audioRef.current?.play();
+    const togglePlayPause = useCallback(() => {
+        const audio = audioRef.current;
+        if (!audio) return;
+
+        if (isPlaying) {
+            audio.pause();
+            setIsPlaying(false);
         } else {
-            audioRef.current?.pause();
+            audio.play().then(() => {
+                setIsPlaying(true);
+            }).catch(() => {
+                setIsPlaying(false);
+            });
         }
-    };
+    }, [isPlaying]);
 
     const changeRange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const audio = audioRef.current;
@@ -103,6 +128,8 @@ export default function CustomAudioPlayer({ src, variant = "full" }: CustomAudio
                             type="range"
                             ref={progressBarRef}
                             value={currentTime}
+                            step={0.1}
+                            min={0}
                             max={duration || 0}
                             onChange={changeRange}
                             className="absolute inset-0 w-full h-1 bg-emerald-200/30 dark:bg-emerald-800/30 rounded-full appearance-none cursor-pointer accent-emerald-600"
@@ -137,6 +164,8 @@ export default function CustomAudioPlayer({ src, variant = "full" }: CustomAudio
                             type="range"
                             ref={progressBarRef}
                             value={currentTime}
+                            step={0.1}
+                            min={0}
                             max={duration || 0}
                             onChange={changeRange}
                             className="w-full h-2 bg-zinc-100 dark:bg-zinc-800/50 rounded-full appearance-none cursor-pointer accent-emerald-600"

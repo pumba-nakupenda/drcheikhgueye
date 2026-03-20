@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X, ChevronRight, MessageSquare, Sun, Moon } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { useLanguage } from "@/context/LanguageContext";
+import Flag from "@/components/Flag";
 
 const LANGUAGES = ['fr', 'en', 'ar'] as const;
 
@@ -102,24 +103,24 @@ export default function Navbar() {
                         })}
 
                         {/* Language Toggle - Forced LTR and Fixed Order */}
-                        <div className="flex items-center gap-1 bg-emerald-100 dark:bg-emerald-900/30 p-1 rounded-full border border-emerald-500/10" style={{ direction: 'ltr' }}>
+                        <div id="lang-switcher-desktop" className="flex items-center gap-1 bg-emerald-100 dark:bg-emerald-800/50 p-1 rounded-full border border-emerald-500/20" style={{ direction: 'ltr' }}>
                             <button
                                 onClick={() => setLanguage('fr')}
-                                className={`px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${language === 'fr' ? "bg-emerald-600 text-white shadow-lg" : "text-emerald-900/40 hover:text-emerald-600"}`}
+                                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-black uppercase tracking-widest transition-all ${language === 'fr' ? "bg-emerald-600 text-white shadow-lg" : "text-emerald-800 dark:text-emerald-200 hover:bg-emerald-200 dark:hover:bg-emerald-700/50"}`}
                             >
-                                FR
+                                <Flag lang="fr" size={16} /> FR
                             </button>
                             <button
                                 onClick={() => setLanguage('en')}
-                                className={`px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${language === 'en' ? "bg-emerald-600 text-white shadow-lg" : "text-emerald-900/40 hover:text-emerald-600"}`}
+                                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-black uppercase tracking-widest transition-all ${language === 'en' ? "bg-emerald-600 text-white shadow-lg" : "text-emerald-800 dark:text-emerald-200 hover:bg-emerald-200 dark:hover:bg-emerald-700/50"}`}
                             >
-                                AN
+                                <Flag lang="en" size={16} /> EN
                             </button>
                             <button
                                 onClick={() => setLanguage('ar')}
-                                className={`px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${language === 'ar' ? "bg-emerald-600 text-white shadow-lg" : "text-emerald-900/40 hover:text-emerald-600"}`}
+                                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-black uppercase tracking-widest transition-all ${language === 'ar' ? "bg-emerald-600 text-white shadow-lg" : "text-emerald-800 dark:text-emerald-200 hover:bg-emerald-200 dark:hover:bg-emerald-700/50"}`}
                             >
-                                AR
+                                <Flag lang="ar" size={16} /> AR
                             </button>
                         </div>
 
@@ -151,20 +152,17 @@ export default function Navbar() {
                         </button>
                         {/* Compact cycling language button */}
                         <button
+                            id="lang-switcher-mobile"
                             onClick={() => {
                                 const langs = LANGUAGES;
                                 const idx = langs.indexOf(language);
                                 setLanguage(langs[(idx + 1) % langs.length]);
                             }}
-                            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-emerald-950/10 dark:bg-white/10 active:scale-95 transition-all duration-200"
+                            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-emerald-600 text-white active:scale-95 transition-all duration-200 shadow-md"
                             aria-label="Changer la langue"
                         >
-                            <span className="text-xs font-black text-emerald-900 dark:text-white">{language.toUpperCase()}</span>
-                            <div className="flex flex-col gap-[3px]">
-                                {(LANGUAGES).map(l => (
-                                    <div key={l} className={`w-1 h-1 rounded-full transition-all ${l === language ? 'bg-emerald-600' : 'bg-emerald-900/20 dark:bg-white/25'}`} />
-                                ))}
-                            </div>
+                            <Flag lang={language} size={16} />
+                            <span className="text-xs font-black">{language.toUpperCase()}</span>
                         </button>
                         <button
                             onClick={toggleMenu}
@@ -189,21 +187,21 @@ export default function Navbar() {
                             <div className="flex gap-1 border border-emerald-500/20 rounded-xl p-0.5">
                                 <button
                                     onClick={() => setLanguage('fr')}
-                                    className={`px-3 py-1.5 rounded-lg text-[11px] font-black uppercase transition-all active:scale-95 ${language === 'fr' ? 'bg-emerald-600 text-white shadow-sm' : 'text-emerald-900/30 dark:text-white/30'}`}
+                                    className={`flex items-center gap-1 px-3 py-1.5 rounded-lg text-[11px] font-black uppercase transition-all active:scale-95 ${language === 'fr' ? 'bg-emerald-600 text-white shadow-sm' : 'text-emerald-900/50 dark:text-white/50'}`}
                                 >
-                                    FR
+                                    <Flag lang="fr" size={16} /> FR
                                 </button>
                                 <button
                                     onClick={() => setLanguage('en')}
-                                    className={`px-3 py-1.5 rounded-lg text-[11px] font-black uppercase transition-all active:scale-95 ${language === 'en' ? 'bg-emerald-600 text-white shadow-sm' : 'text-emerald-900/30 dark:text-white/30'}`}
+                                    className={`flex items-center gap-1 px-3 py-1.5 rounded-lg text-[11px] font-black uppercase transition-all active:scale-95 ${language === 'en' ? 'bg-emerald-600 text-white shadow-sm' : 'text-emerald-900/50 dark:text-white/50'}`}
                                 >
-                                    EN
+                                    <Flag lang="en" size={16} /> EN
                                 </button>
                                 <button
                                     onClick={() => setLanguage('ar')}
-                                    className={`px-3 py-1.5 rounded-lg text-[11px] font-black uppercase transition-all active:scale-95 ${language === 'ar' ? 'bg-emerald-600 text-white shadow-sm' : 'text-emerald-900/30 dark:text-white/30'}`}
+                                    className={`flex items-center gap-1 px-3 py-1.5 rounded-lg text-[11px] font-black uppercase transition-all active:scale-95 ${language === 'ar' ? 'bg-emerald-600 text-white shadow-sm' : 'text-emerald-900/50 dark:text-white/50'}`}
                                 >
-                                    AR
+                                    <Flag lang="ar" size={16} /> AR
                                 </button>
                             </div>
                         </div>

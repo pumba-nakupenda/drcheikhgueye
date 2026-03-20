@@ -22,22 +22,19 @@ export default function Testimonials() {
         const cardWidth = container.querySelector('.glass-card')?.clientWidth || 0;
         const gap = 24; // gap-6
 
-        // Adjust scroll position for RTL/LTR
         container.scrollTo({
-            left: index * (cardWidth + gap) * (isRtl ? -1 : 1),
+            left: index * (cardWidth + gap),
             behavior: 'smooth'
         });
         setActiveIndex(index);
     };
 
     const scroll = (direction: 'left' | 'right') => {
-        const logicalDirection = isRtl ? (direction === 'left' ? 'right' : 'left') : direction;
-
-        const newIndex = logicalDirection === 'left'
+        const newIndex = direction === 'left'
             ? Math.max(0, activeIndex - 1)
             : Math.min(testimonials.length - 1, activeIndex + 1);
 
-        if (logicalDirection === 'right' && activeIndex === testimonials.length - 1) {
+        if (direction === 'right' && activeIndex === testimonials.length - 1) {
             scrollToIndex(0);
         } else {
             scrollToIndex(newIndex);
@@ -59,7 +56,7 @@ export default function Testimonials() {
         const container = scrollRef.current;
         const cardWidth = container.querySelector('.glass-card')?.clientWidth || 0;
         const gap = 24;
-        const scrollPos = isRtl ? Math.abs(container.scrollLeft) : container.scrollLeft;
+        const scrollPos = container.scrollLeft;
         const index = Math.round(scrollPos / (cardWidth + gap));
         setActiveIndex(index);
     };
@@ -109,7 +106,7 @@ export default function Testimonials() {
                         const diff = touchStartX.current - e.changedTouches[0].clientX;
                         if (Math.abs(diff) > 50) scroll(diff > 0 ? 'right' : 'left');
                     }}
-                    className="flex gap-6 overflow-x-auto pb-12 snap-x snap-mandatory scrollbar-hide px-4 md:px-0 transition-all touch-pan-x rtl:flex-row-reverse"
+                    className="flex gap-6 overflow-x-auto pb-12 snap-x snap-mandatory scrollbar-hide px-4 md:px-0 transition-all touch-pan-x ltr-layout"
                 >
                     {testimonials.map((testi: Testimonial, i: number) => (
                         <div

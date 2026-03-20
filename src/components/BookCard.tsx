@@ -14,12 +14,14 @@ interface BookCardProps {
 }
 
 import { useLanguage } from "@/context/LanguageContext";
+import Flag from "./Flag";
 
 export default function BookCard({ book }: BookCardProps) {
     const { language, t, dir } = useLanguage();
     const [showToast, setShowToast] = useState(false);
     const isRtl = dir === 'rtl';
     const phoneNumber = siteConfig.whatsappNumber;
+    const availableLabel = language === 'ar' ? 'متوفر بـ' : language === 'en' ? 'Available in' : 'Disponible en';
 
     // Choose bilingual fields
     const displayTitle = language === 'ar' && book.title_ar ? book.title_ar : language === 'en' && book.title_en ? book.title_en : book.title;
@@ -111,11 +113,32 @@ export default function BookCard({ book }: BookCardProps) {
                     </span>
                 </div>
 
+                {book.languages && book.languages.length > 0 && (
+                    <div className="flex items-center gap-2 flex-wrap">
+                        <span className="text-[11px] font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wide">
+                            {availableLabel}
+                        </span>
+                        <div className="flex items-center gap-2">
+                            {book.languages.map((lang, i) => (
+                                <span key={lang} className="flex items-center gap-1">
+                                    {i > 0 && <span className="text-emerald-400/50 text-xs">/</span>}
+                                    <Flag lang={lang} size={16} />
+                                    <span className="text-[11px] font-semibold text-emerald-800 dark:text-emerald-300">
+                                        {lang === 'fr' ? (language === 'ar' ? 'فرنسية' : language === 'en' ? 'French' : 'Français')
+                                         : lang === 'en' ? (language === 'ar' ? 'إنجليزية' : language === 'en' ? 'English' : 'Anglais')
+                                         : (language === 'ar' ? 'عربية' : language === 'en' ? 'Arabic' : 'Arabe')}
+                                    </span>
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
                 <p className="text-sm text-emerald-900/60 dark:text-emerald-100/60 line-clamp-2 leading-relaxed">
                     {displaySummary}
                 </p>
 
-                {book.introAudio && (
+                {(book.introAudio || book.introAudio_ar) && (
                     <div className="pt-2">
                         <div className="flex items-center gap-2 mb-2">
                             <Headphones size={12} className="text-emerald-600" />
@@ -123,7 +146,7 @@ export default function BookCard({ book }: BookCardProps) {
                                 {language === 'ar' ? "عرض صوتي" : language === 'en' ? "Audio Presentation" : "Présentation audio"}
                             </span>
                         </div>
-                        <CustomAudioPlayer src={book.introAudio} variant="compact" />
+                        <CustomAudioPlayer src={(language === 'ar' && book.introAudio_ar) ? book.introAudio_ar : book.introAudio!} variant="compact" />
                     </div>
                 )}
 
@@ -142,7 +165,7 @@ export default function BookCard({ book }: BookCardProps) {
                         className="flex items-center justify-center gap-2 w-full py-4 rounded-2xl bg-emerald-700 dark:bg-emerald-600 text-white font-black text-sm shadow-lg shadow-emerald-700/20 hover:bg-emerald-800 active:scale-[0.98] transition-all"
                     >
                         <ShoppingCart size={18} />
-                        {language === 'ar' ? "اطلب الكتاب" : language === 'en' ? "Order Book" : "Commander l'ouvrage"}
+                        {language === 'ar' ? "اطلب الكتاب" : language === 'en' ? "Order Now" : "Commander l'ouvrage"}
                         <ChevronRight size={16} className={`transition-transform ${isRtl ? 'rotate-180 group-hover:-translate-x-1' : 'group-hover:translate-x-1'}`} />
                     </a>
                 </div>

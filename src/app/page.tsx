@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { books } from "@/data/books";
 import BookCard from "@/components/BookCard";
-import { ArrowRight, Sparkles, Languages, PenLine, ScrollText, Headphones } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import useScrollReveal from "@/hooks/useScrollReveal";
 
 import { useLanguage } from "@/context/LanguageContext";
@@ -28,8 +28,8 @@ export default function Home() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 relative z-10 flex flex-col justify-center min-h-[90vh]">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center">
 
-                        <div className="text-center lg:text-left space-y-8 md:space-y-10">
-<h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif font-black text-white leading-snug tracking-tight mobile-text-balance">
+                        <div className="text-center lg:text-left rtl:lg:text-right space-y-8 md:space-y-10">
+                            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif font-black text-white leading-snug tracking-tight mobile-text-balance">
                                 {t.hero.tagline}
                             </h1>
 
@@ -48,7 +48,6 @@ export default function Home() {
                                     {t.hero.cta_auteur}
                                 </Link>
                             </div>
-
                         </div>
 
                         <div className="relative aspect-square sm:aspect-[4/5] md:aspect-square lg:aspect-[4/5] w-full max-w-[260px] sm:max-w-[28rem] mx-auto group">

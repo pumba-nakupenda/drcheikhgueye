@@ -20,18 +20,20 @@ export interface Book {
     audioSummary_ar?: string;
     audioSummary_en?: string;
     introAudio?: string;
+    introAudio_ar?: string;
     previewImages?: string[];
     pdfPreview?: string;
     situations?: Situation[];
     situations_ar?: Situation[];
     situations_en?: Situation[];
+    languages: ('fr' | 'en' | 'ar')[];
 }
 
 export const books: Book[] = [
     {
         id: "approache-arabe",
         title: "Approche pratique de l'initiation à l'arabe et à la lecture du Saint Coran",
-        title_ar: "المنهج العملي للتدريب على اللغة العربية وقراءة القرآن الكريم",
+        title_ar: "مقاربة جديدة لتعليم اللغة العربية وقراءة القرآن الكريم",
         title_en: "Practical Approach to Arabic Initiation and Reading of the Holy Quran",
         author: "Dr. Cheikh GUEYE",
         author_ar: "د. شيخ غي",
@@ -39,7 +41,7 @@ export const books: Book[] = [
         price: 10000,
         summary:
             "Ce livre est une méthode d'initiation pratique à la langue arabe et à la lecture du Saint Coran. Il propose une approche pédagogique innovante pour faciliter l'apprentissage des bases de la langue sacrée.",
-        summary_ar: "هذا الكتاب هو منهج للتدريب العملي على اللغة العربية وقراءة القرآن الكريم. يقدم مقاربة بيداغوجية مبتكرة لتسهيل تعلم أسس اللغة المقدسة.",
+        summary_ar: "هذا الكتاب منهج عملي لتدريس اللغة العربية وقراءة القرآن الكريم.",
         summary_en: "This book is a practical method for learning Arabic and reading the Holy Quran. It offers an innovative pedagogical approach to facilitate the learning of the fundamentals of the sacred language.",
         coverImage: "/images/books/approche-pratique-arabe-2.jpg",
         audioSummary: "/audio/apprendre-arabe.mp3",
@@ -52,12 +54,13 @@ export const books: Book[] = [
             "/images/books/approche-pratique-arabe-2.jpg",
             "/images/books/approche-pratique-arabe-1.jpg"
         ],
-        pdfPreview: "/test.pdf"
+        pdfPreview: "/test.pdf",
+        languages: ['fr'],
     },
     {
         id: "dissertations",
         title: "Dissertations d'ordre philosophique et pédagogique",
-        title_ar: "أطروحات في الفلسفة والتربية",
+        title_ar: "تحرير المقالة في الفلسفة والبيداغوجيا",
         title_en: "Philosophical and Pedagogical Dissertations",
         author: "Dr. Cheikh GUEYE",
         author_ar: "د. شيخ غي",
@@ -65,8 +68,8 @@ export const books: Book[] = [
         price: 10000,
         summary:
             "Cet ouvrage s'adresse aux candidats préparant des examens ou concours impliquant la rédaction de dissertations philosophiques ou pédagogiques. Face à la rareté des ressources en langue arabe sur cette méthodologie, le Dr. Cheikh GUEYE propose un guide complet alliant théorie, applications pratiques détaillées et exercices d'entraînement pour maîtriser cet exercice complexe.",
-        summary_ar: "يوجه هذا الكتاب للمترشحين للامتحانات أو المسابقات التي تتطلب كتابة أطروحات فلسفية أو تربوية. نظراً لندرة الموارد باللغة العربية حول cette منهجية، يقدم الدكتور شيخ غي دليلاً شاملاً يجمع بين النظرية والتطبيقات العملية المفصلة والتمارين التدريبية لإتقان هذا التمرين المعقد.",
-        summary_en: "This work is aimed at candidates preparing for exams or competitions involving the writing of philosophical or pedagogical dissertations. Given the scarcity of Arabic-language resources on this methodology, Dr. Cheikh GUEYE offers a comprehensive guide combining theory, detailed practical applications and training exercises to master this complex exercise.",
+        summary_ar: "يعد تحرير المقالة من أصعب الاختبارات في الامتحانات والمسابقات.",
+        summary_en: "This book is intended for candidates for the High School Diploma and recruitment competitions.",
         coverImage: "/images/books/dissertations.jpg",
         audioSummary: "/audio/Dissertation.mpeg",
         introAudio: "/audio/Presentation Dissertation arabe.mp3",
@@ -75,12 +78,13 @@ export const books: Book[] = [
             "/images/portrait-cheikh-gueye.webp",
             "/images/books/dissertations.jpg",
             "/images/books/approche-pratique-arabe-2.jpg"
-        ]
+        ],
+        languages: ['ar'],
     },
     {
         id: "mukhtasar-al-akhdari",
         title: "La purification rituelle et la prière selon le rite malékite",
-        title_ar: "الطهارة والصلاة حسب المذهب المالكي",
+        title_ar: "الطهارة والصلاة على المذهب المالكي",
         title_en: "Ritual Purification and Prayer According to the Maliki Rite (Mukhtasar al-Akhdari)",
         author: "Dr. Cheikh GUEYE",
         author_ar: "د. شيخ غي",
@@ -88,12 +92,13 @@ export const books: Book[] = [
         price: 10000,
         summary:
             "Le « Mukhtasar al-Akhdari » est un ouvrage fondamental du rite malékite, essentiel pour maîtriser les règles de purification et de prière. Cette nouvelle édition bilingue (Français/Arabe) propose une approche pratique par compétences, structurée en 160 situations-problèmes pour permettre une application réelle des connaissances.",
-        summary_ar: "يعد «مختصر الأخضري» من أهم المراجع في الفقه المالكي لتعلم الطهارة والصلاة. يقدم هذا الكتاب ترجمة جديدة ومنهجاً تعليمياً حديثاً يعتمد على وضعيات مشكلة (160 وضعية) لتمكين الدارس من اكتساب مهارات عملية وتطبيقية صحيحة.",
+        summary_ar: "يعد مختصر الأخضري من أهم مراجع المذهب المالكي لتعلم الطهارة والصلاة.",
         summary_en: "The 'Mukhtasar al-Akhdari' is a fundamental work of the Maliki rite, essential for mastering the rules of purification and prayer. This new bilingual edition (French/Arabic) offers a competency-based practical approach, structured around 160 problem-situations to enable real application of knowledge.",
         coverImage: "/images/books/mukhtasar.jpg",
         audioSummary: "/audio/Mukhtaser FR.mp3",
         audioSummary_ar: "/audio/Mukhtaser AR.mp3",
         introAudio: "/audio/Présentation alkhdari.mp3",
+        introAudio_ar: "/audio/présentation al akhdari arabe.mp3",
         previewImages: [
             "/images/books/mukhtasar.jpg",
             "/images/portrait-cheikh-gueye.webp",
@@ -128,6 +133,7 @@ export const books: Book[] = [
                 answer: "يجب عليك ترك هذه الآية والانتقال إلى ما بعدها. فإذا لم تستطع القراءة، فعليك الركوع. وفي هذه الحالة، لا يجب عليك سجود السهو."
             }
         ],
+        languages: ['fr', 'ar'],
         situations_en: [
             {
                 question: "You arrive late at the mosque and perform less than one rak'aa behind the imam, then follow him when he prostrates after the salutation. Is your prayer valid?",

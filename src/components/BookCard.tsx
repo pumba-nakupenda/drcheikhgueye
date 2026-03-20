@@ -165,7 +165,7 @@ export default function BookCard({ book }: BookCardProps) {
                         className="flex items-center justify-center gap-2 w-full py-4 rounded-2xl bg-emerald-700 dark:bg-emerald-600 text-white font-black text-sm shadow-lg shadow-emerald-700/20 hover:bg-emerald-800 active:scale-[0.98] transition-all"
                     >
                         <ShoppingCart size={18} />
-                        {language === 'ar' ? "اطلب الكتاب" : language === 'en' ? "Order Book" : "Commander l'ouvrage"}
+                        {language === 'ar' ? "اطلب الكتاب" : language === 'en' ? "Order Now" : "Commander l'ouvrage"}
                         <ChevronRight size={16} className={`transition-transform ${isRtl ? 'rotate-180 group-hover:-translate-x-1' : 'group-hover:translate-x-1'}`} />
                     </a>
                 </div>

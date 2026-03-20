@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Globe, X, ArrowLeft } from "lucide-react";
+import { useState, useEffect, useCallback } from "react";
+import { Globe, X } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { Language } from "@/config/translations";
 
@@ -11,103 +11,105 @@ const languages: { code: Language; label: string; native: string; flag: string }
     { code: "ar", label: "العربية", native: "Arabe / Arabic", flag: "🇸🇦" },
 ];
 
-const confirmTexts: Record<Language, { title: string; message: (lang: string) => string; confirm: string; cancel: string }> = {
-    fr: {
-        title: "Changer de langue ?",
-        message: (lang) => `Voulez-vous passer en ${lang} ?`,
-        confirm: "Oui, changer",
-        cancel: "Annuler",
-    },
-    en: {
-        title: "Change language?",
-        message: (lang) => `Do you want to switch to ${lang}?`,
-        confirm: "Yes, switch",
-        cancel: "Cancel",
-    },
-    ar: {
-        title: "تغيير اللغة؟",
-        message: (lang) => `هل تريد التبديل إلى ${lang}؟`,
-        confirm: "نعم، تغيير",
-        cancel: "إلغاء",
-    },
+const bubbleTexts: Record<Language, string> = {
+    fr: "Vous pourrez changer la langue ici à tout moment !",
+    en: "You can change the language here anytime!",
+    ar: "يمكنك تغيير اللغة من هنا في أي وقت!",
 };
+
+type Step = "select" | "bubble";
 
 export default function LanguagePopup() {
     const { language, setLanguage } = useLanguage();
-    const [isOpen, setIsOpen] = useState(false);
-    const [pendingLang, setPendingLang] = useState<Language | null>(null);
+    const [step, setStep] = useState<Step | null>(null);
+    const [bubblePos, setBubblePos] = useState<{ top: number; left: number; arrowLeft: number } | null>(null);
 
     useEffect(() => {
         const hasChosen = localStorage.getItem("language_chosen");
         if (!hasChosen) {
-            const timer = setTimeout(() => setIsOpen(true), 800);
+            const timer = setTimeout(() => setStep("select"), 800);
             return () => clearTimeout(timer);
         }
     }, []);
 
-    const handleSelect = (lang: Language) => {
-        if (lang === language) {
-            // Same language — just close
-            localStorage.setItem("language_chosen", "true");
-            setIsOpen(false);
-            return;
+    const positionBubble = useCallback(() => {
+        // Try desktop switcher first, then mobile
+        const desktop = document.getElementById("lang-switcher-desktop");
+        const mobile = document.getElementById("lang-switcher-mobile");
+        const target = desktop?.offsetParent ? desktop : mobile;
+
+        if (target) {
+            const rect = target.getBoundingClientRect();
+            setBubblePos({
+                top: rect.bottom + 12,
+                left: Math.max(16, Math.min(rect.left + rect.width / 2 - 140, window.innerWidth - 296)),
+                arrowLeft: rect.left + rect.width / 2,
+            });
         }
-        setPendingLang(lang);
-    };
+    }, []);
 
-    const confirmChange = () => {
-        if (!pendingLang) return;
-        setLanguage(pendingLang);
+    const handleSelect = (lang: Language) => {
+        setLanguage(lang);
         localStorage.setItem("language_chosen", "true");
-        setPendingLang(null);
-        setIsOpen(false);
+        // Small delay so the navbar re-renders with the new language before we position
+        setTimeout(() => {
+            positionBubble();
+            setStep("bubble");
+        }, 300);
     };
 
-    const cancelChange = () => {
-        setPendingLang(null);
+    const closeBubble = () => {
+        setStep(null);
     };
 
-    const close = () => {
+    const closeAll = () => {
         localStorage.setItem("language_chosen", "true");
-        setPendingLang(null);
-        setIsOpen(false);
+        setStep(null);
     };
 
-    if (!isOpen) return null;
+    // Reposition bubble on resize
+    useEffect(() => {
+        if (step !== "bubble") return;
+        const handleResize = () => positionBubble();
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, [step, positionBubble]);
 
-    const pendingLangData = pendingLang ? languages.find((l) => l.code === pendingLang) : null;
-    const texts = confirmTexts[language];
+    // Auto-dismiss bubble after 5 seconds
+    useEffect(() => {
+        if (step !== "bubble") return;
+        const timer = setTimeout(closeBubble, 5000);
+        return () => clearTimeout(timer);
+    }, [step]);
 
-    return (
-        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
-            {/* Backdrop */}
-            <div
-                className="absolute inset-0 bg-emerald-950/70 backdrop-blur-md transition-opacity animate-in fade-in duration-500"
-                onClick={close}
-            />
+    if (!step) return null;
 
-            {/* Popup */}
-            <div className="relative w-full max-w-sm bg-white dark:bg-zinc-900 rounded-[2.5rem] shadow-2xl shadow-emerald-900/30 overflow-hidden animate-in zoom-in-95 fade-in duration-500">
-                {/* Header gradient */}
-                <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-emerald-600/10 to-transparent pointer-events-none" />
+    /* ===================== STEP 1: Language selection popup ===================== */
+    if (step === "select") {
+        return (
+            <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
+                {/* Backdrop */}
+                <div
+                    className="absolute inset-0 bg-emerald-950/70 backdrop-blur-md animate-in fade-in duration-500"
+                    onClick={closeAll}
+                />
 
-                {/* Close button */}
-                <button
-                    onClick={close}
-                    className="absolute top-5 right-5 z-10 p-2 rounded-full text-zinc-400 hover:text-emerald-600 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all"
-                >
-                    <X size={20} />
-                </button>
+                {/* Popup */}
+                <div className="relative w-full max-w-sm bg-white dark:bg-zinc-900 rounded-[2.5rem] shadow-2xl shadow-emerald-900/30 overflow-hidden animate-in zoom-in-95 fade-in duration-500">
+                    <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-emerald-600/10 to-transparent pointer-events-none" />
 
-                {/* ========== STEP 1: Language selection ========== */}
-                {!pendingLang && (
+                    <button
+                        onClick={closeAll}
+                        className="absolute top-5 right-5 z-10 p-2 rounded-full text-zinc-400 hover:text-emerald-600 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all"
+                    >
+                        <X size={20} />
+                    </button>
+
                     <div className="relative p-8 pt-10 text-center space-y-6">
-                        {/* Icon */}
                         <div className="mx-auto w-16 h-16 rounded-2xl bg-emerald-100 dark:bg-emerald-900/40 flex items-center justify-center text-emerald-600 shadow-inner">
                             <Globe size={32} />
                         </div>
 
-                        {/* Title */}
                         <div className="space-y-2">
                             <h2 className="text-2xl font-serif font-black text-emerald-950 dark:text-white">
                                 Choisissez votre langue
@@ -117,7 +119,6 @@ export default function LanguagePopup() {
                             </p>
                         </div>
 
-                        {/* Language options */}
                         <div className="space-y-3">
                             {languages.map((lang) => (
                                 <button
@@ -148,60 +149,54 @@ export default function LanguagePopup() {
                                 </button>
                             ))}
                         </div>
-
-                        {/* Hint */}
-                        <p className="text-[10px] text-emerald-900/30 dark:text-emerald-100/20 uppercase font-bold tracking-widest pt-2">
-                            {language === "ar"
-                                ? "يمكنك التغيير لاحقًا من شريط التنقل"
-                                : language === "en"
-                                ? "You can change this later from the navigation bar"
-                                : "Vous pourrez changer plus tard dans la barre de navigation"}
-                        </p>
                     </div>
-                )}
-
-                {/* ========== STEP 2: Confirmation ========== */}
-                {pendingLang && pendingLangData && (
-                    <div className="relative p-8 pt-10 text-center space-y-6">
-                        {/* Back button */}
-                        <button
-                            onClick={cancelChange}
-                            className="absolute top-5 left-5 z-10 p-2 rounded-full text-zinc-400 hover:text-emerald-600 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all"
-                        >
-                            <ArrowLeft size={20} />
-                        </button>
-
-                        {/* Flag */}
-                        <div className="text-6xl">{pendingLangData.flag}</div>
-
-                        {/* Title */}
-                        <div className="space-y-3">
-                            <h2 className="text-2xl font-serif font-black text-emerald-950 dark:text-white">
-                                {texts.title}
-                            </h2>
-                            <p className="text-lg text-emerald-900/60 dark:text-emerald-100/50">
-                                {texts.message(pendingLangData.label)}
-                            </p>
-                        </div>
-
-                        {/* Action buttons */}
-                        <div className="flex flex-col gap-3 pt-2">
-                            <button
-                                onClick={confirmChange}
-                                className="w-full py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-lg shadow-xl shadow-emerald-600/20 transition-all active:scale-[0.97]"
-                            >
-                                {texts.confirm}
-                            </button>
-                            <button
-                                onClick={cancelChange}
-                                className="w-full py-4 rounded-2xl bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-emerald-950 dark:text-white font-bold text-lg transition-all active:scale-[0.97]"
-                            >
-                                {texts.cancel}
-                            </button>
-                        </div>
-                    </div>
-                )}
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
+
+    /* ===================== STEP 2: Tooltip bubble pointing to navbar ===================== */
+    if (step === "bubble" && bubblePos) {
+        return (
+            <>
+                {/* Light overlay to draw attention */}
+                <div
+                    className="fixed inset-0 z-[199] bg-black/20 animate-in fade-in duration-300"
+                    onClick={closeBubble}
+                />
+
+                {/* Bubble */}
+                <div
+                    className="fixed z-[200] w-[280px] animate-in fade-in slide-in-from-top-2 duration-500"
+                    style={{ top: bubblePos.top, left: bubblePos.left }}
+                >
+                    {/* Arrow */}
+                    <div
+                        className="absolute -top-2 w-4 h-4 bg-emerald-600 rotate-45 rounded-sm"
+                        style={{ left: Math.max(20, Math.min(bubblePos.arrowLeft - bubblePos.left, 250)) }}
+                    />
+
+                    {/* Content */}
+                    <div
+                        className="relative bg-emerald-600 text-white rounded-2xl p-5 shadow-2xl shadow-emerald-900/40 cursor-pointer"
+                        onClick={closeBubble}
+                    >
+                        <div className="flex items-start gap-3">
+                            <Globe size={20} className="shrink-0 mt-0.5 text-emerald-200" />
+                            <div className="space-y-1">
+                                <p className="font-bold text-sm leading-snug">
+                                    {bubbleTexts[language]}
+                                </p>
+                                <p className="text-[10px] text-emerald-200/70 font-bold uppercase tracking-widest">
+                                    {language === "ar" ? "انقر للإغلاق" : language === "en" ? "Tap to dismiss" : "Cliquez pour fermer"}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </>
+        );
+    }
+
+    return null;
 }

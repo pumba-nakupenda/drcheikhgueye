@@ -102,7 +102,7 @@ export default function Navbar() {
                         })}
 
                         {/* Language Toggle - Forced LTR and Fixed Order */}
-                        <div className="flex items-center gap-1 bg-emerald-100 dark:bg-emerald-900/30 p-1 rounded-full border border-emerald-500/10" style={{ direction: 'ltr' }}>
+                        <div id="lang-switcher-desktop" className="flex items-center gap-1 bg-emerald-100 dark:bg-emerald-900/30 p-1 rounded-full border border-emerald-500/10" style={{ direction: 'ltr' }}>
                             <button
                                 onClick={() => setLanguage('fr')}
                                 className={`px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${language === 'fr' ? "bg-emerald-600 text-white shadow-lg" : "text-emerald-900/40 hover:text-emerald-600"}`}
@@ -151,6 +151,7 @@ export default function Navbar() {
                         </button>
                         {/* Compact cycling language button */}
                         <button
+                            id="lang-switcher-mobile"
                             onClick={() => {
                                 const langs = LANGUAGES;
                                 const idx = langs.indexOf(language);

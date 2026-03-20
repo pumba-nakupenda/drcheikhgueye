@@ -118,9 +118,17 @@ export default function BookCard({ book }: BookCardProps) {
                         <span className="text-[11px] font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wide">
                             {availableLabel}
                         </span>
-                        <div className="flex items-center gap-1.5">
-                            {book.languages.map((lang) => (
-                                <Flag key={lang} lang={lang} size={18} />
+                        <div className="flex items-center gap-2">
+                            {book.languages.map((lang, i) => (
+                                <span key={lang} className="flex items-center gap-1">
+                                    {i > 0 && <span className="text-emerald-400/50 text-xs">/</span>}
+                                    <Flag lang={lang} size={16} />
+                                    <span className="text-[11px] font-semibold text-emerald-800 dark:text-emerald-300">
+                                        {lang === 'fr' ? (language === 'ar' ? 'فرنسية' : language === 'en' ? 'French' : 'Français')
+                                         : lang === 'en' ? (language === 'ar' ? 'إنجليزية' : language === 'en' ? 'English' : 'Anglais')
+                                         : (language === 'ar' ? 'عربية' : language === 'en' ? 'Arabic' : 'Arabe')}
+                                    </span>
+                                </span>
                             ))}
                         </div>
                     </div>

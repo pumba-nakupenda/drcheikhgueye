@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { books } from "@/data/books";
 import BookCard from "@/components/BookCard";
-import Testimonials from "@/components/Testimonials";
 import { ArrowRight, Sparkles, Languages, PenLine, ScrollText, Headphones } from "lucide-react";
 import useScrollReveal from "@/hooks/useScrollReveal";
 
@@ -43,7 +42,7 @@ export default function Home() {
 
                             <p className="text-base md:text-2xl text-emerald-100/70 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light px-4 md:px-0">
                                 {t.hero.tagline}
-                            </p>
+                            </h1>
 
                             <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start pt-6">
                                 <Link
@@ -89,18 +88,13 @@ export default function Home() {
                             <div className="relative h-full rounded-[3rem] overflow-hidden border-8 border-white/10 shadow-2xl">
                                 <Image
                                     src="/images/portrait-cheikh-gueye.webp"
-                                    alt="Dr. Cheikh Gueye"
+                                    alt="Dr. Cheikh GUEYE"
                                     fill
                                     className="object-cover transition-transform duration-1000 group-hover:scale-110"
                                     priority
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/60 via-transparent to-transparent" />
 
-                                <div className="absolute bottom-10 left-10 right-10 p-8 glass rounded-3xl border border-white/20 backdrop-blur-md translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
-                                    <p className="text-white italic text-lg font-serif">
-                                        "{t.hero.quote}"
-                                    </p>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -146,25 +140,12 @@ export default function Home() {
                 <div className="absolute top-1/2 left-0 w-96 h-96 bg-emerald-200/10 blur-[150px] -translate-x-1/2 rounded-full" />
             </section>
 
-            <Testimonials />
-
-            {/* CTA Section - Commandes */}
-            <section className="py-14 md:py-24 px-4 bg-emerald-900 overflow-hidden relative reveal">
-                <div className="max-w-5xl mx-auto glass-card p-7 md:p-20 rounded-3xl md:rounded-[4rem] text-center relative z-10 overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-emerald-600/10 to-transparent" />
-                    <h2 className="text-4xl md:text-6xl font-serif font-black text-white mb-8 relative">
-                        {t.cta_section.title}
-                    </h2>
-                    <p className="text-emerald-100/70 text-lg md:text-xl mb-12 max-w-2xl mx-auto relative">
-                        {t.cta_section.text}
+            {/* Quote Section */}
+            <section className="py-8 md:py-12 px-4 bg-emerald-900 overflow-hidden relative reveal">
+                <div className="max-w-3xl mx-auto text-center relative z-10">
+                    <p className="text-3xl md:text-6xl font-serif italic text-white leading-relaxed">
+                        « {t.hero.quote} »
                     </p>
-                    <Link
-                        href="/books"
-                        className="inline-flex items-center gap-3 px-10 py-5 bg-white text-emerald-950 rounded-full font-black hover:scale-105 transition-transform shadow-2xl relative group"
-                    >
-                        {t.cta_section.button}
-                        <ArrowRight className={`group-hover:translate-x-1 transition-transform ${language === 'ar' ? 'rotate-180 group-hover:-translate-x-1' : ''}`} />
-                    </Link>
                 </div>
             </section>
         </div>

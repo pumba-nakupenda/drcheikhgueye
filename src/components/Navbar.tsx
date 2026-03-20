@@ -77,7 +77,7 @@ export default function Navbar() {
                                 {language === 'ar' ? "غ" : "G"}
                             </div>
                             <span className="text-base sm:text-2xl font-serif font-black tracking-tighter text-emerald-900 dark:text-emerald-100 group-hover:text-emerald-600 transition-colors">
-                                {t.about.title_prefix}. <span className="text-emerald-700 dark:text-emerald-400 underline decoration-emerald-500/30 underline-offset-4">{language === 'ar' ? "شيخ" : "Cheikh"}</span> <span className="hidden min-[420px]:inline">{language === 'ar' ? "غي" : "Gueye"}</span>
+                                {t.about.title_prefix}. <span className="text-emerald-700 dark:text-emerald-400 underline decoration-emerald-500/30 underline-offset-4">{language === 'ar' ? "شيخ" : "Cheikh"}</span> <span className="hidden min-[420px]:inline">{language === 'ar' ? "غي" : "GUEYE"}</span>
                             </span>
                         </Link>
                     </div>
@@ -113,7 +113,7 @@ export default function Navbar() {
                                 onClick={() => setLanguage('en')}
                                 className={`px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${language === 'en' ? "bg-emerald-600 text-white shadow-lg" : "text-emerald-900/40 hover:text-emerald-600"}`}
                             >
-                                EN
+                                AN
                             </button>
                             <button
                                 onClick={() => setLanguage('ar')}
@@ -231,7 +231,7 @@ export default function Navbar() {
 
                         <div className="mt-auto pt-10 border-t border-emerald-500/10 space-y-4">
                             <p className={`text-[10px] font-black uppercase tracking-widest text-emerald-900/30 dark:text-emerald-100/20 ${isRtl ? 'text-right' : 'text-left'}`}>
-                                {language === 'ar' ? "تواصل معنا" : language === 'en' ? "Contact Dr. Cheikh Gueye" : "Contactez Dr. Cheikh Gueye"}
+                                {language === 'ar' ? "تواصل معنا" : language === 'en' ? "Contact Dr. Cheikh GUEYE" : "Contactez Dr. Cheikh GUEYE"}
                             </p>
                             <Link
                                 href={siteConfig.whatsappLinks.general}

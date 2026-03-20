@@ -62,7 +62,7 @@ export default function BookFlipbook({ images, title }: BookFlipbookProps) {
                                 <div className="absolute inset-0 flex flex-col items-center justify-center p-6 md:p-8 text-center">
                                     <div className="w-8 md:w-12 h-0.5 md:h-1 bg-white/30 mb-4 md:mb-6" />
                                     <h3 className="text-white font-serif font-black text-lg md:text-2xl mb-2 md:mb-4 line-clamp-3">{title}</h3>
-                                    <p className="text-emerald-200 text-[10px] md:text-xs font-bold uppercase tracking-widest">Dr. Cheikh Gueye</p>
+                                    <p className="text-emerald-200 text-[10px] md:text-xs font-bold uppercase tracking-widest">Dr. Cheikh GUEYE</p>
                                 </div>
                             </div>
                             {/* Inner Cover */}

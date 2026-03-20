@@ -10,7 +10,7 @@ export default function AboutPage() {
     const isRtl = dir === 'rtl';
 
     return (
-        <div className="bg-white dark:bg-zinc-950 py-16 md:py-32 overflow-hidden relative">
+        <div className="bg-white dark:bg-zinc-950 pt-24 pb-16 md:py-32 overflow-hidden relative">
             {/* Background Decorative Elements */}
             <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-emerald-500/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2" />
             <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-emerald-500/5 blur-[100px] rounded-full translate-y-1/2 -translate-x-1/2" />
@@ -23,7 +23,7 @@ export default function AboutPage() {
                         <div className="relative aspect-square sm:aspect-[4/5] max-w-xs sm:max-w-none mx-auto rounded-[2rem] overflow-hidden shadow-2xl border-8 border-white/5 group animate-float">
                             <Image
                                 src="/images/portrait-cheikh-gueye.webp"
-                                alt="Dr. Cheikh Gueye"
+                                alt="Dr. Cheikh GUEYE"
                                 fill
                                 className="object-cover transition-transform duration-1000 group-hover:scale-110"
                                 priority
@@ -47,7 +47,7 @@ export default function AboutPage() {
                                 </div>
                             </div>
                             <h1 className="text-3xl md:text-6xl font-serif font-black text-emerald-950 dark:text-white leading-tight">
-                                {t.about.title_prefix} <span className="text-emerald-600">{language === 'ar' ? 'شيخ غي' : 'Cheikh Gueye'}</span>
+                                {t.about.title_prefix} <span className="text-emerald-600">{language === 'ar' ? 'شيخ غي' : 'Cheikh GUEYE'}</span>
                             </h1>
 
                             {/* Audio Player for Biography */}

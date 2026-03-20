@@ -51,7 +51,7 @@ export default function NotFound() {
             <div className="absolute bottom-12 left-0 w-full text-center">
                 <div className="flex items-center justify-center gap-3 opacity-30">
                     <div className="w-8 h-8 rounded-lg bg-emerald-600 flex items-center justify-center text-white font-serif font-black text-sm">G</div>
-                    <span className="text-white font-serif tracking-widest text-xs uppercase">Dr. Cheikh Gueye</span>
+                    <span className="text-white font-serif tracking-widest text-xs uppercase">Dr. Cheikh GUEYE</span>
                 </div>
             </div>
         </div>

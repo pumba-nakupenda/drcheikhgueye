@@ -11,7 +11,7 @@ export default function ContactPage() {
     const isRtl = dir === 'rtl';
 
     return (
-        <div className="min-h-screen pt-20 md:pt-32 pb-16 md:pb-20 bg-zinc-50 dark:bg-zinc-950 px-4 sm:px-6 lg:px-8">
+        <div className="min-h-screen pt-24 md:pt-32 pb-16 md:pb-20 bg-zinc-50 dark:bg-zinc-950 px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
                 {/* Header Section */}
                 <div className="text-center mb-10 md:mb-20 space-y-4">

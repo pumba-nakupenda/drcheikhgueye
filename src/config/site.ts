@@ -1,5 +1,5 @@
 export const siteConfig = {
-    name: "Dr. Cheikh Gueye",
+    name: "Dr. Cheikh GUEYE",
     whatsappNumber: "221776531256", // Numéro officiel : 776531256
     whatsappLinks: {
         general: "https://wa.me/221776531256",

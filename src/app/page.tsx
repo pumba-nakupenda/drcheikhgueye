@@ -29,7 +29,7 @@ export default function Home() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 relative z-10 flex flex-col justify-center min-h-[90vh]">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center">
 
-                        <div className="text-center lg:text-left space-y-8 md:space-y-10">
+                        <div className="text-center lg:text-left rtl:lg:text-right space-y-8 md:space-y-10">
                             <div className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-emerald-400/10 border border-emerald-400/20 text-emerald-400 text-sm font-bold uppercase tracking-[0.2em] animate-bounce">
                                 <Sparkles size={16} />
                                 {t.hero.transmission}
@@ -67,7 +67,7 @@ export default function Home() {
                                     <div className="w-14 h-14 rounded-2xl bg-emerald-800/30 flex items-center justify-center text-emerald-400 border border-emerald-400/10 shadow-inner">
                                         <ScrollText size={28} />
                                     </div>
-                                    <div className="text-left">
+                                    <div className="text-left rtl:text-right">
                                         <div className="text-white font-black text-2xl">12+</div>
                                         <div className="text-emerald-400/40 text-[10px] uppercase font-bold tracking-[0.2em]">{t.hero.stats_publications}</div>
                                     </div>
@@ -76,7 +76,7 @@ export default function Home() {
                                     <div className="w-14 h-14 rounded-2xl bg-emerald-800/30 flex items-center justify-center text-emerald-400 border border-emerald-400/10 shadow-inner">
                                         <Languages size={28} />
                                     </div>
-                                    <div className="text-left">
+                                    <div className="text-left rtl:text-right">
                                         <div className="text-white font-black text-2xl">{language === 'ar' ? "عربية | فرنسية | إنجليزية" : language === 'en' ? "Arabic | FR | EN" : "Arabe | FR | EN"}</div>
                                         <div className="text-emerald-400/40 text-[10px] uppercase font-bold tracking-[0.2em]">{t.hero.stats_polyglotte}</div>
                                     </div>

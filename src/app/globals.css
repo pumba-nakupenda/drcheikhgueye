@@ -152,3 +152,8 @@
 [dir="rtl"] .btn-premium:hover {
   @apply scale-105;
 }
+
+/* Force LTR on elements that should never reverse */
+.ltr-layout {
+  direction: ltr !important;
+}

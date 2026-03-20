@@ -138,7 +138,7 @@ export default function BookCard({ book }: BookCardProps) {
                     {displaySummary}
                 </p>
 
-                {book.introAudio && (
+                {(book.introAudio || book.introAudio_ar) && (
                     <div className="pt-2">
                         <div className="flex items-center gap-2 mb-2">
                             <Headphones size={12} className="text-emerald-600" />
@@ -146,7 +146,7 @@ export default function BookCard({ book }: BookCardProps) {
                                 {language === 'ar' ? "عرض صوتي" : language === 'en' ? "Audio Presentation" : "Présentation audio"}
                             </span>
                         </div>
-                        <CustomAudioPlayer src={book.introAudio} variant="compact" />
+                        <CustomAudioPlayer src={(language === 'ar' && book.introAudio_ar) ? book.introAudio_ar : book.introAudio!} variant="compact" />
                     </div>
                 )}
 

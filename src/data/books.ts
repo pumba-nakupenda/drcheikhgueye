@@ -20,6 +20,7 @@ export interface Book {
     audioSummary_ar?: string;
     audioSummary_en?: string;
     introAudio?: string;
+    introAudio_ar?: string;
     previewImages?: string[];
     pdfPreview?: string;
     situations?: Situation[];
@@ -97,6 +98,7 @@ export const books: Book[] = [
         audioSummary: "/audio/Mukhtaser FR.mp3",
         audioSummary_ar: "/audio/Mukhtaser AR.mp3",
         introAudio: "/audio/Présentation alkhdari.mp3",
+        introAudio_ar: "/audio/présentation al akhdari arabe.mp3",
         previewImages: [
             "/images/books/mukhtasar.jpg",
             "/images/portrait-cheikh-gueye.webp",

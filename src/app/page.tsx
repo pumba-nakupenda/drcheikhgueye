@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { books } from "@/data/books";
 import BookCard from "@/components/BookCard";
-import { ArrowRight, Sparkles, Languages, PenLine, ScrollText, Headphones } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import useScrollReveal from "@/hooks/useScrollReveal";
 
 import { useLanguage } from "@/context/LanguageContext";
@@ -29,20 +29,9 @@ export default function Home() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center">
 
                         <div className="text-center lg:text-left rtl:lg:text-right space-y-8 md:space-y-10">
-                            <div className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-emerald-400/10 border border-emerald-400/20 text-emerald-400 text-sm font-bold uppercase tracking-[0.2em] animate-bounce">
-                                <Sparkles size={16} />
-                                {t.hero.transmission}
-                            </div>
-
-                            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-serif font-black text-white leading-[1.1] md:leading-[1] tracking-tighter mobile-text-balance">
-                                {t.hero.explore} <br />
-                                <span className="text-emerald-400 italic font-medium">{t.hero.infinity}</span> <br />
-                                {t.hero.words}
-                            </h1>
-
-                            <p className="text-base md:text-2xl text-emerald-100/70 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light px-4 md:px-0">
+                            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif font-black text-white leading-snug tracking-tight mobile-text-balance">
                                 {t.hero.tagline}
-                            </p>
+                            </h1>
 
                             <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start pt-6">
                                 <Link
@@ -58,28 +47,6 @@ export default function Home() {
                                 >
                                     {t.hero.cta_auteur}
                                 </Link>
-                            </div>
-
-                            {/* Stats/Badges */}
-                            <div className="flex flex-wrap justify-center lg:justify-start gap-8 pt-8 md:pt-16 border-t border-white/10">
-                                <div className="flex items-center gap-4">
-                                    <div className="w-14 h-14 rounded-2xl bg-emerald-800/30 flex items-center justify-center text-emerald-400 border border-emerald-400/10 shadow-inner">
-                                        <ScrollText size={28} />
-                                    </div>
-                                    <div className="text-left rtl:text-right">
-                                        <div className="text-white font-black text-2xl">12+</div>
-                                        <div className="text-emerald-400/40 text-[10px] uppercase font-bold tracking-[0.2em]">{t.hero.stats_publications}</div>
-                                    </div>
-                                </div>
-                                <div className="flex items-center gap-4">
-                                    <div className="w-14 h-14 rounded-2xl bg-emerald-800/30 flex items-center justify-center text-emerald-400 border border-emerald-400/10 shadow-inner">
-                                        <Languages size={28} />
-                                    </div>
-                                    <div className="text-left rtl:text-right">
-                                        <div className="text-white font-black text-2xl">{language === 'ar' ? "عربية | فرنسية | إنجليزية" : language === 'en' ? "Arabic | FR | EN" : "Arabe | FR | EN"}</div>
-                                        <div className="text-emerald-400/40 text-[10px] uppercase font-bold tracking-[0.2em]">{t.hero.stats_polyglotte}</div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
 

@@ -25,8 +25,9 @@ export default function LanguagePopup() {
     const [bubblePos, setBubblePos] = useState<{ top: number; left: number; arrowLeft: number } | null>(null);
 
     useEffect(() => {
-        const hasChosen = localStorage.getItem("language_chosen");
-        if (!hasChosen) {
+        // Show popup only on first visit (no language saved yet)
+        const savedLang = localStorage.getItem("language");
+        if (!savedLang) {
             const timer = setTimeout(() => setStep("select"), 800);
             return () => clearTimeout(timer);
         }
@@ -49,8 +50,7 @@ export default function LanguagePopup() {
     }, []);
 
     const handleSelect = (lang: Language) => {
-        setLanguage(lang);
-        localStorage.setItem("language_chosen", "true");
+        setLanguage(lang); // This saves to localStorage('language') via LanguageContext
         // Small delay so the navbar re-renders with the new language before we position
         setTimeout(() => {
             positionBubble();
@@ -63,7 +63,8 @@ export default function LanguagePopup() {
     };
 
     const closeAll = () => {
-        localStorage.setItem("language_chosen", "true");
+        // Save default language so popup won't show again
+        setLanguage(language);
         setStep(null);
     };
 

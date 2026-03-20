@@ -12,9 +12,9 @@ const languages: { code: Language; label: string; native: string; flag: string }
 ];
 
 const bubbleTexts: Record<Language, string> = {
-    fr: "Vous pourrez changer la langue ici à tout moment !",
-    en: "You can change the language here anytime!",
-    ar: "يمكنك تغيير اللغة من هنا في أي وقت!",
+    fr: "Il vous est possible de changer la langue ici à tout moment",
+    en: "You can change the language here at any time.",
+    ar: "يمكنك تغيير اللغة هنا في أي وقت.",
 };
 
 type Step = "select" | "bubble";

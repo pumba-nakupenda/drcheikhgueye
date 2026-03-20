@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import { Globe, X } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { Language } from "@/config/translations";
+import Flag from "@/components/Flag";
 
 const languages: { code: Language; label: string; native: string; flag: string }[] = [
     { code: "fr", label: "Français", native: "Français", flag: "🇫🇷" },
@@ -132,7 +133,7 @@ export default function LanguagePopup() {
                                             : "border-transparent bg-zinc-50 dark:bg-zinc-800/50 hover:border-emerald-500/30 hover:bg-emerald-50/50 dark:hover:bg-emerald-900/20"
                                     }`}
                                 >
-                                    <span className="text-3xl">{lang.flag}</span>
+                                    <Flag lang={lang.code} size={32} />
                                     <div className="flex-1 text-left">
                                         <div className={`font-bold text-lg ${language === lang.code ? "text-emerald-700 dark:text-emerald-400" : "text-emerald-950 dark:text-white"}`}>
                                             {lang.label}

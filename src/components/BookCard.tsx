@@ -14,13 +14,13 @@ interface BookCardProps {
 }
 
 import { useLanguage } from "@/context/LanguageContext";
+import Flag from "./Flag";
 
 export default function BookCard({ book }: BookCardProps) {
     const { language, t, dir } = useLanguage();
     const [showToast, setShowToast] = useState(false);
     const isRtl = dir === 'rtl';
     const phoneNumber = siteConfig.whatsappNumber;
-    const FLAGS: Record<string, string> = { fr: '🇫🇷', en: '🇬🇧', ar: '🇸🇦' };
     const availableLabel = language === 'ar' ? 'متوفر بـ' : language === 'en' ? 'Available in' : 'Disponible en';
 
     // Choose bilingual fields
@@ -120,9 +120,7 @@ export default function BookCard({ book }: BookCardProps) {
                         </span>
                         <div className="flex items-center gap-1.5">
                             {book.languages.map((lang) => (
-                                <span key={lang} className="text-base" title={lang.toUpperCase()}>
-                                    {FLAGS[lang]}
-                                </span>
+                                <Flag key={lang} lang={lang} size={18} />
                             ))}
                         </div>
                     </div>

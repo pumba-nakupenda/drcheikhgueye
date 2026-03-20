@@ -7,9 +7,9 @@ import { usePathname } from "next/navigation";
 import { Menu, X, ChevronRight, MessageSquare, Sun, Moon } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { useLanguage } from "@/context/LanguageContext";
+import Flag from "@/components/Flag";
 
 const LANGUAGES = ['fr', 'en', 'ar'] as const;
-const FLAGS: Record<string, string> = { fr: '🇫🇷', en: '🇬🇧', ar: '🇸🇦' };
 
 export default function Navbar() {
     const { language, setLanguage, t, dir } = useLanguage();
@@ -108,19 +108,19 @@ export default function Navbar() {
                                 onClick={() => setLanguage('fr')}
                                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-black uppercase tracking-widest transition-all ${language === 'fr' ? "bg-emerald-600 text-white shadow-lg" : "text-emerald-800 dark:text-emerald-200 hover:bg-emerald-200 dark:hover:bg-emerald-700/50"}`}
                             >
-                                <span className="text-sm">{FLAGS.fr}</span> FR
+                                <Flag lang="fr" size={16} /> FR
                             </button>
                             <button
                                 onClick={() => setLanguage('en')}
                                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-black uppercase tracking-widest transition-all ${language === 'en' ? "bg-emerald-600 text-white shadow-lg" : "text-emerald-800 dark:text-emerald-200 hover:bg-emerald-200 dark:hover:bg-emerald-700/50"}`}
                             >
-                                <span className="text-sm">{FLAGS.en}</span> EN
+                                <Flag lang="en" size={16} /> EN
                             </button>
                             <button
                                 onClick={() => setLanguage('ar')}
                                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-black uppercase tracking-widest transition-all ${language === 'ar' ? "bg-emerald-600 text-white shadow-lg" : "text-emerald-800 dark:text-emerald-200 hover:bg-emerald-200 dark:hover:bg-emerald-700/50"}`}
                             >
-                                <span className="text-sm">{FLAGS.ar}</span> AR
+                                <Flag lang="ar" size={16} /> AR
                             </button>
                         </div>
 
@@ -161,7 +161,7 @@ export default function Navbar() {
                             className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-emerald-600 text-white active:scale-95 transition-all duration-200 shadow-md"
                             aria-label="Changer la langue"
                         >
-                            <span className="text-sm">{FLAGS[language]}</span>
+                            <Flag lang={language} size={16} />
                             <span className="text-xs font-black">{language.toUpperCase()}</span>
                         </button>
                         <button
@@ -189,19 +189,19 @@ export default function Navbar() {
                                     onClick={() => setLanguage('fr')}
                                     className={`flex items-center gap-1 px-3 py-1.5 rounded-lg text-[11px] font-black uppercase transition-all active:scale-95 ${language === 'fr' ? 'bg-emerald-600 text-white shadow-sm' : 'text-emerald-900/50 dark:text-white/50'}`}
                                 >
-                                    <span className="text-sm">{FLAGS.fr}</span> FR
+                                    <Flag lang="fr" size={16} /> FR
                                 </button>
                                 <button
                                     onClick={() => setLanguage('en')}
                                     className={`flex items-center gap-1 px-3 py-1.5 rounded-lg text-[11px] font-black uppercase transition-all active:scale-95 ${language === 'en' ? 'bg-emerald-600 text-white shadow-sm' : 'text-emerald-900/50 dark:text-white/50'}`}
                                 >
-                                    <span className="text-sm">{FLAGS.en}</span> EN
+                                    <Flag lang="en" size={16} /> EN
                                 </button>
                                 <button
                                     onClick={() => setLanguage('ar')}
                                     className={`flex items-center gap-1 px-3 py-1.5 rounded-lg text-[11px] font-black uppercase transition-all active:scale-95 ${language === 'ar' ? 'bg-emerald-600 text-white shadow-sm' : 'text-emerald-900/50 dark:text-white/50'}`}
                                 >
-                                    <span className="text-sm">{FLAGS.ar}</span> AR
+                                    <Flag lang="ar" size={16} /> AR
                                 </button>
                             </div>
                         </div>

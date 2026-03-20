@@ -25,9 +25,10 @@ export default function LanguagePopup() {
     const [bubblePos, setBubblePos] = useState<{ top: number; left: number; arrowLeft: number } | null>(null);
 
     useEffect(() => {
-        // Show popup only on first visit (no language saved yet)
-        const savedLang = localStorage.getItem("language");
-        if (!savedLang) {
+        // Show popup for the first 5 visits, then stop
+        const visitCount = parseInt(localStorage.getItem("lang_popup_visits") || "0", 10);
+        if (visitCount < 5) {
+            localStorage.setItem("lang_popup_visits", String(visitCount + 1));
             const timer = setTimeout(() => setStep("select"), 800);
             return () => clearTimeout(timer);
         }

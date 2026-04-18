@@ -5,7 +5,7 @@ export const translations = {
         nav: {
             home: "Accueil",
             about: "À Propos",
-            books: "Livres",
+            books: "L'Ouvrage",
             contact: "Contact",
             whatsapp: "Contact WhatsApp",
         },
@@ -23,10 +23,10 @@ export const translations = {
             scroll: "Défiler",
         },
         featured_books: {
-            title: "Dernières",
-            subtitle: "Parutions.",
-            tagline: "Explorez des œuvres qui marient spiritualité, linguistique et réflexion sociétale.",
-            cta_all: "Voir toute la collection",
+            title: "Dernière",
+            subtitle: "Parution.",
+            tagline: "Une édition de référence du Mukhtasar al-Akhdari : purification rituelle et prière selon le rite malékite.",
+            cta_all: "Découvrir l'ouvrage",
         },
         testimonials: {
             title: "Ce qu'en disent les",
@@ -67,8 +67,8 @@ export const translations = {
         },
         cta_section: {
             title: "Soutenir le Savoir.",
-            text: "Chaque livre commandé est un soutien direct à la recherche et à la transmission culturelle au Sénégal.",
-            button: "Parcourir les Livres",
+            text: "Chaque exemplaire commandé est un soutien direct à la recherche et à la transmission culturelle au Sénégal.",
+            button: "Commander l'ouvrage",
         },
         about: {
             badge: "Biographie Officielle",
@@ -150,16 +150,16 @@ export const translations = {
             title_highlight: "Fréquentes",
             items: [
                 {
-                    question: "Comment puis-je commander les livres du Docteur ?",
-                    answer: "La commande se fait simplement via WhatsApp. Cliquez sur le bouton 'Commander sur WhatsApp' présent sur chaque fiche de livre. Un message pré-rempli sera généré pour faciliter votre échange avec notre équipe."
+                    question: "Comment puis-je commander l'ouvrage du Docteur ?",
+                    answer: "La commande se fait simplement via WhatsApp. Cliquez sur le bouton 'Commander sur WhatsApp' présent sur la fiche du livre. Un message pré-rempli sera généré pour faciliter votre échange avec notre équipe."
                 },
                 {
                     question: "Quels sont les délais de livraison ?",
                     answer: "Pour les commandes à Dakar, la livraison se fait généralement sous 24h à 48h. Pour les envois internationaux, les délais varient selon la destination et vous seront communiqués lors de votre commande sur WhatsApp."
                 },
                 {
-                    question: "Les ouvrages sont-ils adaptés aux débutants ?",
-                    answer: "Oui, l'ouvrage 'Approche pratique de l'initiation à l'arabe' est spécifiquement conçu pour les débutants francophones. Le Docteur a élaboré une méthode progressive qui part des bases fondamentales."
+                    question: "À qui s'adresse cet ouvrage ?",
+                    answer: "Le Mukhtasar al-Akhdari s'adresse à toute personne souhaitant maîtriser les règles de purification et de prière selon le rite malékite. L'approche par compétences avec 160 situations-problèmes le rend accessible aussi bien aux étudiants qu'aux fidèles."
                 },
                 {
                     question: "Existe-t-il des versions numériques (PDF/Ebook) ?",
@@ -172,10 +172,10 @@ export const translations = {
             ]
         },
         books_page: {
-            badge: "Nos Ouvrages",
-            title: "La",
-            title_highlight: "Bibliothèque.",
-            tagline: "Parcourez la collection complète des œuvres du Dr. Cheikh Gueye. Des méthodes pédagogiques innovantes pour l'apprentissage de la langue arabe."
+            badge: "L'Ouvrage",
+            title: "Mukhtasar",
+            title_highlight: "al-Akhdari.",
+            tagline: "La purification rituelle et la prière selon le rite malékite. Une édition bilingue (Français/Arabe) structurée autour de 160 situations-problèmes."
         },
         book_detail: {
             back: "Retour aux Ouvrages",
@@ -210,7 +210,7 @@ export const translations = {
         nav: {
             home: "Home",
             about: "About",
-            books: "Books",
+            books: "The Book",
             contact: "Contact",
             whatsapp: "WhatsApp Contact",
         },
@@ -229,9 +229,9 @@ export const translations = {
         },
         featured_books: {
             title: "Latest",
-            subtitle: "Releases.",
-            tagline: "Explore works that blend spirituality, linguistics and societal reflection.",
-            cta_all: "View the full collection",
+            subtitle: "Release.",
+            tagline: "A reference edition of the Mukhtasar al-Akhdari: ritual purification and prayer according to the Maliki rite.",
+            cta_all: "Discover the book",
         },
         testimonials: {
             title: "What the",
@@ -272,8 +272,8 @@ export const translations = {
         },
         cta_section: {
             title: "Support Knowledge.",
-            text: "Every book ordered is a direct support to research and cultural transmission in Senegal.",
-            button: "Browse Books",
+            text: "Every copy ordered is a direct support to research and cultural transmission in Senegal.",
+            button: "Order the book",
         },
         about: {
             badge: "Official Biography",
@@ -355,16 +355,16 @@ export const translations = {
             title_highlight: "Questions",
             items: [
                 {
-                    question: "How can I order Dr. Cheikh Gueye's books?",
-                    answer: "Ordering is done simply via WhatsApp. Click the 'Order on WhatsApp' button on each book page. A pre-filled message will be generated to facilitate your exchange with our team."
+                    question: "How can I order Dr. Cheikh Gueye's book?",
+                    answer: "Ordering is done simply via WhatsApp. Click the 'Order on WhatsApp' button on the book page. A pre-filled message will be generated to facilitate your exchange with our team."
                 },
                 {
                     question: "What are the delivery times?",
                     answer: "For orders in Dakar, delivery is generally within 24 to 48 hours. For international shipments, times vary by destination and will be communicated to you when you place your order on WhatsApp."
                 },
                 {
-                    question: "Are the books suitable for beginners?",
-                    answer: "Yes, the book 'Practical Approach to Arabic Initiation' is specifically designed for French-speaking beginners. The Doctor has developed a progressive method that starts from the fundamental basics."
+                    question: "Who is this book for?",
+                    answer: "The Mukhtasar al-Akhdari is intended for anyone wishing to master the rules of purification and prayer according to the Maliki rite. The competency-based approach with 160 problem-situations makes it accessible to both students and worshippers."
                 },
                 {
                     question: "Are there digital versions (PDF/Ebook)?",
@@ -377,10 +377,10 @@ export const translations = {
             ]
         },
         books_page: {
-            badge: "Our Works",
-            title: "The",
-            title_highlight: "Library.",
-            tagline: "Browse the complete collection of Dr. Cheikh Gueye's works. Innovative pedagogical methods for learning the Arabic language."
+            badge: "The Book",
+            title: "Mukhtasar",
+            title_highlight: "al-Akhdari.",
+            tagline: "Ritual purification and prayer according to the Maliki rite. A bilingual edition (French/Arabic) structured around 160 problem-situations."
         },
         book_detail: {
             back: "Back to Works",
@@ -415,7 +415,7 @@ export const translations = {
         nav: {
             home: "الرئيسية",
             about: "عن الدكتور",
-            books: "الكتب",
+            books: "الكتاب",
             contact: "اتصل بنا",
             whatsapp: "تواصل عبر واتساب",
         },
@@ -434,9 +434,9 @@ export const translations = {
         },
         featured_books: {
             title: "أحدث",
-            subtitle: "الإصدارات.",
-            tagline: "استكشف الأعمال التي تزاوج بين الروحانيات، اللسانيات والتفكير المجتمعي.",
-            cta_all: "عرض المجموعة كاملة",
+            subtitle: "إصدار.",
+            tagline: "طبعة مرجعية لمختصر الأخضري: الطهارة والصلاة حسب المذهب المالكي.",
+            cta_all: "اكتشف الكتاب",
         },
         testimonials: {
             title: "ماذا يقول",
@@ -477,8 +477,8 @@ export const translations = {
         },
         cta_section: {
             title: "دعم العلم والمعرفة.",
-            text: "كل كتاب تطلبه هو دعم مباشر للبحث والنشر الثقافي في السنغال.",
-            button: "تصفح الكتب",
+            text: "كل نسخة تطلبها هي دعم مباشر للبحث والنشر الثقافي في السنغال.",
+            button: "اطلب الكتاب",
         },
         about: {
             badge: "السيرة الذاتية الرسمية",
@@ -560,16 +560,16 @@ export const translations = {
             title_highlight: "الشائعة",
             items: [
                 {
-                    question: "كيف يمكنني طلب كتب الدكتور؟",
-                    answer: "يمكن الطلب ببساطة عبر واتساب. انقر على زر 'اطلب عبر واتساب' الموجود في كل صفحة كتاب. سيتم إنشاء رسالة جاهزة لتسهيل تواصلك مع فريقنا."
+                    question: "كيف يمكنني طلب كتاب الدكتور؟",
+                    answer: "يمكن الطلب ببساطة عبر واتساب. انقر على زر 'اطلب عبر واتساب' الموجود في صفحة الكتاب. سيتم إنشاء رسالة جاهزة لتسهيل تواصلك مع فريقنا."
                 },
                 {
                     question: "ما هي مواعيد التسليم؟",
                     answer: "بالنسبة للطلبات في دكار، يتم التسليم عادة خلال 24 إلى 48 ساعة. أما للشحنات الدولية، فتختلف المواعيد حسب الوجهة وسيتم إبلاغكم بها عند الطلب عبر واتساب."
                 },
                 {
-                    question: "هل المؤلفات مناسبة للمبتدئين؟",
-                    answer: "نعم، كتاب 'المنهج العملي للتدريب على اللغة العربية' مصمم خصيصاً للمبتدئين الناطقين بالفرنسية. وقد وضع الدكتور منهجاً تدريجياً يبدأ من الأسس الجوهرية."
+                    question: "لمن يتوجه هذا الكتاب؟",
+                    answer: "يتوجه مختصر الأخضري إلى كل من يرغب في إتقان أحكام الطهارة والصلاة حسب المذهب المالكي. المقاربة بالكفاءات مع 160 وضعية-مشكلة تجعله متاحاً للطلاب والمصلين على حد سواء."
                 },
                 {
                     question: "هل توجد نسخ رقمية (PDF/Ebook)؟",
@@ -582,10 +582,10 @@ export const translations = {
             ]
         },
         books_page: {
-            badge: "مؤلفاتنا",
-            title: "",
-            title_highlight: "المكتبة",
-            tagline: "تصفح المجموعة الكاملة لأعمال الدكتور شيخ غي. مناهج تربوية مبتكرة لتعلم اللغة العربية."
+            badge: "الكتاب",
+            title: "مختصر",
+            title_highlight: "الأخضري",
+            tagline: "الطهارة والصلاة حسب المذهب المالكي. طبعة ثنائية اللغة (عربي/فرنسي) منظمة حول 160 وضعية-مشكلة."
         },
         book_detail: {
             back: "الرجوع إلى المؤلفات",

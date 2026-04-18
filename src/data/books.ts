@@ -29,55 +29,6 @@ export interface Book {
 
 export const books: Book[] = [
     {
-        id: "approache-arabe",
-        title: "Approche pratique de l'initiation à l'arabe et à la lecture du Saint Coran",
-        title_ar: "المنهج العملي للتدريب على اللغة العربية وقراءة القرآن الكريم",
-        title_en: "Practical Approach to Arabic Initiation and Reading of the Holy Quran",
-        author: "Dr. Cheikh GUEYE",
-        author_ar: "د. شيخ غي",
-        author_en: "Dr. Cheikh GUEYE",
-        price: 10000,
-        summary:
-            "Ce livre est une méthode d'initiation pratique à la langue arabe et à la lecture du Saint Coran. Il propose une approche pédagogique innovante pour faciliter l'apprentissage des bases de la langue sacrée.",
-        summary_ar: "هذا الكتاب هو منهج للتدريب العملي على اللغة العربية وقراءة القرآن الكريم. يقدم مقاربة بيداغوجية مبتكرة لتسهيل تعلم أسس اللغة المقدسة.",
-        summary_en: "This book is a practical method for learning Arabic and reading the Holy Quran. It offers an innovative pedagogical approach to facilitate the learning of the fundamentals of the sacred language.",
-        coverImage: "/images/books/approche-pratique-arabe-2.jpg",
-        audioSummary: "/audio/apprendre-arabe.mp3",
-        introAudio: "/audio/presentation apprendre arabe.mp3",
-        previewImages: [
-            "/images/books/approche-pratique-arabe-2.jpg",
-            "/images/books/approche-pratique-arabe-1.jpg",
-            "/images/books/approche-pratique-arabe-3.jpg",
-            "/images/portrait-cheikh-gueye.webp",
-            "/images/books/approche-pratique-arabe-2.jpg",
-            "/images/books/approche-pratique-arabe-1.jpg"
-        ],
-        pdfPreview: "/test.pdf"
-    },
-    {
-        id: "dissertations",
-        title: "Dissertations d'ordre philosophique et pédagogique",
-        title_ar: "أطروحات في الفلسفة والتربية",
-        title_en: "Philosophical and Pedagogical Dissertations",
-        author: "Dr. Cheikh GUEYE",
-        author_ar: "د. شيخ غي",
-        author_en: "Dr. Cheikh GUEYE",
-        price: 10000,
-        summary:
-            "Cet ouvrage s'adresse aux candidats préparant des examens ou concours impliquant la rédaction de dissertations philosophiques ou pédagogiques. Face à la rareté des ressources en langue arabe sur cette méthodologie, le Dr. Cheikh Gueye propose un guide complet alliant théorie, applications pratiques détaillées et exercices d'entraînement pour maîtriser cet exercice complexe.",
-        summary_ar: "يوجه هذا الكتاب للمترشحين للامتحانات أو المسابقات التي تتطلب كتابة أطروحات فلسفية أو تربوية. نظراً لندرة الموارد باللغة العربية حول cette منهجية، يقدم الدكتور شيخ غي دليلاً شاملاً يجمع بين النظرية والتطبيقات العملية المفصلة والتمارين التدريبية لإتقان هذا التمرين المعقد.",
-        summary_en: "This work is aimed at candidates preparing for exams or competitions involving the writing of philosophical or pedagogical dissertations. Given the scarcity of Arabic-language resources on this methodology, Dr. Cheikh Gueye offers a comprehensive guide combining theory, detailed practical applications and training exercises to master this complex exercise.",
-        coverImage: "/images/books/dissertations.jpg",
-        audioSummary: "/audio/Dissertation.mpeg",
-        introAudio: "/audio/Presentation Dissertation arabe.mp3",
-        previewImages: [
-            "/images/books/dissertations.jpg",
-            "/images/portrait-cheikh-gueye.webp",
-            "/images/books/dissertations.jpg",
-            "/images/books/approche-pratique-arabe-2.jpg"
-        ]
-    },
-    {
         id: "mukhtasar-al-akhdari",
         title: "La purification rituelle et la prière selon le rite malékite",
         title_ar: "الطهارة والصلاة حسب المذهب المالكي",
@@ -97,8 +48,7 @@ export const books: Book[] = [
         previewImages: [
             "/images/books/mukhtasar.jpg",
             "/images/portrait-cheikh-gueye.webp",
-            "/images/books/mukhtasar.jpg",
-            "/images/books/dissertations.jpg"
+            "/images/books/mukhtasar.jpg"
         ],
         situations: [
             {

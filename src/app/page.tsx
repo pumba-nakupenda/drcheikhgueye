@@ -13,7 +13,7 @@ import { useLanguage } from "@/context/LanguageContext";
 export default function Home() {
     const { t, language } = useLanguage();
     useScrollReveal();
-    const featuredBooks = books.slice(0, 3);
+    const featuredBook = books[0];
 
     return (
         <div className="flex flex-col min-h-screen">
@@ -135,10 +135,8 @@ export default function Home() {
                         </Link>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                        {featuredBooks.map((book) => (
-                            <BookCard key={book.id} book={book} />
-                        ))}
+                    <div className="max-w-md mx-auto">
+                        <BookCard book={featuredBook} />
                     </div>
                 </div>
 

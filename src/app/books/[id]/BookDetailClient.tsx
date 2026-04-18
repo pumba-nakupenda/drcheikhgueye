@@ -3,10 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
-import { Headphones, ShoppingCart, MoveLeft, MessageSquare, Clock, ShieldCheck, Share2 } from "lucide-react";
+import { ShoppingCart, MoveLeft, MessageSquare, Clock, ShieldCheck, Share2 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import SituationCards from "@/components/SituationCards";
-import CustomAudioPlayer from "@/components/CustomAudioPlayer";
+import AudioCard from "@/components/AudioCard";
 import BookPreview from "@/components/BookPreview";
 import { useState, useEffect } from "react";
 import { Book } from "@/data/books";
@@ -79,7 +79,7 @@ export default function BookDetailClient({ book }: BookDetailClientProps) {
                 {/* Back Button & Share */}
                 <div className="flex justify-between items-center mb-12">
                     <Link
-                        href="/books"
+                        href="/"
                         className={`inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-bold group transition-all active-scale ${isRtl ? 'flex-row-reverse' : ''}`}
                     >
                         <MoveLeft size={20} className={`transition-transform ${isRtl ? 'rotate-180 group-hover:translate-x-1' : 'group-hover:-translate-x-1'}`} />
@@ -109,23 +109,11 @@ export default function BookDetailClient({ book }: BookDetailClientProps) {
                         </div>
 
                         {displayAudio && (
-                            <div className="glass-card p-6 md:p-8 rounded-[2.5rem] border border-emerald-500/20 shadow-xl relative overflow-hidden">
-                                <div className={`absolute top-0 ${isRtl ? 'left-0 -translate-x-1/2' : 'right-0 translate-x-1/2'} w-32 h-32 bg-emerald-500/10 blur-[50px] rounded-full -translate-y-1/2`} />
-
-                                <div className="relative z-10 space-y-6">
-                                    <div className={`flex items-center gap-4 ${isRtl ? 'flex-row-reverse text-right' : ''}`}>
-                                        <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-emerald-100 dark:bg-emerald-900/40 flex items-center justify-center text-emerald-600">
-                                            <Headphones size={24} className="md:w-7 md:h-7" />
-                                        </div>
-                                        <div>
-                                            <h3 className="text-lg md:text-xl font-serif font-black text-emerald-950 dark:text-emerald-50">{t.book_detail.audio_title}</h3>
-                                            <p className="text-[10px] md:text-xs text-emerald-600 font-black uppercase tracking-widest">{t.book_detail.audio_subtitle}</p>
-                                        </div>
-                                    </div>
-
-                                    <CustomAudioPlayer src={displayAudio} />
-                                </div>
-                            </div>
+                            <AudioCard
+                                src={displayAudio}
+                                title={t.book_detail.audio_title}
+                                subtitle={t.book_detail.audio_subtitle}
+                            />
                         )}
                     </div>
 

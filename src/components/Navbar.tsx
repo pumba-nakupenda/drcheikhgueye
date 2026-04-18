@@ -4,11 +4,13 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronRight, MessageSquare, Sun, Moon } from "lucide-react";
+import { Menu, X, ChevronRight, ShoppingCart, Sun, Moon } from "lucide-react";
 import { siteConfig } from "@/config/site";
+import { books } from "@/data/books";
 import { useLanguage } from "@/context/LanguageContext";
 
 const LANGUAGES = ['fr', 'en', 'ar'] as const;
+const SPY_SECTIONS = ["auteur", "livre", "contact"] as const;
 
 export default function Navbar() {
     const { language, setLanguage, t, dir } = useLanguage();
@@ -19,6 +21,7 @@ export default function Navbar() {
     const [lastScrollY, setLastScrollY] = useState(0);
     const [theme, setTheme] = useState<'light' | 'dark'>('light');
     const [mounted, setMounted] = useState(false);
+    const [activeSection, setActiveSection] = useState<string>("home");
 
     useEffect(() => { setMounted(true); }, []);
 
@@ -50,20 +53,58 @@ export default function Navbar() {
                 setIsVisible(true);
             }
             setLastScrollY(currentScrollY);
+
+            if (currentScrollY < 200) {
+                setActiveSection("home");
+            }
         };
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, [lastScrollY]);
 
-    const toggleMenu = () => setIsOpen(!isOpen);
     const pathname = usePathname();
 
+    useEffect(() => {
+        if (pathname !== "/") return;
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setActiveSection(entry.target.id);
+                    }
+                });
+            },
+            { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+        );
+        SPY_SECTIONS.forEach((id) => {
+            const el = document.getElementById(id);
+            if (el) observer.observe(el);
+        });
+        return () => observer.disconnect();
+    }, [pathname]);
+
+    const toggleMenu = () => setIsOpen(!isOpen);
+
     const navLinks = [
-        { href: "/", label: t.nav.home },
-        { href: "/about", label: t.nav.about },
-        { href: "/books", label: t.nav.books },
-        { href: "/contact", label: t.nav.contact },
+        { href: "/", label: t.nav.home, section: "home" },
+        { href: "/#auteur", label: t.nav.about, section: "auteur" },
+        { href: "/#livre", label: t.nav.books, section: "livre" },
+        { href: "/#contact", label: t.nav.contact, section: "contact" },
     ];
+
+    const book = books[0];
+    const orderBookTitle = language === 'ar' && book.title_ar ? book.title_ar : language === 'en' && book.title_en ? book.title_en : book.title;
+    const orderMessage = language === 'ar'
+        ? `مرحباً، أود طلب كتاب: ${orderBookTitle}`
+        : language === 'en'
+        ? `Hello, I would like to order the book: ${orderBookTitle}`
+        : `Bonjour, je souhaite commander le livre : ${orderBookTitle}`;
+    const orderUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(orderMessage)}`;
+
+    const isLinkActive = (link: { href: string; section: string }) => {
+        if (pathname !== "/") return pathname === link.href;
+        return activeSection === link.section;
+    };
 
     return (
         <nav className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? "py-4 glass shadow-2xl" : "py-6 bg-transparent"
@@ -84,7 +125,7 @@ export default function Navbar() {
 
                     <div className="hidden sm:flex items-center space-x-8" style={{ direction: 'ltr' }}>
                         {navLinks.map((link) => {
-                            const isActive = pathname === link.href;
+                            const isActive = isLinkActive(link);
                             return (
                                 <Link
                                     key={link.href}
@@ -101,7 +142,6 @@ export default function Navbar() {
                             );
                         })}
 
-                        {/* Language Toggle - Forced LTR and Fixed Order */}
                         <div className="flex items-center gap-1 bg-emerald-100 dark:bg-emerald-900/30 p-1 rounded-full border border-emerald-500/10" style={{ direction: 'ltr' }}>
                             <button
                                 onClick={() => setLanguage('fr')}
@@ -123,7 +163,6 @@ export default function Navbar() {
                             </button>
                         </div>
 
-                        {/* Theme Toggle */}
                         <button
                             onClick={toggleTheme}
                             className="w-10 h-10 flex items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-900/30 border border-emerald-500/10 text-emerald-600 dark:text-emerald-400 hover:scale-110 transition-all active:scale-95"
@@ -132,13 +171,15 @@ export default function Navbar() {
                             {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
                         </button>
 
-                        <Link
-                            href={siteConfig.whatsappLinks.general}
+                        <a
+                            href={orderUrl}
                             target="_blank"
-                            className="bg-emerald-900 dark:bg-emerald-600 text-white px-6 py-2.5 rounded-full text-sm font-bold btn-premium"
+                            rel="noopener noreferrer"
+                            className="bg-emerald-700 dark:bg-emerald-600 text-white px-6 py-2.5 rounded-full text-sm font-bold btn-premium flex items-center gap-2"
                         >
+                            <ShoppingCart size={16} />
                             {t.nav.whatsapp}
-                        </Link>
+                        </a>
                     </div>
 
                     <div className="sm:hidden flex items-center gap-1.5" style={{ direction: 'ltr' }}>
@@ -149,7 +190,6 @@ export default function Navbar() {
                         >
                             {theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}
                         </button>
-                        {/* Compact cycling language button */}
                         <button
                             onClick={() => {
                                 const langs = LANGUAGES;
@@ -209,7 +249,7 @@ export default function Navbar() {
                         </div>
 
                         {navLinks.map((link) => {
-                            const isActive = pathname === link.href;
+                            const isActive = isLinkActive(link);
                             return (
                                 <Link
                                     key={link.href}
@@ -230,16 +270,18 @@ export default function Navbar() {
 
                         <div className="mt-auto pt-10 border-t border-emerald-500/10 space-y-4">
                             <p className={`text-[10px] font-black uppercase tracking-widest text-emerald-900/30 dark:text-emerald-100/20 ${isRtl ? 'text-right' : 'text-left'}`}>
-                                {language === 'ar' ? "تواصل معنا" : language === 'en' ? "Contact Dr. Cheikh Gueye" : "Contactez Dr. Cheikh Gueye"}
+                                {language === 'ar' ? "اطلب عبر واتساب" : language === 'en' ? "Order on WhatsApp" : "Commander sur WhatsApp"}
                             </p>
-                            <Link
-                                href={siteConfig.whatsappLinks.general}
+                            <a
+                                href={orderUrl}
                                 target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={toggleMenu}
                                 className={`flex items-center justify-between bg-emerald-700 dark:bg-emerald-600 text-white p-5 rounded-[2rem] font-black shadow-xl active-scale ${isRtl ? 'flex-row-reverse' : ''}`}
                             >
-                                WhatsApp
-                                <MessageSquare size={24} />
-                            </Link>
+                                {t.nav.whatsapp}
+                                <ShoppingCart size={24} />
+                            </a>
                         </div>
                     </div>
                 </div>

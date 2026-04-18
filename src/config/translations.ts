@@ -22,65 +22,53 @@ export const translations = {
             quote: "L'excellence est un chemin vers la lumière.",
             scroll: "Défiler",
         },
-        featured_books: {
-            title: "Dernière",
-            subtitle: "Parution.",
-            tagline: "Une édition de référence du Mukhtasar al-Akhdari : purification rituelle et prière selon le rite malékite.",
-            cta_all: "Découvrir l'ouvrage",
+        book_section: {
+            badge: "L'Ouvrage",
+            title: "Mukhtasar",
+            subtitle: "al-Akhdari.",
+            tagline: "Une édition de référence : purification rituelle et prière selon le rite malékite, structurée autour de 160 situations-problèmes.",
         },
-        author_band: {
-            badge: "L'Auteur",
-            name: "Dr. Cheikh Gueye",
-            role: "Chercheur, Pédagogue & Traducteur",
-            bio: "Originaire de Louga, le Dr. Cheikh Gueye a dirigé la division de l'enseignement arabe au Ministère de l'Éducation Nationale et a formé pendant trois décennies les inspecteurs de l'enseignement arabe à la FASTEF.",
-            highlight: "Lauréat du premier prix mondial à La Mecque (1997) pour sa traduction du « Nectar cacheté ».",
-            cta: "Découvrir l'auteur",
-        },
+        audio_bio_title: "Biographie Audio",
+        audio_bio_subtitle: "Le parcours du Dr. Gueye",
         testimonials: {
             title: "Ce qu'en disent les",
             subtitle: "Lecteurs",
             badge: "Témoignages",
             items: [
                 {
-                    quote: "Grâce à l'approche du Dr. Cheikh Gueye, j'ai enfin pu comprendre les nuances de l'arabe classique que je trouvais si difficiles auparavant.",
-                    author: "Abdoulaye Wade",
-                    role: "Étudiant en Sciences Humaines"
-                },
-                {
-                    quote: "Un travail de traduction remarquable. On sent la maîtrise du sujet et le respect profond pour les textes originaux.",
-                    author: "Mame Diarra",
-                    role: "Chercheuse en Littérature"
-                },
-                {
-                    quote: "Son ouvrage sur le Coran est une mine d'or pédagogique. Simple, clair et d'une rigueur académique exemplaire.",
+                    quote: "Enfin une édition qui allie la rigueur du texte malékite à une pédagogie moderne. Les 160 situations rendent les règles vivantes et applicables au quotidien.",
                     author: "Imam Ibrahima",
-                    role: "Enseignant"
+                    role: "Imam & Enseignant de fiqh"
                 },
                 {
-                    quote: "La méthode est révolutionnaire pour les francophones. Les signes diacritiques et les graphies sont expliqués avec une clarté rare.",
+                    quote: "La version bilingue Français/Arabe est un vrai plus pour les francophones qui veulent approfondir leur pratique sans passer par des traductions approximatives.",
                     author: "Ousmane Sy",
-                    role: "Apprenant Autodidacte"
+                    role: "Étudiant en sciences religieuses"
                 },
                 {
-                    quote: "Une contribution majeure à la diffusion du savoir. Ce manuel est devenu la référence dans notre institut de langue.",
+                    quote: "Un outil indispensable pour les imams et les enseignants de fiqh. La structure par situations-problèmes change la manière dont on transmet le Mukhtasar.",
                     author: "Dr. Amy Collé",
                     role: "Directrice d'Institut"
                 },
                 {
-                    quote: "La dimension spirituelle alliée à la rigueur linguistique fait de cet ouvrage un compagnon indispensable pour tout musulman.",
+                    quote: "J'ai redécouvert les règles de la purification et de la prière avec une clarté que je n'avais jamais eue. Une édition qui rend le rite malékite accessible à tous.",
+                    author: "Abdoulaye Wade",
+                    role: "Fidèle"
+                },
+                {
+                    quote: "La dimension audio permet d'apprendre même en déplacement. Méthode innovante pour un texte classique comme le Mukhtasar al-Akhdari.",
+                    author: "Mame Diarra",
+                    role: "Enseignante"
+                },
+                {
+                    quote: "La rigueur du Dr. Gueye et sa maîtrise du texte arabe transparaissent à chaque page. Cette édition fera date pour le fiqh malékite francophone.",
                     author: "Cheikh Tidiane",
                     role: "Conférencier"
                 }
             ]
         },
-        cta_section: {
-            title: "Soutenir le Savoir.",
-            text: "Chaque exemplaire commandé est un soutien direct à la recherche et à la transmission culturelle au Sénégal.",
-            button: "Commander l'ouvrage",
-        },
         about: {
             badge: "Biographie Officielle",
-            audio_badge: "Version Audio Disponible",
             title_prefix: "Docteur",
             quote: "La langue est un pont entre les cultures, un instrument de compréhension mutuelle et un outil d’élévation intellectuelle.",
             content: [
@@ -88,17 +76,17 @@ export const translations = {
                 "Il a enseigné à tous les niveaux du système éducatif sénégalais, de l’élémentaire au supérieur, notamment à la FASTEF où il a eu à former, de 1986 à 2015, la plupart des élèves inspecteurs de l’enseignement élémentaire arabe.",
                 "Son profil de trilingue le spécialise d’une part, dans l’enseignement et la recherche, de l’autre dans la traduction en et vers le français, l’anglais et l’arabe."
             ],
-            blockquote: "Il a acquis une renommée internationale avec sa traduction du « Nectar cacheté : Ar Raheeq Al Makhtoum », pour laquelle il a remporté le premier prix mondial à la Mecque en 1997.",
-            content_p2: "Cette biographie du Prophète (paix et salut sur lui), écrite par Cheikh Safi al-Rahman al-Moubarak Fawri, a été primée lors du concours organisé par la Ligue Mondiale Islamique. Par ailleurs, il a traduit pour de nombreux pays dont l’Arabie Saoudite, la Turquie et la Libye, avec un nombre d’ouvrages traduits avoisinant la trentaine.",
-            content_p3: "Reconnu pour son expertise, il figure également sur la liste des traducteurs agréés par le Bureau de Traduction et d’Interprétariat du Ministère Sénégalais des Affaires Etrangères.",
+            blockquote: "Il a acquis une renommée internationale avec sa traduction du « Nectar cacheté : Ar Raheeq Al Makhtoum », biographie de référence du Prophète (psl), lauréate du premier prix mondial à La Mecque en 1997.",
+            content_p2: "Cette biographie du Prophète (paix et salut sur lui), écrite par Cheikh Safi al-Rahman al-Moubarak Fawri, a été primée lors du concours organisé par la Ligue Mondiale Islamique. Son travail sur les textes religieux s'étend du fiqh malékite à la sira, avec une trentaine d'ouvrages traduits pour l'Arabie Saoudite, la Turquie et la Libye.",
+            content_p3: "Reconnu pour son expertise, il figure également sur la liste des traducteurs agréés par le Bureau de Traduction et d'Interprétariat du Ministère Sénégalais des Affaires Étrangères.",
             expertise: "Domaines d'Expertise",
             expertise_items: [
-                "Sciences du Langage & Linguistique",
-                "Littérature Classique & Moderne",
-                "Pédagogie Comparative"
+                "Fiqh malékite & Sciences religieuses",
+                "Traduction de textes sacrés",
+                "Pédagogie par compétences"
             ],
             mission_title: "Mission",
-            mission_text: "Rendre l'apprentissage de l'arabe accessible, structuré et fécond pour tous les publics francophones."
+            mission_text: "Rendre les sciences religieuses malékites accessibles par une pédagogie alliant rigueur textuelle et application pratique, pour les francophones et les arabophones."
         },
         contact: {
             badge: "Contact Direct",
@@ -208,65 +196,53 @@ export const translations = {
             quote: "Excellence is a path toward the light.",
             scroll: "Scroll",
         },
-        featured_books: {
-            title: "Latest",
-            subtitle: "Release.",
-            tagline: "A reference edition of the Mukhtasar al-Akhdari: ritual purification and prayer according to the Maliki rite.",
-            cta_all: "Discover the book",
+        book_section: {
+            badge: "The Book",
+            title: "Mukhtasar",
+            subtitle: "al-Akhdari.",
+            tagline: "A reference edition: ritual purification and prayer according to the Maliki rite, structured around 160 problem-situations.",
         },
-        author_band: {
-            badge: "The Author",
-            name: "Dr. Cheikh Gueye",
-            role: "Researcher, Educator & Translator",
-            bio: "Originally from Louga, Dr. Cheikh Gueye led the Arabic education division at the Ministry of National Education and trained Arabic education inspectors at FASTEF for three decades.",
-            highlight: "Winner of the first world prize in Mecca (1997) for his translation of 'The Sealed Nectar'.",
-            cta: "Discover the author",
-        },
+        audio_bio_title: "Audio Biography",
+        audio_bio_subtitle: "Dr. Gueye's journey",
         testimonials: {
             title: "What the",
             subtitle: "Readers say",
             badge: "Testimonials",
             items: [
                 {
-                    quote: "Thanks to Dr. Cheikh Gueye's approach, I was finally able to understand the nuances of classical Arabic that I previously found so difficult.",
-                    author: "Abdoulaye Wade",
-                    role: "Student in Humanities"
-                },
-                {
-                    quote: "A remarkable translation work. You can feel the mastery of the subject and the deep respect for the original texts.",
-                    author: "Mame Diarra",
-                    role: "Literature Researcher"
-                },
-                {
-                    quote: "His book on the Quran is a pedagogical goldmine. Simple, clear and of exemplary academic rigor.",
+                    quote: "Finally an edition that combines the rigor of the Maliki text with modern pedagogy. The 160 situations bring the rules alive and make them applicable daily.",
                     author: "Imam Ibrahima",
-                    role: "Teacher"
+                    role: "Imam & Fiqh Teacher"
                 },
                 {
-                    quote: "The method is revolutionary for French speakers. The diacritical marks and scripts are explained with rare clarity.",
+                    quote: "The bilingual French/Arabic version is a real plus for French speakers who want to deepen their practice without relying on approximate translations.",
                     author: "Ousmane Sy",
-                    role: "Self-taught Learner"
+                    role: "Student in religious sciences"
                 },
                 {
-                    quote: "A major contribution to the dissemination of knowledge. This manual has become the reference in our language institute.",
+                    quote: "An indispensable tool for imams and fiqh teachers. The problem-situation structure changes the way we transmit the Mukhtasar.",
                     author: "Dr. Amy Collé",
                     role: "Institute Director"
                 },
                 {
-                    quote: "The spiritual dimension combined with linguistic rigor makes this work an indispensable companion for every Muslim.",
+                    quote: "I rediscovered the rules of purification and prayer with a clarity I had never had before. An edition that makes the Maliki rite accessible to everyone.",
+                    author: "Abdoulaye Wade",
+                    role: "Worshipper"
+                },
+                {
+                    quote: "The audio dimension lets you learn even on the go. An innovative method for a classic text like the Mukhtasar al-Akhdari.",
+                    author: "Mame Diarra",
+                    role: "Teacher"
+                },
+                {
+                    quote: "Dr. Gueye's rigor and mastery of the Arabic text shine through on every page. This edition will make history for French-speaking Maliki fiqh.",
                     author: "Cheikh Tidiane",
                     role: "Speaker"
                 }
             ]
         },
-        cta_section: {
-            title: "Support Knowledge.",
-            text: "Every copy ordered is a direct support to research and cultural transmission in Senegal.",
-            button: "Order the book",
-        },
         about: {
             badge: "Official Biography",
-            audio_badge: "Audio Version Available",
             title_prefix: "Doctor",
             quote: "Language is a bridge between cultures, an instrument of mutual understanding and a tool for intellectual elevation.",
             content: [
@@ -274,17 +250,17 @@ export const translations = {
                 "He has taught at all levels of the Senegalese educational system, from primary to higher education, notably at FASTEF where he trained most of the Arabic elementary education inspectors from 1986 to 2015.",
                 "His trilingual profile specializes him, on one hand, in teaching and research, and on the other, in translation to and from French, English and Arabic."
             ],
-            blockquote: "He gained international renown with his translation of 'The Sealed Nectar: Ar Raheeq Al Makhtoum', for which he won the first world prize in Mecca in 1997.",
-            content_p2: "This biography of the Prophet (peace and blessings be upon him), written by Sheikh Safi al-Rahman al-Mubarakpuri, was awarded at the competition organized by the Muslim World League. Furthermore, he has translated for many countries including Saudi Arabia, Turkey and Libya, with about thirty translated works.",
+            blockquote: "He gained international renown with his translation of 'The Sealed Nectar: Ar Raheeq Al Makhtoum', the reference biography of the Prophet (pbuh), winner of the first world prize in Mecca in 1997.",
+            content_p2: "This biography of the Prophet (peace and blessings be upon him), written by Sheikh Safi al-Rahman al-Mubarakpuri, was awarded at the competition organized by the Muslim World League. His work on religious texts spans Maliki fiqh to sira, with about thirty books translated for Saudi Arabia, Turkey and Libya.",
             content_p3: "Recognized for his expertise, he also appears on the list of translators accredited by the Translation and Interpretation Bureau of the Senegalese Ministry of Foreign Affairs.",
             expertise: "Areas of Expertise",
             expertise_items: [
-                "Language Sciences & Linguistics",
-                "Classical & Modern Literature",
-                "Comparative Pedagogy"
+                "Maliki Fiqh & Religious Sciences",
+                "Translation of Sacred Texts",
+                "Competency-Based Pedagogy"
             ],
             mission_title: "Mission",
-            mission_text: "Making the learning of Arabic accessible, structured and fruitful for all audiences."
+            mission_text: "Making Maliki religious sciences accessible through a pedagogy that combines textual rigor and practical application, for both French and Arabic speakers."
         },
         contact: {
             badge: "Direct Contact",
@@ -394,65 +370,53 @@ export const translations = {
             quote: "التميز طريق نحو النور.",
             scroll: "مرر للأسفل",
         },
-        featured_books: {
-            title: "أحدث",
-            subtitle: "إصدار.",
-            tagline: "طبعة مرجعية لمختصر الأخضري: الطهارة والصلاة حسب المذهب المالكي.",
-            cta_all: "اكتشف الكتاب",
+        book_section: {
+            badge: "الكتاب",
+            title: "مختصر",
+            subtitle: "الأخضري.",
+            tagline: "طبعة مرجعية: أحكام الطهارة والصلاة حسب المذهب المالكي، منظمة حول 160 وضعية-مشكلة.",
         },
-        author_band: {
-            badge: "الكاتب",
-            name: "د. شيخ غي",
-            role: "باحث، تربوي ومترجم",
-            bio: "ينحدر الدكتور شيخ غي من مدينة لوغا، ترأس قسم التعليم العربي بوزارة التربية الوطنية وقام بتكوين مفتشي التعليم العربي في FASTEF على مدى ثلاثة عقود.",
-            highlight: "حائز على الجائزة العالمية الأولى في مكة المكرمة (1997) عن ترجمته لكتاب «الرحيق المختوم».",
-            cta: "اكتشف الكاتب",
-        },
+        audio_bio_title: "السيرة الصوتية",
+        audio_bio_subtitle: "مسار الدكتور شيخ غي",
         testimonials: {
             title: "ماذا يقول",
             subtitle: "القراء",
             badge: "شهادات",
             items: [
                 {
-                    quote: "بفضل منهج الدكتور شيخ غي، تمكنت أخيرًا من فهم فروق اللغة العربية الكلاسيكية التي كانت تبدو لي صعبة للغاية من قبل.",
-                    author: "عبد الله واد",
-                    role: "طالب في العلوم الإنسانية"
-                },
-                {
-                    quote: "عمل ترجمة رائع. نلمس التمكن من الموضوع والاحترام العميق للنصوص الأصلية.",
-                    author: "مامي ديارا",
-                    role: "باحثة في الأدب"
-                },
-                {
-                    quote: "كتابه عن القرآن منجم ذهب تربوي. بسيط، واضح، وبدقة أكاديمية مثالية.",
+                    quote: "أخيراً طبعة تجمع بين دقة النص المالكي ومنهج بيداغوجي حديث. الوضعيات الـ160 تجعل الأحكام حية وقابلة للتطبيق يومياً.",
                     author: "الإمام إبراهيم",
-                    role: "مدرس"
+                    role: "إمام ومدرس فقه"
                 },
                 {
-                    quote: "المنهج ثوري للناطقين بالفرنسية. علامات التشكيل والخطوط مشروحة بوضوح نادر.",
+                    quote: "الطبعة ثنائية اللغة عربي/فرنسي إضافة حقيقية للناطقين بالفرنسية الذين يريدون تعميق ممارستهم دون المرور بترجمات تقريبية.",
                     author: "عثمان سي",
-                    role: "متعلم ذاتي"
+                    role: "طالب علوم شرعية"
                 },
                 {
-                    quote: "مساهمة كبرى في نشر العلم. أصبح هذا الدليل المرجع في معهدنا اللغوي.",
+                    quote: "أداة لا غنى عنها للأئمة ومدرسي الفقه. هيكلة الكتاب بالوضعيات-المشكلات غيّرت طريقة تدريس المختصر.",
                     author: "د. آمي كولي",
                     role: "مديرة معهد"
                 },
                 {
-                    quote: "البعد الروحي الممزوج بالدقة اللغوية يجعل من هذا الكتاب رفيقًا لا غنى عنه لكل مسلم.",
+                    quote: "اكتشفت من جديد أحكام الطهارة والصلاة بوضوح لم أعهده من قبل. طبعة تجعل المذهب المالكي في متناول الجميع.",
+                    author: "عبد الله واد",
+                    role: "مصلٍّ"
+                },
+                {
+                    quote: "البُعد الصوتي يتيح التعلم حتى أثناء التنقل. منهج مبتكر لنص كلاسيكي كمختصر الأخضري.",
+                    author: "مامي ديارا",
+                    role: "مدرسة"
+                },
+                {
+                    quote: "دقة الدكتور شيخ غي وإتقانه للنص العربي يظهران في كل صفحة. ستكون هذه الطبعة علامة فارقة للفقه المالكي الفرنكوفوني.",
                     author: "شيخ تيجان",
                     role: "محاضر"
                 }
             ]
         },
-        cta_section: {
-            title: "دعم العلم والمعرفة.",
-            text: "كل نسخة تطلبها هي دعم مباشر للبحث والنشر الثقافي في السنغال.",
-            button: "اطلب الكتاب",
-        },
         about: {
             badge: "السيرة الذاتية الرسمية",
-            audio_badge: "نسخة صوتية متوفرة",
             title_prefix: "الدكتور",
             quote: "اللغة جسر بين الثقافات، وأداة للتفاهم المتبادل ووسيلة للارتقاء الفكري.",
             content: [
@@ -460,17 +424,17 @@ export const translations = {
                 "قام بالتدريس في جميع مستويات النظام التعليمي السنغالي، من الابتدائي إلى العالي، لا سيما في كلية العلوم والتقنيات للتربية والتعليم (FASTEF) حيث قام بتكوين معظم المفتشين في التعليم الابتدائي العربي في البلاد من عام 1986 إلى 2015.",
                 "تخصصه كمتعدد لغات (ثلاث لغات) يجعله متخصصاً من ناحية في التدريس والبحث، ومن ناحية أخرى في الترجمة من وإلى الفرنسية والإنجليزية والعربية."
             ],
-            blockquote: "اكتسب شهرة عالمية من خلال ترجمته لكتاب «الرحيق المختوم»، والتي فاز عنها بالجائزة العالمية الأولى في مكة المكرمة عام 1997.",
-            content_p2: "هذه السيرة النبوية (صلى الله عليه وسلم)، التي كتبها الشيخ صفي الرحمن المباركفوري، توجت في المسابقة التي نظمتها رابطة العالم الإسلامي. وفضلاً عن ذلك، قام بالترجمة للعديد من الدول منها المملكة العربية السعودية وتركيا وليبيا، حيث بلغ عدد الكتب المترجمة قرابة الثلاثين كتاباً.",
+            blockquote: "اكتسب شهرة عالمية من خلال ترجمته لكتاب «الرحيق المختوم»، السيرة النبوية المرجعية، والتي فاز عنها بالجائزة العالمية الأولى في مكة المكرمة عام 1997.",
+            content_p2: "هذه السيرة النبوية (صلى الله عليه وسلم)، التي كتبها الشيخ صفي الرحمن المباركفوري، توجت في المسابقة التي نظمتها رابطة العالم الإسلامي. يمتد عمله على النصوص الدينية من الفقه المالكي إلى السيرة، مع حوالي ثلاثين مؤلفاً مترجماً للمملكة العربية السعودية وتركيا وليبيا.",
             content_p3: "تقديراً لخبرته، يظهر اسمه أيضاً في قائمة المترجمين المعتمدين لدى مكتب الترجمة والترجمة الفورية بوزارة الشؤون الخارجية السنغالية.",
             expertise: "مجالات الخبرة",
             expertise_items: [
-                "علوم اللغة واللسانيات",
-                "الأدب الكلاسيكي والحديث",
-                "البيداغوجيا المقارنة"
+                "الفقه المالكي والعلوم الشرعية",
+                "ترجمة النصوص المقدسة",
+                "البيداغوجيا بالكفاءات"
             ],
             mission_title: "المهمة",
-            mission_text: "جعل تعلم اللغة العربية متاحاً ومنظماً ومفيداً لجميع الناطقين بالفرنسية."
+            mission_text: "جعل العلوم الشرعية المالكية في متناول الجميع عبر منهج يجمع بين الدقة النصية والتطبيق العملي، للناطقين بالفرنسية والعربية."
         },
         contact: {
             badge: "اتصال مباشر",

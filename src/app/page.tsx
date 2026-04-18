@@ -5,7 +5,7 @@ import Link from "next/link";
 import { books } from "@/data/books";
 import Testimonials from "@/components/Testimonials";
 import SituationCards from "@/components/SituationCards";
-import CustomAudioPlayer from "@/components/CustomAudioPlayer";
+import AudioCard from "@/components/AudioCard";
 import ContactForm from "@/components/ContactForm";
 import { siteConfig } from "@/config/site";
 import {
@@ -16,7 +16,6 @@ import {
     Headphones,
     ShoppingCart,
     Award,
-    Mic,
     Mail,
     MessageSquare,
     Phone,
@@ -39,6 +38,7 @@ export default function Home() {
     const displayAudio = language === 'ar' && book.audioSummary_ar ? book.audioSummary_ar : language === 'en' && book.audioSummary_en ? book.audioSummary_en : book.audioSummary;
 
     const bioAudio = language === 'ar' ? "/audio/Biographie AR.mp3" : language === 'en' ? "/audio/Biographie AN.mp3" : "/audio/Biographie FR.mp3";
+    const langPairLabel = language === 'ar' ? "عربية | فرنسية" : language === 'en' ? "AR | FR" : "AR | FR";
 
     const orderMessage = language === 'ar'
         ? `مرحباً، أود طلب كتاب: ${displayTitle}`
@@ -49,7 +49,7 @@ export default function Home() {
 
     return (
         <div className="flex flex-col min-h-screen">
-            {/* Premium Hero Section */}
+            {/* Hero */}
             <section className="relative min-h-[95vh] flex items-center overflow-hidden bg-emerald-950">
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
                     <div className="absolute top-[-10%] right-[-10%] w-[60%] h-[60%] bg-emerald-400/20 blur-[120px] rounded-full animate-pulse" />
@@ -110,7 +110,7 @@ export default function Home() {
                                         <Languages size={28} />
                                     </div>
                                     <div className="text-left">
-                                        <div className="text-white font-black text-2xl">{language === 'ar' ? "عربية | فرنسية" : "Arabe | FR"}</div>
+                                        <div className="text-white font-black text-2xl">{langPairLabel}</div>
                                         <div className="text-emerald-400/40 text-[10px] uppercase font-bold tracking-[0.2em]">{t.hero.stats_polyglotte}</div>
                                     </div>
                                 </div>
@@ -148,7 +148,6 @@ export default function Home() {
                             </div>
                         </Link>
                     </div>
-
                 </div>
 
                 <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30 hidden lg:flex">
@@ -158,42 +157,40 @@ export default function Home() {
             </section>
 
             {/* Author Section */}
-            <section id="auteur" className="scroll-mt-24 py-16 md:py-32 relative bg-white dark:bg-zinc-900 overflow-hidden reveal">
+            <section id="auteur" className="scroll-mt-28 py-16 md:py-32 relative bg-white dark:bg-zinc-900 overflow-hidden reveal">
                 <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-emerald-500/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2" />
                 <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-emerald-500/5 blur-[100px] rounded-full translate-y-1/2 -translate-x-1/2" />
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-24 items-start">
-                        <div className="lg:col-span-5 space-y-8">
-                            <div className="relative aspect-square sm:aspect-[4/5] max-w-xs sm:max-w-none mx-auto rounded-[2rem] overflow-hidden shadow-2xl border-8 border-white/5 group animate-float">
-                                <Image
-                                    src="/images/portrait-cheikh-gueye.webp"
-                                    alt="Dr. Cheikh Gueye"
-                                    fill
-                                    className="object-cover transition-transform duration-1000 group-hover:scale-110"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/40 via-transparent to-transparent" />
+                        {/* Portrait aligned with hero book cover grammar */}
+                        <div className="lg:col-span-5">
+                            <div className="relative aspect-[3/4] w-full max-w-sm mx-auto group">
+                                <div className={`absolute inset-0 bg-emerald-600 rounded-[2.5rem] ${isRtl ? '-rotate-6 group-hover:-rotate-3' : 'rotate-6 group-hover:rotate-3'} transition-transform duration-700 shadow-2xl`} />
+                                <div className="relative h-full rounded-[2.5rem] overflow-hidden border-8 border-white dark:border-zinc-800 shadow-2xl">
+                                    <Image
+                                        src="/images/portrait-cheikh-gueye.webp"
+                                        alt="Dr. Cheikh Gueye"
+                                        fill
+                                        className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/40 via-transparent to-transparent" />
+                                </div>
                             </div>
                         </div>
 
                         <div className="lg:col-span-7 max-w-none rtl:text-right">
                             <div className="space-y-4 mb-10">
-                                <div className={`inline-flex flex-wrap items-center gap-4 ${isRtl ? 'flex-row-reverse' : ''}`}>
-                                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-900/30 border border-emerald-500/20 text-emerald-700 dark:text-emerald-400 text-xs font-black uppercase tracking-widest">
-                                        {t.about.badge}
-                                    </div>
-                                    <div className={`flex items-center gap-3 px-4 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-900/10 border border-emerald-500/10 text-emerald-600 ${isRtl ? 'flex-row-reverse' : ''}`}>
-                                        <Mic size={14} />
-                                        <span className="text-[10px] uppercase font-bold tracking-widest">{t.about.audio_badge}</span>
-                                    </div>
+                                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-900/30 border border-emerald-500/20 text-emerald-700 dark:text-emerald-400 text-xs font-black uppercase tracking-widest">
+                                    {t.about.badge}
                                 </div>
                                 <h2 className="text-3xl md:text-6xl font-serif font-black text-emerald-950 dark:text-white leading-tight">
                                     {t.about.title_prefix} <span className="text-emerald-600">{language === 'ar' ? 'شيخ غي' : 'Cheikh Gueye'}</span>
                                 </h2>
+                            </div>
 
-                                <div className="pt-4 max-w-md">
-                                    <CustomAudioPlayer src={bioAudio} />
-                                </div>
+                            <div className="mb-10 max-w-md">
+                                <AudioCard src={bioAudio} title={t.audio_bio_title} subtitle={t.audio_bio_subtitle} />
                             </div>
 
                             <div className="space-y-6 text-emerald-900/80 dark:text-emerald-100/80 leading-relaxed font-light text-lg">
@@ -203,7 +200,7 @@ export default function Home() {
                                     </p>
                                 ))}
 
-                                <div className={`flex items-start gap-4 p-5 rounded-2xl bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-500/10 not-italic ${language === 'ar' ? 'flex-row-reverse text-right' : 'text-left'}`}>
+                                <div className={`flex items-start gap-4 p-5 rounded-2xl bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-500/10 not-italic ${isRtl ? 'flex-row-reverse text-right' : 'text-left'}`}>
                                     <div className="w-10 h-10 shrink-0 rounded-xl bg-emerald-600 text-white flex items-center justify-center shadow-lg">
                                         <Award size={20} />
                                     </div>
@@ -240,25 +237,19 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Book Preview Section */}
-            <section id="livre" className="scroll-mt-24 py-16 md:py-32 relative bg-zinc-50 dark:bg-zinc-950 overflow-hidden reveal">
+            {/* Book Section */}
+            <section id="livre" className="scroll-mt-28 py-16 md:py-32 relative bg-zinc-50 dark:bg-zinc-950 overflow-hidden reveal">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <div className="flex flex-col md:flex-row justify-between items-end mb-10 md:mb-20 gap-6 text-left rtl:text-right">
-                        <div className="space-y-4 max-w-2xl">
-                            <h2 className="text-4xl md:text-6xl font-serif font-black text-emerald-950 dark:text-emerald-50 leading-tight">
-                                {t.featured_books.title} <br /> <span className="text-emerald-600 dark:text-emerald-400 underline decoration-emerald-200/50 underline-offset-8 italic font-medium">{t.featured_books.subtitle}</span>
-                            </h2>
-                            <p className="text-emerald-900/60 dark:text-emerald-100/60 text-lg">
-                                {t.featured_books.tagline}
-                            </p>
+                    <div className="max-w-3xl mb-12 md:mb-20 rtl:text-right space-y-4">
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-900/30 border border-emerald-500/20 text-emerald-700 dark:text-emerald-400 text-xs font-black uppercase tracking-widest">
+                            {t.book_section.badge}
                         </div>
-                        <Link
-                            href={`/books/${book.id}`}
-                            className="px-8 py-3 rounded-2xl bg-white dark:bg-emerald-900/20 border border-emerald-500/20 text-emerald-800 dark:text-emerald-400 font-bold hover:bg-emerald-50 dark:hover:bg-emerald-900/40 transition-all group shrink-0 flex items-center gap-2"
-                        >
-                            {t.featured_books.cta_all}
-                            <ArrowRight size={18} className={`inline transition-transform group-hover:translate-x-1 ${language === 'ar' ? 'rotate-180 group-hover:-translate-x-1' : ''}`} />
-                        </Link>
+                        <h2 className="text-4xl md:text-6xl font-serif font-black text-emerald-950 dark:text-emerald-50 leading-tight">
+                            {t.book_section.title} <span className="text-emerald-600 dark:text-emerald-400 italic font-medium">{t.book_section.subtitle}</span>
+                        </h2>
+                        <p className="text-emerald-900/60 dark:text-emerald-100/60 text-lg">
+                            {t.book_section.tagline}
+                        </p>
                     </div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 mb-16">
@@ -268,20 +259,12 @@ export default function Home() {
                             </p>
                         </div>
                         {displayAudio && (
-                            <div className="lg:col-span-2 glass-card p-6 md:p-8 rounded-[2.5rem] border border-emerald-500/20 shadow-xl relative overflow-hidden">
-                                <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 blur-[50px] rounded-full -translate-y-1/2 translate-x-1/2" />
-                                <div className="relative z-10 space-y-6">
-                                    <div className="flex items-center gap-4">
-                                        <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-emerald-100 dark:bg-emerald-900/40 flex items-center justify-center text-emerald-600">
-                                            <Headphones size={24} className="md:w-7 md:h-7" />
-                                        </div>
-                                        <div>
-                                            <h3 className="text-lg md:text-xl font-serif font-black text-emerald-950 dark:text-emerald-50">{t.book_detail.audio_title}</h3>
-                                            <p className="text-[10px] md:text-xs text-emerald-600 font-black uppercase tracking-widest">{t.book_detail.audio_subtitle}</p>
-                                        </div>
-                                    </div>
-                                    <CustomAudioPlayer src={displayAudio} />
-                                </div>
+                            <div className="lg:col-span-2">
+                                <AudioCard
+                                    src={displayAudio}
+                                    title={t.book_detail.audio_title}
+                                    subtitle={t.book_detail.audio_subtitle}
+                                />
                             </div>
                         )}
                     </div>
@@ -296,8 +279,8 @@ export default function Home() {
 
             <Testimonials />
 
-            {/* Contact Section */}
-            <section id="contact" className="scroll-mt-24 py-16 md:py-32 bg-zinc-50 dark:bg-zinc-950 px-4 sm:px-6 lg:px-8 reveal">
+            {/* Contact Section (also carries the final order CTA) */}
+            <section id="contact" className="scroll-mt-28 py-16 md:py-32 bg-zinc-50 dark:bg-zinc-950 px-4 sm:px-6 lg:px-8 reveal">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-10 md:mb-20 space-y-4">
                         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-900/30 border border-emerald-500/20 text-emerald-700 dark:text-emerald-400 text-xs font-black uppercase tracking-widest">
@@ -324,22 +307,20 @@ export default function Home() {
                                     </div>
                                 </div>
 
-                                <div className="glass-card p-5 sm:p-8 rounded-2xl sm:rounded-3xl space-y-3 rtl:text-right">
-                                    <a
-                                        href={siteConfig.whatsappLinks.general}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="block group"
-                                    >
-                                        <div className={`w-12 h-12 rounded-2xl bg-emerald-600 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform ${isRtl ? 'mr-0 ml-auto' : ''}`}>
-                                            <MessageSquare size={24} />
-                                        </div>
-                                        <div className="mt-4">
-                                            <h3 className="font-bold text-emerald-950 dark:text-emerald-50">{t.contact.whatsapp}</h3>
-                                            <p className="text-emerald-600 font-bold">{t.contact.whatsapp_status}</p>
-                                        </div>
-                                    </a>
-                                </div>
+                                <a
+                                    href={whatsappOrderUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="glass-card p-5 sm:p-8 rounded-2xl sm:rounded-3xl space-y-3 rtl:text-right block group"
+                                >
+                                    <div className={`w-12 h-12 rounded-2xl bg-emerald-600 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform ${isRtl ? 'mr-0 ml-auto' : ''}`}>
+                                        <MessageSquare size={24} />
+                                    </div>
+                                    <div className="mt-4">
+                                        <h3 className="font-bold text-emerald-950 dark:text-emerald-50">{t.contact.whatsapp}</h3>
+                                        <p className="text-emerald-600 font-bold">{t.contact.whatsapp_status}</p>
+                                    </div>
+                                </a>
                             </div>
 
                             <div className="space-y-8 pt-10 border-t border-emerald-500/10 rtl:text-right">
@@ -365,29 +346,6 @@ export default function Home() {
                             <ContactForm />
                         </div>
                     </div>
-                </div>
-            </section>
-
-            {/* Final CTA */}
-            <section className="py-14 md:py-24 px-4 bg-emerald-900 overflow-hidden relative reveal">
-                <div className="max-w-5xl mx-auto glass-card p-7 md:p-20 rounded-3xl md:rounded-[4rem] text-center relative z-10 overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-emerald-600/10 to-transparent" />
-                    <h2 className="text-4xl md:text-6xl font-serif font-black text-white mb-8 relative">
-                        {t.cta_section.title}
-                    </h2>
-                    <p className="text-emerald-100/70 text-lg md:text-xl mb-12 max-w-2xl mx-auto relative">
-                        {t.cta_section.text}
-                    </p>
-                    <a
-                        href={whatsappOrderUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-3 px-10 py-5 bg-white text-emerald-950 rounded-full font-black hover:scale-105 transition-transform shadow-2xl relative group"
-                    >
-                        <ShoppingCart size={22} />
-                        {t.cta_section.button}
-                        <ArrowRight className={`group-hover:translate-x-1 transition-transform ${language === 'ar' ? 'rotate-180 group-hover:-translate-x-1' : ''}`} />
-                    </a>
                 </div>
             </section>
         </div>

@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Book, MessageSquare, User, Phone } from "lucide-react";
+import { Home, Book, ShoppingCart, User, Phone } from "lucide-react";
 import { siteConfig } from "@/config/site";
+import { books } from "@/data/books";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function MobileNavBar() {
     const pathname = usePathname();
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
 
     const links = [
         { href: "/", label: t.nav.home, icon: Home },
@@ -16,6 +17,15 @@ export default function MobileNavBar() {
         { href: "/#auteur", label: t.nav.about, icon: User },
         { href: "/#contact", label: t.nav.contact, icon: Phone },
     ];
+
+    const book = books[0];
+    const orderBookTitle = language === 'ar' && book.title_ar ? book.title_ar : language === 'en' && book.title_en ? book.title_en : book.title;
+    const orderMessage = language === 'ar'
+        ? `مرحباً، أود طلب كتاب: ${orderBookTitle}`
+        : language === 'en'
+        ? `Hello, I would like to order the book: ${orderBookTitle}`
+        : `Bonjour, je souhaite commander le livre : ${orderBookTitle}`;
+    const orderUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(orderMessage)}`;
 
     return (
         <div className="sm:hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-[60] w-[95%] max-w-sm">
@@ -45,12 +55,13 @@ export default function MobileNavBar() {
                 <div className="w-px h-8 bg-zinc-200 dark:bg-zinc-800 mx-0.5 shrink-0" />
 
                 <a
-                    href={siteConfig.whatsappLinks.general}
+                    href={orderUrl}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={t.nav.whatsapp}
                     className="flex items-center justify-center bg-emerald-600 text-white w-11 h-11 rounded-xl shadow-lg shadow-emerald-600/30 active:scale-90 transition-transform shrink-0"
                 >
-                    <MessageSquare size={19} />
+                    <ShoppingCart size={19} />
                 </a>
             </div>
         </div>

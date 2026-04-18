@@ -4,10 +4,10 @@ export const translations = {
     fr: {
         nav: {
             home: "Accueil",
-            about: "À Propos",
+            about: "Auteur",
             books: "L'Ouvrage",
             contact: "Contact",
-            whatsapp: "Contact WhatsApp",
+            whatsapp: "Commander",
         },
         hero: {
             transmission: "Nouvelle Édition Bilingue",
@@ -178,10 +178,10 @@ export const translations = {
     en: {
         nav: {
             home: "Home",
-            about: "About",
+            about: "Author",
             books: "The Book",
             contact: "Contact",
-            whatsapp: "WhatsApp Contact",
+            whatsapp: "Order",
         },
         hero: {
             transmission: "New Bilingual Edition",
@@ -352,10 +352,10 @@ export const translations = {
     ar: {
         nav: {
             home: "الرئيسية",
-            about: "عن الدكتور",
+            about: "الكاتب",
             books: "الكتاب",
             contact: "اتصل بنا",
-            whatsapp: "تواصل عبر واتساب",
+            whatsapp: "اطلب الكتاب",
         },
         hero: {
             transmission: "طبعة ثنائية اللغة جديدة",

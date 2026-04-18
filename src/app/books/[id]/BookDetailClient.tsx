@@ -79,7 +79,7 @@ export default function BookDetailClient({ book }: BookDetailClientProps) {
                 {/* Back Button & Share */}
                 <div className="flex justify-between items-center mb-12">
                     <Link
-                        href="/books"
+                        href="/"
                         className={`inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-bold group transition-all active-scale ${isRtl ? 'flex-row-reverse' : ''}`}
                     >
                         <MoveLeft size={20} className={`transition-transform ${isRtl ? 'rotate-180 group-hover:translate-x-1' : 'group-hover:-translate-x-1'}`} />

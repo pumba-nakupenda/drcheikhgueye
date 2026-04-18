@@ -61,7 +61,7 @@ export default function Navbar() {
     const navLinks = [
         { href: "/", label: t.nav.home },
         { href: "/about", label: t.nav.about },
-        { href: "/books", label: t.nav.books },
+        { href: "/books/mukhtasar-al-akhdari", label: t.nav.books },
         { href: "/contact", label: t.nav.contact },
     ];
 

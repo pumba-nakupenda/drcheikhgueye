@@ -12,9 +12,9 @@ export default function MobileNavBar() {
 
     const links = [
         { href: "/", label: t.nav.home, icon: Home },
-        { href: "/books/mukhtasar-al-akhdari", label: t.nav.books, icon: Book },
-        { href: "/about", label: t.nav.about, icon: User },
-        { href: "/contact", label: t.nav.contact, icon: Phone },
+        { href: "/#livre", label: t.nav.books, icon: Book },
+        { href: "/#auteur", label: t.nav.about, icon: User },
+        { href: "/#contact", label: t.nav.contact, icon: Phone },
     ];
 
     return (

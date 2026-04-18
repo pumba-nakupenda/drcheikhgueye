@@ -123,7 +123,7 @@ export default function BookFlipbook({ images, title }: BookFlipbookProps) {
                             <p className="text-xs md:text-sm text-emerald-900/60 dark:text-emerald-100/60 mb-6 leading-relaxed">
                                 {language === 'ar' ? "اطلب نسختك الآن" : "Commandez votre exemplaire pour lire la suite."}
                             </p>
-                            <Link href="/contact" className="px-6 py-3 bg-emerald-600 text-white rounded-full text-[10px] md:text-xs font-bold shadow-lg shadow-emerald-600/20 active:scale-95 transition-all">
+                            <Link href="/#contact" className="px-6 py-3 bg-emerald-600 text-white rounded-full text-[10px] md:text-xs font-bold shadow-lg shadow-emerald-600/20 active:scale-95 transition-all">
                                 {t.book_detail.order_button}
                             </Link>
                         </div>

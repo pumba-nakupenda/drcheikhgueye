@@ -7,7 +7,6 @@ import Testimonials from "@/components/Testimonials";
 import SituationCards from "@/components/SituationCards";
 import CustomAudioPlayer from "@/components/CustomAudioPlayer";
 import ContactForm from "@/components/ContactForm";
-import Timeline from "@/components/Timeline";
 import { siteConfig } from "@/config/site";
 import {
     ArrowRight,
@@ -238,8 +237,6 @@ export default function Home() {
                             </div>
                         </div>
                     </div>
-
-                    <Timeline />
                 </div>
             </section>
 

@@ -7,7 +7,7 @@ import Testimonials from "@/components/Testimonials";
 import SituationCards from "@/components/SituationCards";
 import CustomAudioPlayer from "@/components/CustomAudioPlayer";
 import { siteConfig } from "@/config/site";
-import { ArrowRight, Sparkles, ScrollText, Languages, Headphones, ShoppingCart } from "lucide-react";
+import { ArrowRight, Sparkles, ScrollText, Languages, Headphones, ShoppingCart, Award } from "lucide-react";
 import useScrollReveal from "@/hooks/useScrollReveal";
 
 import { useLanguage } from "@/context/LanguageContext";
@@ -139,6 +139,71 @@ export default function Home() {
                 <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30 hidden lg:flex">
                     <span className="text-[10px] uppercase font-bold tracking-[0.3em]">{t.hero.scroll}</span>
                     <div className="w-px h-12 bg-gradient-to-b from-emerald-400/50 to-transparent" />
+                </div>
+            </section>
+
+            {/* Author Band */}
+            <section className="py-16 md:py-28 relative bg-white dark:bg-zinc-900 overflow-hidden reveal">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent" />
+                <div className="absolute -top-20 -right-20 w-96 h-96 bg-emerald-200/20 dark:bg-emerald-500/5 blur-[120px] rounded-full" />
+
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16 items-center">
+                        {/* Portrait */}
+                        <div className="lg:col-span-2 flex justify-center lg:justify-start">
+                            <div className="relative aspect-square w-full max-w-xs sm:max-w-sm group">
+                                <div className={`absolute inset-0 bg-emerald-600 rounded-[2.5rem] ${language === 'ar' ? 'rotate-6 group-hover:rotate-3' : '-rotate-6 group-hover:-rotate-3'} transition-transform duration-700 shadow-2xl`} />
+                                <div className="relative h-full rounded-[2.5rem] overflow-hidden border-8 border-white dark:border-zinc-800 shadow-2xl">
+                                    <Image
+                                        src="/images/portrait-cheikh-gueye.webp"
+                                        alt={t.author_band.name}
+                                        fill
+                                        className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/40 via-transparent to-transparent pointer-events-none" />
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Bio + CTA */}
+                        <div className="lg:col-span-3 space-y-6 text-center lg:text-left rtl:lg:text-right">
+                            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-900/30 border border-emerald-500/20 text-emerald-700 dark:text-emerald-400 text-xs font-black uppercase tracking-[0.2em]">
+                                {t.author_band.badge}
+                            </div>
+
+                            <div className="space-y-2">
+                                <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-black text-emerald-950 dark:text-emerald-50 leading-tight">
+                                    {t.author_band.name}
+                                </h2>
+                                <p className="text-emerald-600 dark:text-emerald-400 font-bold uppercase tracking-widest text-xs md:text-sm">
+                                    {t.author_band.role}
+                                </p>
+                            </div>
+
+                            <p className="text-lg text-emerald-900/70 dark:text-emerald-100/70 leading-relaxed">
+                                {t.author_band.bio}
+                            </p>
+
+                            <div className={`flex items-start gap-4 p-5 rounded-2xl bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-500/10 ${language === 'ar' ? 'flex-row-reverse text-right' : 'text-left'}`}>
+                                <div className="w-10 h-10 shrink-0 rounded-xl bg-emerald-600 text-white flex items-center justify-center shadow-lg">
+                                    <Award size={20} />
+                                </div>
+                                <p className="text-sm md:text-base text-emerald-950 dark:text-emerald-50 font-medium leading-snug">
+                                    {t.author_band.highlight}
+                                </p>
+                            </div>
+
+                            <div className="pt-2">
+                                <Link
+                                    href="/about"
+                                    className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-emerald-700 dark:bg-emerald-600 text-white font-bold hover:bg-emerald-800 transition-all shadow-lg group"
+                                >
+                                    {t.author_band.cta}
+                                    <ArrowRight size={18} className={`transition-transform group-hover:translate-x-1 ${language === 'ar' ? 'rotate-180 group-hover:-translate-x-1' : ''}`} />
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 

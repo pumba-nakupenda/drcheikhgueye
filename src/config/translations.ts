@@ -28,6 +28,14 @@ export const translations = {
             tagline: "Une édition de référence du Mukhtasar al-Akhdari : purification rituelle et prière selon le rite malékite.",
             cta_all: "Découvrir l'ouvrage",
         },
+        author_band: {
+            badge: "L'Auteur",
+            name: "Dr. Cheikh Gueye",
+            role: "Chercheur, Pédagogue & Traducteur",
+            bio: "Originaire de Louga, le Dr. Cheikh Gueye a dirigé la division de l'enseignement arabe au Ministère de l'Éducation Nationale et a formé pendant trois décennies les inspecteurs de l'enseignement arabe à la FASTEF.",
+            highlight: "Lauréat du premier prix mondial à La Mecque (1997) pour sa traduction du « Nectar cacheté ».",
+            cta: "Découvrir l'auteur",
+        },
         testimonials: {
             title: "Ce qu'en disent les",
             subtitle: "Lecteurs",
@@ -233,6 +241,14 @@ export const translations = {
             tagline: "A reference edition of the Mukhtasar al-Akhdari: ritual purification and prayer according to the Maliki rite.",
             cta_all: "Discover the book",
         },
+        author_band: {
+            badge: "The Author",
+            name: "Dr. Cheikh Gueye",
+            role: "Researcher, Educator & Translator",
+            bio: "Originally from Louga, Dr. Cheikh Gueye led the Arabic education division at the Ministry of National Education and trained Arabic education inspectors at FASTEF for three decades.",
+            highlight: "Winner of the first world prize in Mecca (1997) for his translation of 'The Sealed Nectar'.",
+            cta: "Discover the author",
+        },
         testimonials: {
             title: "What the",
             subtitle: "Readers say",
@@ -437,6 +453,14 @@ export const translations = {
             subtitle: "إصدار.",
             tagline: "طبعة مرجعية لمختصر الأخضري: الطهارة والصلاة حسب المذهب المالكي.",
             cta_all: "اكتشف الكتاب",
+        },
+        author_band: {
+            badge: "الكاتب",
+            name: "د. شيخ غي",
+            role: "باحث، تربوي ومترجم",
+            bio: "ينحدر الدكتور شيخ غي من مدينة لوغا، ترأس قسم التعليم العربي بوزارة التربية الوطنية وقام بتكوين مفتشي التعليم العربي في FASTEF على مدى ثلاثة عقود.",
+            highlight: "حائز على الجائزة العالمية الأولى في مكة المكرمة (1997) عن ترجمته لكتاب «الرحيق المختوم».",
+            cta: "اكتشف الكاتب",
         },
         testimonials: {
             title: "ماذا يقول",

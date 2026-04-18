@@ -100,33 +100,6 @@ export const translations = {
             mission_title: "Mission",
             mission_text: "Rendre l'apprentissage de l'arabe accessible, structuré et fécond pour tous les publics francophones."
         },
-        timeline: {
-            badge: "Parcours Académique",
-            title: "Une Vie dédiée au",
-            title_highlight: "Savoir",
-            items: [
-                {
-                    year: "Origines & Leadership",
-                    title: "Ministère de l'Éducation",
-                    description: "Originaire de Louga, il a dirigé la division de l’enseignement arabe au Ministère de l’Education Nationale du Sénégal."
-                },
-                {
-                    year: "1986 — 2015",
-                    title: "Formation à la FASTEF",
-                    description: "Formation de la plupart des élèves inspecteurs de l’enseignement élémentaire arabe du pays durant près de trois décennies."
-                },
-                {
-                    year: "1418 h. (1997)",
-                    title: "Premier Prix Mondial",
-                    description: "Lauréat du premier prix mondial à la Mecque pour sa traduction du « Nectar cacheté », biographie de référence du Prophète (psl)."
-                },
-                {
-                    year: "Expertise",
-                    title: "Traducteur Agréé",
-                    description: "Traducteur trilingue agréé par le Ministère des Affaires Étrangères avec une trentaine d'ouvrages traduits à l'international."
-                }
-            ]
-        },
         contact: {
             badge: "Contact Direct",
             title: "Entrer en",
@@ -313,33 +286,6 @@ export const translations = {
             mission_title: "Mission",
             mission_text: "Making the learning of Arabic accessible, structured and fruitful for all audiences."
         },
-        timeline: {
-            badge: "Academic Journey",
-            title: "A Life Dedicated to",
-            title_highlight: "Knowledge",
-            items: [
-                {
-                    year: "Origins & Leadership",
-                    title: "Ministry of Education",
-                    description: "Originally from Louga, he led the Arabic education division at the Senegalese Ministry of National Education."
-                },
-                {
-                    year: "1986 — 2015",
-                    title: "Training at FASTEF",
-                    description: "Training most of the country's Arabic elementary education inspectors over nearly three decades."
-                },
-                {
-                    year: "1418 H. (1997)",
-                    title: "First World Prize",
-                    description: "Winner of the first world prize in Mecca for his translation of 'The Sealed Nectar', the reference biography of the Prophet (pbuh)."
-                },
-                {
-                    year: "Expertise",
-                    title: "Accredited Translator",
-                    description: "Trilingual translator accredited by the Ministry of Foreign Affairs with about thirty internationally translated works."
-                }
-            ]
-        },
         contact: {
             badge: "Direct Contact",
             title: "Get in",
@@ -525,33 +471,6 @@ export const translations = {
             ],
             mission_title: "المهمة",
             mission_text: "جعل تعلم اللغة العربية متاحاً ومنظماً ومفيداً لجميع الناطقين بالفرنسية."
-        },
-        timeline: {
-            badge: "المسار الأكاديمي",
-            title: "حياة مكرسة",
-            title_highlight: "للعلم",
-            items: [
-                {
-                    year: "أصول وقيادة",
-                    title: "وزارة التربية الوطنية",
-                    description: "ينحدر من مدينة لوغا، ترأس قسم التعليم العربي بوزارة التربية الوطنية في السنغال."
-                },
-                {
-                    year: "1986 — 2015",
-                    title: "التكوين في FASTEF",
-                    description: "تكوين معظم مفتشي التعليم الابتدائي العربي في البلاد على مدى ما يقرب من ثلاثة عقود."
-                },
-                {
-                    year: "1418 هـ (1997)",
-                    title: "الجائزة العالمية الأولى",
-                    description: "الحصول على الجائزة العالمية الأولى في مكة المكرمة عن ترجمة كتاب «الرحيق المختوم»، السيرة النبوية المرجعية."
-                },
-                {
-                    year: "خبرة",
-                    title: "مترجم معتمد",
-                    description: "مترجم ثلاثي اللغات معتمد من وزارة الشؤون الخارجية مع حوالي ثلاثين مؤلفاً مترجماً دولياً."
-                }
-            ]
         },
         contact: {
             badge: "اتصال مباشر",
